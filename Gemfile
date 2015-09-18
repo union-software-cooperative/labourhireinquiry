@@ -49,3 +49,6 @@ gem 'carrierwave'
 gem 'jquery-fileupload-rails'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
+gem 'rails_12factor', group: :production
+gem 'rails_12factor', group: :production
+ruby "2.2.3"
