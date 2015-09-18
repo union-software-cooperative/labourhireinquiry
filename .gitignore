@@ -13,5 +13,6 @@
 /tmp
 
 /config/database.yml
-/config/secrets.yml
+#/config/secrets.yml
 /public/uploads
+.DS_Store
