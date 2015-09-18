@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @rec.name %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @rec.tags %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @rec.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @rec.end_date %>
+</p>
+
+<p>
+  <strong>Attachment:</strong>
+  <%= @rec.attachment %>
+</p>
+
+<p>
+  <strong>Coverage:</strong>
+  <%= @rec.coverage %>
+</p>
+
+<p>
+  <strong>Product service:</strong>
+  <%= @rec.product_service %>
+</p>
+
+<p>
+  <strong>Union:</strong>
+  <%= @rec.union %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @rec.company %>
+</p>
+
+<p>
+  <strong>Local union contact:</strong>
+  <%= @rec.local_union_contact %>
+</p>
+
+<p>
+  <strong>National union contact:</strong>
+  <%= @rec.national_union_contact %>
+</p>
+
+<%= link_to 'Edit', edit_rec_path(@rec) %> |
+<%= link_to 'Back', recs_path %>

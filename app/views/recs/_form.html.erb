@@ -1,0 +1,61 @@
+<%= form_for(@rec) do |f| %>
+  <% if @rec.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rec.errors.count, "error") %> prohibited this rec from being saved:</h2>
+
+      <ul>
+      <% @rec.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :tags %><br>
+    <%= f.text_field :tags %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br>
+    <%= f.date_select :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br>
+    <%= f.date_select :end_date %>
+  </div>
+  <div class="field">
+    <%= f.label :attachment %><br>
+    <%= f.text_field :attachment %>
+  </div>
+  <div class="field">
+    <%= f.label :coverage %><br>
+    <%= f.text_field :coverage %>
+  </div>
+  <div class="field">
+    <%= f.label :product_service %><br>
+    <%= f.text_field :product_service %>
+  </div>
+  <div class="field">
+    <%= f.label :union %><br>
+    <%= f.text_field :union %>
+  </div>
+  <div class="field">
+    <%= f.label :company %><br>
+    <%= f.text_field :company %>
+  </div>
+  <div class="field">
+    <%= f.label :local_union_contact %><br>
+    <%= f.text_field :local_union_contact %>
+  </div>
+  <div class="field">
+    <%= f.label :national_union_contact %><br>
+    <%= f.text_field :national_union_contact %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
