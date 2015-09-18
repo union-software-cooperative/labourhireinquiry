@@ -1,4 +1,4 @@
-<%= form_for(@rec) do |f| %>
+<%= form_for(@rec, :html => { class: "form"}) do |f| %>
   <% if @rec.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@rec.errors.count, "error") %> prohibited this rec from being saved:</h2>
@@ -16,6 +16,14 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= f.label :union %><br>
+    <%= f.text_field :union %>
+  </div>
+  <div class="field">
+    <%= f.label :company %><br>
+    <%= f.text_field :company %>
+  </div>
+  <div class="field">
     <%= f.label :tags %><br>
     <%= f.text_field :tags %>
   </div>
@@ -29,7 +37,7 @@
   </div>
   <div class="field">
     <%= f.label :attachment %><br>
-    <%= f.text_field :attachment %>
+    <%= f.file_field :attachment %>
   </div>
   <div class="field">
     <%= f.label :coverage %><br>
@@ -40,14 +48,6 @@
     <%= f.text_field :product_service %>
   </div>
   <div class="field">
-    <%= f.label :union %><br>
-    <%= f.text_field :union %>
-  </div>
-  <div class="field">
-    <%= f.label :company %><br>
-    <%= f.text_field :company %>
-  </div>
-  <div class="field">
     <%= f.label :local_union_contact %><br>
     <%= f.text_field :local_union_contact %>
   </div>
@@ -56,6 +56,6 @@
     <%= f.text_field :national_union_contact %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit value: "Save Agreement", class: "btn btn-default"%>
   </div>
 <% end %>

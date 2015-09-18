@@ -45,3 +45,7 @@ group :development do
   gem 'spring'
 end
 
+gem 'carrierwave'
+gem 'jquery-fileupload-rails'
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'autoprefixer-rails'

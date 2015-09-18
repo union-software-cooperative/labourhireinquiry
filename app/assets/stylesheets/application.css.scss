@@ -15,3 +15,26 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+h1, h1, h2 {
+	color: #D33;
+	small {
+		color: #D33;
+	}
+}
+
+body {
+  background-color: #fee;
+  color: #555;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.content-area {
+	border-radius: 5px;
+	border: 1px solid #111;
+	background-color: #ffe;
+	margin: 10px;
+
+}
