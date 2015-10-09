@@ -62,3 +62,8 @@ gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
 gem 'rails_12factor', group: :production
 ruby "2.2.3"
+
+# User Login
+gem 'devise'
+gem 'devise_invitable'
+gem 'mailgun_rails'

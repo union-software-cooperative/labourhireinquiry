@@ -32,7 +32,6 @@ Then(/^I can add a "(.*?)" titled "(.*?)"$/) do |entity_name, title|
 	page.should have_content(new_name)
 end
 
-
 Then(/^I can delete the "(.*?)" titled "(.*?)"$/) do |entity_name, title|
 	klass = entity_name.titlecase.constantize
 	entity = klass.find_by_name(title)
