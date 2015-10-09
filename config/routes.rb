@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :companies, controller: :supergroups, type: 'Company'
+  resources :unions, controller: :supergroups, type: 'Union'
   resources :people
   resources :recs
   root "recs#index"

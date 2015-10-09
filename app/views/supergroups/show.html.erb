@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @supergroup.name %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @supergroup.type %>
+</p>
+
+<p>
+  <strong>Www:</strong>
+  <%= @supergroup.www %>
+</p>
+
+<%= link_to 'Edit', edit_polymorphic_path(@supergroup) %> |
+<%= link_to 'Back', polymorphic_path(supergroups) %>
