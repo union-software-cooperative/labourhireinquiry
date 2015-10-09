@@ -7,17 +7,13 @@
    
 
 
-  <title>IUF Agreement Database Dairy Division</title>
+  <title>IUF Agreements - Dairy Division</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
-
-  <h1><img style="display:inline; max-width:100px; margin-top: 0"
-     src="<%=image_path('iuf_logo.png')%>">IUF Agreement Database<small> Dairy Division</small></h1>
-
+  <%= render "layouts/navbar" %>
 <div class="container-fluid content-area">
 	<%= yield %>
 </div>

@@ -11,3 +11,7 @@ Then(/^I should see the "(.*?)" agreement$/) do |title|
 	page.should have_content(@agreement.name)
 	page.should have_content(@agreement.end_date)
 end
+
+Then(/^I should see the link "(.*?)"$/) do |link_name|
+	page.should have_link(link_name)
+end
