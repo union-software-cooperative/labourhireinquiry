@@ -15,3 +15,11 @@ end
 Then(/^I should see the link "(.*?)"$/) do |link_name|
 	page.should have_link(link_name)
 end
+
+When(/^I click the "(.*?)" link$/) do |link_name|
+	click_link(link_name)
+end
+
+Then(/^I see a list of "(.*?)"$/) do |items|
+	page.should have_content("Listing #{items}")
+end
