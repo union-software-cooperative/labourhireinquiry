@@ -21,7 +21,6 @@ end
 
 Then(/^I can add a "(.*?)" titled "(.*?)"$/) do |entity_name, title|
 	klass = entity_name.titlecase.constantize
-	
 	page.should have_link("New #{entity_name.titlecase}", href: new_polymorphic_path(klass))
 	visit new_polymorphic_path(klass)
 

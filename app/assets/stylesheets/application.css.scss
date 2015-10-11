@@ -57,8 +57,19 @@ body {
 }
 
 a.navbar-brand {
-	color: #D33;
+  #color: #D33 !important;
+  font-weight: bold !important;
 }
+
+$a-tags: 'a, a:active, a:hover, a:visited';
+$a-tags-hover: 'a:active, a:hover';
+ 
+#{$a-tags} {
+}
+#{$a-tags-hover} {
+  background-color: transparent;
+}
+
 
 @media (max-width: 767px) {
   .navbar-nav > li > a {
