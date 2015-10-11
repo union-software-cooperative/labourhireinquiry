@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151009095715) do
+ActiveRecord::Schema.define(version: 20151011231818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,7 +65,14 @@ ActiveRecord::Schema.define(version: 20151009095715) do
     t.string   "national_union_contact"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "company_id"
+    t.integer  "union_id"
+    t.integer  "person_id"
   end
+
+  add_index "recs", ["company_id"], name: "index_recs_on_company_id", using: :btree
+  add_index "recs", ["person_id"], name: "index_recs_on_person_id", using: :btree
+  add_index "recs", ["union_id"], name: "index_recs_on_union_id", using: :btree
 
   create_table "supergroups", force: :cascade do |t|
     t.string   "name"
@@ -75,4 +82,7 @@ ActiveRecord::Schema.define(version: 20151009095715) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "recs", "people"
+  add_foreign_key "recs", "supergroups", column: "company_id"
+  add_foreign_key "recs", "supergroups", column: "union_id"
 end
