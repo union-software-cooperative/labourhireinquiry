@@ -5,7 +5,7 @@ end
 Given /^I am a new, authenticated person$/ do
   email = 'testing@man.net'
   password = 'secretpass'
-  Person.new(:email => email, :password => password, :password_confirmation => password).save!
+  FactoryGirl.create(:person, :email => email, :password => password, :password_confirmation => password).save!
 
   visit '/people/sign_in'
   fill_in "person_email", :with => email

@@ -1,12 +1,12 @@
 FactoryGirl.define do
   factory :person do
-    firstname "MyString"
-lastname "MyString"
-title "MyString"
-address "MyText"
-mobile "MyString"
-fax "MyString"
-email "MyString"
+    first_name "Test"
+		last_name "Tester"
+		title "MyString"
+		address "MyText"
+		mobile "MyString"
+		fax "MyString"
+		email "admin@iufdb.org"
   end
 
 end

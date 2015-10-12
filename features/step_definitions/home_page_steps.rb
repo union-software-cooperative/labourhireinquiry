@@ -1,5 +1,6 @@
 Given(/^there's an agreement titled "(.*?)" expiring "(.*?)"$/) do |title, expiry|
-	@agreement = FactoryGirl.create(:agreement, name: title, end_date: Date.parse(expiry))
+	@agreement = FactoryGirl.build(:agreement, name: title, end_date: Date.parse(expiry))
+	@agreement.save(validate: false)
 end
 
 When(/^I am on the homepage$/) do

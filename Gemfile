@@ -39,6 +39,10 @@ group :development, :test do
   # testing
   gem 'rspec-rails', '~> 2.0'
   gem 'factory_girl_rails'
+  gem 'guard-cucumber'
+  gem 'guard-rspec'
+  gem 'spring-commands-rspec'
+  gem 'spring-commands-cucumber'
 end
 
 group :test do

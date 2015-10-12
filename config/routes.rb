@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :unions, controller: :supergroups, type: 'Union'
   resources :people
   resources :recs
+  resources :agreements, controller: :recs, type: 'Rec'
   root "recs#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

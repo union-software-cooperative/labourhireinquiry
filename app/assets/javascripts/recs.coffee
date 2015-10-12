@@ -8,7 +8,7 @@ $(document).ready ->
     placeholder = $(this).data('placeholder')
     $(this).select2
       theme: "bootstrap"
-      minimumInputLength: 2
+      minimumInputLength: 0
       maximumSelectionLength:1
       multiple: true
       placeholder: placeholder
