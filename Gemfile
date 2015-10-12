@@ -67,3 +67,5 @@ ruby "2.2.3"
 gem 'devise'
 gem 'devise_invitable'
 gem 'mailgun_rails'
+
+gem 'select2-rails'

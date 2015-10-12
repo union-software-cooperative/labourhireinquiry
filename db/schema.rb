@@ -11,14 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151011231818) do
+ActiveRecord::Schema.define(version: 20151012030852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "people", force: :cascade do |t|
-    t.string   "firstname"
-    t.string   "lastname"
     t.string   "title"
     t.text     "address"
     t.string   "mobile"
@@ -43,6 +41,8 @@ ActiveRecord::Schema.define(version: 20151011231818) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.integer  "invitations_count",      default: 0
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true, using: :btree

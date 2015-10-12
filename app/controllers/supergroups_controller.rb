@@ -4,11 +4,15 @@ class SupergroupsController < ApplicationController
   before_action :set_supergroup, only: [:show, :edit, :update, :destroy]
 
   include SupergroupsHelper
-
+  
   # GET /supergroups
   # GET /supergroups.json
   def index
-    @supergroups = @klass.all
+    @supergroups = @klass.filter(params.slice(:name_like))
+    respond_to do |format|
+      format.html
+      format.json { render json: @supergroups }
+    end
   end
 
   # GET /supergroups/1

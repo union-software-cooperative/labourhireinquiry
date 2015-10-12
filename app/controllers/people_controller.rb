@@ -4,7 +4,11 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    @people = Person.filter(params.slice(:name_like))
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   # GET /people/1
@@ -69,6 +73,6 @@ class PeopleController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
-      params.require(:person).permit(:firstname, :lastname, :title, :address, :mobile, :fax, :email)
+      params.require(:person).permit(:first_name, :last_name, :title, :address, :mobile, :fax, :email)
     end
 end

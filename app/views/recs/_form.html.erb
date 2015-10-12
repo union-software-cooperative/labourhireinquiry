@@ -10,48 +10,91 @@
       </ul>
     </div>
   <% end %>
+  <div class="form-group">
+    <%= f.label :company_id %><br>
+    <%= f.select :company_id, 
+      selected_option(@rec.company),
+      #options_for_select(Union.all.collect {|u| [u.name, u.id ]}, @rec.union_id) , 
+      {
+          include_blank: false,
+      },
+      data: { 
+        placeholder: "Please select a company.",
+        url: companies_path
+      }, 
+      class: "ac-select2 form-control", 
+      style: "width: 100%;"
+    %>
+  </div>
 
-  <div class="field">
+  <div class="form-group">
+    <%= f.label :union_id %><br>
+    <%= f.select :union_id, 
+      selected_option(@rec.union),  
+      {
+          include_blank: false,
+      },
+      data: { 
+        placeholder: "Please select a union.",
+        url: unions_path
+      }, 
+      class: "ac-select2 form-control", 
+      style: "width: 100%;"
+    %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :union %><br>
-    <%= f.text_field :union %>
+  
+  <div class="form-group">
+    <%= f.label :person_id %><br>
+    <%= f.select :person_id,
+      selected_option(@rec.person),
+      {
+          include_blank: false,
+      },
+      data: { 
+        placeholder: "Please nominate a contact person.",
+        url: people_path
+      }, 
+      class: "ac-select2 form-control", 
+      style: "width: 100%;"
+    %>
   </div>
-  <div class="field">
-    <%= f.label :company %><br>
-    <%= f.text_field :company %>
-  </div>
-  <div class="field">
+
+  <!--
+  <div class="form-group">
     <%= f.label :tags %><br>
     <%= f.text_field :tags %>
   </div>
-  <div class="field">
+  -->
+  <div class="form-group">
     <%= f.label :start_date %><br>
     <%= f.date_select :start_date %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :end_date %><br>
     <%= f.date_select :end_date %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :attachment %><br>
     <%= f.file_field :attachment %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :coverage %><br>
     <%= f.text_field :coverage %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :product_service %><br>
     <%= f.text_field :product_service %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :local_union_contact %><br>
     <%= f.text_field :local_union_contact %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :national_union_contact %><br>
     <%= f.text_field :national_union_contact %>
   </div>
