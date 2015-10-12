@@ -3,6 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
+  $('.switch').bootstrapSwitch();
+  
   $('.ac-select2').each ->
     url = $(this).data('url')
     placeholder = $(this).data('placeholder')

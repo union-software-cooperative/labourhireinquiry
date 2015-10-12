@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151012030852) do
+ActiveRecord::Schema.define(version: 20151012101127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,16 +58,22 @@ ActiveRecord::Schema.define(version: 20151012030852) do
     t.date     "end_date"
     t.string   "attachment"
     t.string   "coverage"
-    t.string   "product_service"
     t.string   "union"
     t.string   "company"
-    t.string   "local_union_contact"
-    t.string   "national_union_contact"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.integer  "company_id"
     t.integer  "union_id"
     t.integer  "person_id"
+    t.boolean  "multi_site"
+    t.boolean  "grievance_handling"
+    t.text     "grievance_handling_clause"
+    t.boolean  "union_mandate"
+    t.text     "union_mandate_clause"
+    t.boolean  "anti_precariat"
+    t.text     "anti_precariat_clause"
+    t.text     "other_provisions"
+    t.boolean  "taking_action"
   end
 
   add_index "recs", ["company_id"], name: "index_recs_on_company_id", using: :btree

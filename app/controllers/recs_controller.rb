@@ -69,6 +69,6 @@ class RecsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rec_params
-      params.require(:rec).permit(:name, :tags, :start_date, :end_date, :attachment, :coverage, :product_service, :union_id, :company_id, :person_id, :local_union_contact, :national_union_contact)
+      params.require(:rec).permit(:taking_action, :name, :tags, :start_date, :end_date, :attachment, :coverage, :union_id, :company_id, :person_id, :multi_site, :union_mandate, :union_mandate_clause, :anti_precariat, :anti_precariat_clause, :grievance_handling, :griavance_handling_clause, :other_provisions)
     end
 end
