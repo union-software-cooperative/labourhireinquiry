@@ -73,3 +73,6 @@ gem 'devise_invitable'
 gem 'mailgun_rails'
 
 gem 'select2-rails'
+
+# Environment var helpers
+gem "figaro"

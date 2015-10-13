@@ -37,11 +37,11 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
   # Mailgun
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: ENV['mailgun_host'], port: 3000 }
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
-        api_key: 'key-32e476683f04287680e409250023e6b9',
-        domain: 'sandboxaa301be5168d43938638963013fd70d6.mailgun.org'
+        api_key: ENV["mailgun_api_key"], 
+        domain: ENV["mailgun_domain"]
   }
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
