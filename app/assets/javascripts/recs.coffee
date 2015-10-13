@@ -2,9 +2,8 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->
+ready = ->
   $('.switch').bootstrapSwitch();
-  
   $('.ac-select2').each ->
     url = $(this).data('url')
     placeholder = $(this).data('placeholder')
@@ -37,3 +36,6 @@ $(document).ready ->
         item.name
     return
   return
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

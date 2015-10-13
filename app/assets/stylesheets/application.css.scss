@@ -93,4 +93,11 @@ $a-tags-hover: 'a:active, a:hover';
   }
 }
 
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}
 
+.jumbotron {
+  margin-top: 15px;
+  background-color: #FAFAFA;
+}

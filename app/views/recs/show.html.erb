@@ -1,64 +1,91 @@
 <p id="notice"><%= notice %></p>
+<div class="jumbotron">
+  <div class="container">
+    <span class="form-group pull-right">
+      <%= label_tag :check_box, "taking action" %><br>
+      <%= check_box_tag "rec_taking_action", 1, @rec.taking_action, class: "switch", readonly: true, :data => { :size => 'medium', 'on-text'=>'On', 'off-text'=>'Off', 'on-color'=>'danger'} %>
+    </span>
+    <p>
+      <%= link_to "<span class='glyphicon glyphicon-paperclip'/>".html_safe, @rec.attachment_url if @rec.attachment_url%>
+      <%="#{@rec.end_date < Time.now ? "Expired" : "Expiring"} #{I18n.l @rec.end_date, :format => :long}"%>
+    </p>
+    <h1><%=render @rec.company if @rec.company%>
+      VS <%=render @rec.union if @rec.union %>
+        <span class="actions">
+        <%= link_to '<span class="glyphicon glyphicon-pencil"/>'.html_safe, edit_rec_path(@rec), class: "btn btn-small" %>
+        <%= link_to '<span class="glyphicon glyphicon-trash"/>'.html_safe, @rec, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small" %>
+      </span>
+    </h1>
+    </h2><%=@rec.name%> - <%="#{@rec.start_date < Time.now ? "commenced" : "commencing"} #{I18n.l @rec.start_date, :format => :long}"%>
+    </h2>
+    <p class="col-sm">
+      <div class="form-group">
+        <%= label_tag :check_box, "multi site" %><br>
+        <%= check_box_tag "rec_multi_site", 1, @rec.multi_site, class: "switch", readonly: true, :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
+      </div>
+    </p>
+    <p><%=@rec.coverage%></p>
+    
+  </div>
 
-<p>
-  <strong>Company:</strong>
-  <%= render @rec.company %>
-</p>
+  
+</div>
 
-<p>
-  <strong>Union:</strong>
-  <%= render @rec.union %>
-</p>
+<hr/>
 
-<p>
-  <strong>Name:</strong>
-  <%= @rec.name %>
-</p>
+  <div class="row">
 
-<p>
-  <strong>Contact person:</strong>
-  <%= render @rec.person %>
-</p>
+    <div class="col-sm-1" ></div>
+    
+    <div class="col-sm-5">
+          
+      <div class="form-group">
+        <h2>union mandate</h2>
+        <%= check_box_tag "rec_union_mandate", 1, @rec.union_mandate, class: "switch", readonly: true, :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
+        <p>
+          <%= @rec.union_mandate == false  || @rec.union_mandate_clause.blank? ? "No clause specified" : @rec.union_mandate_clause %>
+        </p>
+      </div>
+    </div>
 
-<p>
-  <strong>Tags:</strong>
-  <%= @rec.tags %>
-</p>
+    <div class="col-sm-5">
+        
+      <div class="form-group">
+        <h2>grievance handling</h2>
+        <%= check_box_tag "rec_greivance_handling", 1, @rec.grievance_handling, class: "switch", readonly: true, :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
+        <p>
+          <%= @rec.grievance_handling == false || @rec.grievance_handling_clause.blank? ? "No clause specified" : @rec.grievance_handling_clause %>
+        </p>
+      </div>
+    </div>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @rec.start_date %>
-</p>
+    <div class="col-sm-1" ></div>
+    
+  </div>
 
-<p>
-  <strong>End date:</strong>
-  <%= @rec.end_date %>
-</p>
+  <div class="row">
+    <div class="col-sm-1" /></div>
+    <div class="col-sm-5">
+      <div class="form-group">
+        <h2>anti precariat</h2>
+        <%= check_box_tag "rec_anti_precariat", 1, @rec.anti_precariat, class: "switch", readonly: true, :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
+        <p>
+          <%= @rec.anti_precariat == false || @rec.anti_precariat_clause.blank? ? "No clause specified" : @rec.anti_precariat_clause %>
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-5"> 
+      <div class="form-group"> 
+        <h2>other provisions</h2> 
+        <% if !@rec.other_provisions.blank? %>
+          <p>
+            <%= @rec.other_provisions.blank? ? "None Specified" : @rec.other_provisions %>
+          </p>
+        <% end %> 
+      </div>
+    </div>
+    <div class="col-sm-1" /></div>
+  </div>
 
-<p>
-  <strong>Attachment:</strong>
-  <%= @rec.attachment %>
-</p>
 
-<p>
-  <strong>Coverage:</strong>
-  <%= @rec.coverage %>
-</p>
-
-<p>
-  <strong>Product service:</strong>
-  <%= @rec.product_service %>
-</p>
-
-<p>
-  <strong>Local union contact:</strong>
-  <%= @rec.local_union_contact %>
-</p>
-
-<p>
-  <strong>National union contact:</strong>
-  <%= @rec.national_union_contact %>
-</p>
-
-<%= link_to 'Edit', edit_rec_path(@rec) %> |
-<%= link_to 'Back', recs_path %>
+  
