@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 ready = ->
+  
   $('.switch').bootstrapSwitch();
   $('.ac-select2').each ->
     url = $(this).data('url')
@@ -11,7 +12,6 @@ ready = ->
       theme: "bootstrap"
       minimumInputLength: 0
       maximumSelectionLength:1
-      multiple: true
       placeholder: placeholder
       allowClear: true
       ajax:
@@ -35,7 +35,20 @@ ready = ->
       formatSelection: (item, page) ->
         item.name
     return
+  
+  $('.ac-select2-tags').each ->
+    placeholder = $(this).data('placeholder')
+    $(this).select2
+      theme: "bootstrap"
+      multiple: true
+      placeholder: placeholder
+      allowClear: false
+      tags: true
+    return
   return
 
 $(document).ready(ready);
 $(document).on('page:load', ready);
+
+
+

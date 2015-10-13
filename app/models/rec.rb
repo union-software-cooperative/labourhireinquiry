@@ -4,4 +4,6 @@ class Rec < ActiveRecord::Base
 	belongs_to :union
 	belongs_to :person
 	validates :name, :company, :union, :person, :end_date, presence: true
+
+	serialize :nature_of_operation, Array
 end

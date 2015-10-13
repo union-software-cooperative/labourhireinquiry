@@ -52,7 +52,7 @@
   </div>
   <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name, class: "form-control" %>
+    <%= f.text_field :name, class: "form-control", placeholder: "Please describe the agreement e.g. Nestle Australia (Tongara Plant) And NUW Enterprise Agreement 2014" %>
   </div>
   
   <div class="form-group">
@@ -91,15 +91,11 @@
   </div>
   <div class="form-group">
     <%= f.label :coverage %><br>
-    <%= f.text_area :coverage, class: "form-control" %>
+    <%= f.text_area :coverage, class: "form-control", placeholder: "please detail the plant/sites and members being covered" %>
   </div>
   <div class="form-group">
-    <%= f.label :union_mandate %><br>
-    <%= f.check_box :union_mandate, class: "switch", :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
-  </div>
-  <div class="form-group">
-    <%= f.label :union_mandate_clause %><br>
-    <%= f.text_area :union_mandate_clause, class: "form-control" %>
+    <%= f.label :nature_of_operation %><br>
+    <%= nature_of_operation(f)%>
   </div>
   <div class="form-group">
     <%= f.label :grievance_handling %><br>
@@ -110,12 +106,28 @@
     <%= f.text_area :grievance_handling_clause, class: "form-control" %>
   </div>
   <div class="form-group">
+    <%= f.label :union_mandate %><br>
+    <%= f.check_box :union_mandate, class: "switch", :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :union_mandate_clause %><br>
+    <%= f.text_area :union_mandate_clause, class: "form-control" %>
+  </div>
+  <div class="form-group">
     <%= f.label :anti_precariat %><br>
     <%= f.check_box :anti_precariat, class: "switch", :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
   </div>
   <div class="form-group">
     <%= f.label :anti_precariat_clause %><br>
     <%= f.text_area :anti_precariat_clause, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :specific_rights %><br>
+    <%= f.check_box :specific_rights, class: "switch", :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :specific_rights_clause %><br>
+    <%= f.text_area :specific_rights_clause, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= f.label :other_provisions %><br>

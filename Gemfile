@@ -61,6 +61,7 @@ group :development do
 end
 
 gem 'carrierwave'
+gem 'fog'
 gem 'jquery-fileupload-rails'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
@@ -71,7 +72,6 @@ ruby "2.2.3"
 gem 'devise'
 gem 'devise_invitable'
 gem 'mailgun_rails'
-
 gem 'select2-rails'
 
 # Environment var helpers

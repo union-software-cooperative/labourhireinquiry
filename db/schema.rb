@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151013021342) do
+ActiveRecord::Schema.define(version: 20151013062021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,9 @@ ActiveRecord::Schema.define(version: 20151013021342) do
     t.text     "anti_precariat_clause"
     t.text     "other_provisions"
     t.boolean  "taking_action"
+    t.string   "nature_of_operation"
+    t.boolean  "specific_rights"
+    t.text     "specific_rights_clause"
   end
 
   add_index "recs", ["company_id"], name: "index_recs_on_company_id", using: :btree
