@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :posts
   devise_for :people
-  resources :companies, controller: :supergroups, type: 'Company'
+  resources :companies, type: 'Company'
   resources :unions, controller: :supergroups, type: 'Union'
   resources :people
   resources :recs
