@@ -3,11 +3,10 @@ Then(/^I can add an agreement titled "(.*?)" between "(.*?)" and "(.*?)" and ass
 	visit new_rec_path
 
 	fill_in "rec[name]", with: title
-	select2 company, "Please select a company."
-	select2 union, "Please select a union."
-	select2 assignee, "Please nominate a contact person."
+	select2 company, "Company"
+	select2 union, "Union"
+	select2 assignee, "Person"
 	#select2 "union", "rec[union_id]"
-	
 	click_button "Save Agreement"
 
 	page.should have_content(title)

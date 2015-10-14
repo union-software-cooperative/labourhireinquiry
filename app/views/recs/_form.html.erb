@@ -15,7 +15,8 @@
     <%= f.file_field :attachment %>
   </div>
   <div class="form-group">
-    <%= f.label :company_id %> <%=link_to "new company", new_polymorphic_path(Company), class: "small", :target => "_blank"%><br>
+    <%= f.label :company_id %> <%=link_to "new company", new_polymorphic_path(Company), placeholder: "Please select a company.",
+        class: "small", :target => "_blank"%><br>
     <%= f.select :company_id, 
       selected_option(@rec.company),
       #options_for_select(Union.all.collect {|u| [u.name, u.id ]}, @rec.union_id) , 
@@ -23,7 +24,6 @@
           include_blank: false,
       },
       data: { 
-        placeholder: "Please select a company.",
         url: companies_path
       }, 
       class: "ac-select2 form-control", 

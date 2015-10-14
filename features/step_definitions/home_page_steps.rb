@@ -10,7 +10,7 @@ end
 Then(/^I should see the "(.*?)" agreement$/) do |title|
 	@agreement = Rec.find_by_name(title)
 	page.should have_content(@agreement.name)
-	page.should have_content(@agreement.end_date)
+	page.should have_content(I18n.l @agreement.end_date, :format => :long)
 end
 
 Then(/^I should see the link "(.*?)"$/) do |link_name|

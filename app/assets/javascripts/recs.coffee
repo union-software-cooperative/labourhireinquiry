@@ -7,12 +7,12 @@ ready = ->
   $('.switch').bootstrapSwitch();
   $('.ac-select2').each ->
     url = $(this).data('url')
-    placeholder = $(this).data('placeholder')
+    #placeholder = $(this).data('placeholder')
     $(this).select2
       theme: "bootstrap"
       minimumInputLength: 0
       maximumSelectionLength:1
-      placeholder: placeholder
+      #placeholder: placeholder
       allowClear: true
       ajax:
         url: url
