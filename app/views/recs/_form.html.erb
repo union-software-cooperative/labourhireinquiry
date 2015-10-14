@@ -95,7 +95,18 @@
   </div>
   <div class="form-group">
     <%= f.label :nature_of_operation %><br>
-    <%= nature_of_operation(f)%>
+    <%= f.select :nature_of_operation,
+      nature_of_operation_options, 
+      {
+          include_blank: true,
+      },
+      data: { 
+        placeholder: "Please select one or more operations, or add your own.",
+      }, 
+      multiple: true, 
+      class: "ac-select2-tags form-control", 
+      style: "width: 100%;"
+    %>
   </div>
   <div class="form-group">
     <%= f.label :grievance_handling %><br>
