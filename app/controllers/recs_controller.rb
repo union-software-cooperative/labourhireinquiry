@@ -10,6 +10,7 @@ class RecsController < ApplicationController
   # GET /recs/1
   # GET /recs/1.json
   def show
+    @post = Post.new(parent: @rec)
   end
 
   # GET /recs/new
