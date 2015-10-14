@@ -1,0 +1,11 @@
+<div class="new_comment">
+  <%= form_for(@comment, html: {class: "form"}) do |f| %>
+    <span class="glyphicon glyphicon-user"></span> <%= current_person.display_name%>  
+    <div class="form-group">
+      <%= f.text_field :body, placeholder: "Leave a comment.", class: "form-control" %>
+    </div>
+    <%= f.hidden_field :post_id %>
+    <%= f.hidden_field :person_id %>
+    <%= f.submit value: "post", class: "btn btn-sm" %>
+  <% end %>
+</div>

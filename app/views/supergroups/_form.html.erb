@@ -1,4 +1,4 @@
-<%= form_for(@supergroup) do |f| %>
+<%= form_for(@supergroup, :html => { class: "form"}) do |f| %>
   <% if @supergroup.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@supergroup.errors.count, "error") %> prohibited this supergroup from being saved:</h2>

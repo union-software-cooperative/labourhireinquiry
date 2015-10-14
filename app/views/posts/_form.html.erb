@@ -1,27 +1,29 @@
-<%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<div class="post">
+  <%= form_for(@post, :html => { class: "form"}) do |f| %>
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+        <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <h3>Post your question or research here <small>x people are following...</small></h3>
+    <p>
+      <div class="form_group">
+        <%= f.file_field :attachment %>
+      </div>
+      <div class="form_group">
+        <%= f.text_area :body, class: "form-control" %>
+      </div>
+    <p>
+    <p class="actions">
+      <%= f.hidden_field :parent_id %>
+      <%= f.hidden_field :parent_type %>
+      <%= f.submit class: "btn btn-default" %>
+    </p>
   <% end %>
-
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </div>
-  <div class="field">
-    <%= f.label :attachment %><br>
-    <%= f.file_field :attachment %>
-  </div>
-  <div class="actions">
-    <%= f.hidden_field :parent_id %>
-    <%= f.hidden_field :parent_type %>
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

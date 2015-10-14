@@ -34,6 +34,7 @@ body {
   line-height: 18px;
 }
 
+/*
 .content-area {
 	border-radius: 5px;
 	border: 1px solid #111;
@@ -41,7 +42,7 @@ body {
 	margin: 10px;
 
 }
-
+*/
 .navbar-fixed-top {
     min-height: 70px;
 }
@@ -99,5 +100,63 @@ $a-tags-hover: 'a:active, a:hover';
 
 .jumbotron {
   margin-top: 15px;
-  background-color: #FAFAFA;
+  background-color: #fefefe;
+}
+
+.post {
+  background-color: #fee;
+  border: 1px solid #444;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.post_image {
+  width: 100%;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.rec {
+  background-color: #fefefe;
+  border: 1px solid #444;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+
+  padding: 15px;
+  border-radius: 5px;
+
+}
+
+.post_body {
+  background-color: #fefefe;
+  border-radius: 5px;
+  padding: 10px 10px 10px 10px;
+  margin-bottom: 0px;
+}
+
+.new_comment {
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-right: auto;
+}
+
+.comment {
+  margin-top: 10px;
+  margin-left: 30px;
+}
+
+.comment_body {
+  background-color: #fefefe;
+  border-radius: 5px;
+  padding: 10px 10px 10px 10px;
+  margin-bottom: 0px;
 }
