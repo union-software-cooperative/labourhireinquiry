@@ -20,9 +20,15 @@ class CommentsController < ApplicationController
   # DELETE /comments/1.json
   def destroy
     parent = @comment.post.parent
-    @comment.destroy
+    # TODO Can the CanCan gem clean this up.  Because there is no current_person acess in model so can't use before_destroy
+    if @comment.person == current_person
+      @comment.destroy
+      notice = 'Comment was successfully destroyed.'
+    else
+      notice = 'You are not authorized to do that.'
+    end
     respond_to do |format|
-      format.html { redirect_to parent, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to parent, notice: notice }
       format.json { head :no_content }
     end
   end

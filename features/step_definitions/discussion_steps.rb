@@ -34,14 +34,6 @@ Then(/^I can comment "(.*?)" beneath "(.*?)"$/) do |comment_body, post_body|
 	p.should have_content(comment_body)
 end
 
-def get_person(who)
-	person = @current_person
-	if who != "my"
-		person = FactoryGirl.create(:person, email: "#{who}@iuf.org")
-	end
-	person
-end
-
 Given(/^I'm looking at an agreement with "(.*?)" posting "(.*?)"$/) do |who, post_body|
 	agreement = FactoryGirl.create(:agreement, name: title )
 	
@@ -98,6 +90,35 @@ Then(/^I can't delete the posting "(.*?)"$/) do |post_body|
 	find_post(post_body).should have_no_selector(:css, "a[data-method='delete']")
 end
 
+Then(/^I can't force delete the posting "(.*?)"$/) do |post_body|
+	post = Post.find_by_body post_body
+	url = post_path post
+	page.driver.submit :delete, url, {}
+	page.should have_content("You are not authorized to do that")
+	page.should have_content(post_body)
+end
+
+Then(/^I can't force delete the comment "(.*?)" from "(.*?)"$/) do |comment_body, post_body|
+	post = Post.find_by_body post_body
+	comment = post.comments.find_by_body comment_body
+	url = comment_path comment
+	page.driver.submit :delete, url, {}
+	page.should have_content("You are not authorized to do that")
+	page.should have_content(post_body)
+end
+
+def get_person(who)
+	person = @current_person
+	if who != "my"
+		person = Person.find_by_first_name who
+		if person == nil
+			person = FactoryGirl.create(:person, email: "#{who}@iuf.org", first_name: who)
+		end
+	end
+	person
+end
+
 def find_post(post_body)
 	find("p.post_body", text: post_body).find(:xpath, '..')
 end
+

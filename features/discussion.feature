@@ -33,3 +33,14 @@ Feature: Discussion
 		Given I am a new, authenticated person 
 		Given I'm on an agreement with "my" posting "blah blah blah" and "somebody's" comment "ya ya ya"
 		Then I can't delete the comment "ya ya ya" from "blah blah blah"
+
+	Scenario: A hacker attempts to delete a post
+		Given I am a new, authenticated person 
+		Given I'm on an agreement with "somebody's" posting "blah blah blah" and "somebody's" comment "ya ya ya"
+		Then I can't force delete the posting "blah blah blah"
+
+	Scenario: A hacker attempts to delete a comment
+		Given I am a new, authenticated person 
+		Given I'm on an agreement with "somebody's" posting "blah blah blah" and "somebody's" comment "ya ya ya"
+		Then I can't force delete the comment "ya ya ya" from "blah blah blah"
+		
