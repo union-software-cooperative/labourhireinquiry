@@ -2,7 +2,7 @@
   <%= form_for(@comment, html: {class: "form"}) do |f| %>
     <span class="glyphicon glyphicon-user"></span> <%= current_person.display_name%>  
     <div class="form-group">
-      <%= f.text_field :body, placeholder: "Leave a comment.", class: "form-control" %>
+      <%= f.text_field :body, placeholder: "Leave a comment.", class: "form-control comment_body" %>
     </div>
     <%= f.hidden_field :post_id %>
     <%= f.hidden_field :person_id %>

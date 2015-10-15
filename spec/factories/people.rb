@@ -4,9 +4,11 @@ FactoryGirl.define do
 		last_name "Tester"
 		title "MyString"
 		address "MyText"
-		mobile "MyString"
+		mobile "+61 439 541 888"
 		fax "MyString"
-		email "admin@iufdb.org"
+		email "user@iufdb.org"
+		password "asdfasdf"
+		password_confirmation "asdfasdf"
   end
 
 end
