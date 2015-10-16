@@ -21,19 +21,19 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   process :set_content_type
   
   process resize_to_limit: [1280,1280], if: :image?
-  
+  process quality: 51, if: :jpeg?
+
   def image?(new_file)
     new_file.content_type.start_with? 'image'
   end
 
-  process quality: 51, if: :jpeg?
-
+  
   def jpeg?(new_file)
     %w[image/jpeg image/jpg].include?(new_file.content_type)
   end
 
-  protected
-  
+  private
+
   def quality(percentage)
     manipulate! do |img|
       img.quality(percentage.to_s)

@@ -19,7 +19,12 @@ class ProfileUploader < AttachmentUploader
 
   # Process files as they are uploaded:
   process resize_to_limit: [400, 10000]
-  
+  process quality: 100
+
+  def quality(asdf)
+  	#DO NOTHING FOR PROFILE PICS
+  end
+
   # Create different versions of your uploaded files:
   version :thumb do
     process resize_and_crop: [40]
