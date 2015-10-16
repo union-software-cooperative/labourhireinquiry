@@ -3,7 +3,7 @@ module ApplicationHelper
 		unless person.attachment.blank?
 			image_tag person.attachment.thumb.url, class: "profile_thumb"
 		else
-			"<span class=\"glyphicon glyphicon-user\"></span>"
+			"<span class=\"glyphicon glyphicon-user\"></span>".html_safe
 		end
 	end
 end
