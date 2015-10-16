@@ -62,6 +62,7 @@ end
 
 gem 'carrierwave'
 gem 'fog'
+gem 'mini_magick'
 gem 'jquery-fileupload-rails'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'

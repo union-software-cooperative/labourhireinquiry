@@ -29,6 +29,9 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(person_params)
+    #TODO Temp until invite system is going, and this action is removed
+    @person.password = SecureRandom.uuid
+    @person.password_confirmation = @person.password
 
     respond_to do |format|
       if @person.save
@@ -46,7 +49,7 @@ class PeopleController < ApplicationController
   def update
     respond_to do |format|
       if @person.update(person_params)
-        format.html { redirect_to @person, notice: 'Person was successfully updated.' }
+        format.html { redirect_to @person, notice: 'Profile successfully updated.' }
         format.json { render :show, status: :ok, location: @person }
       else
         format.html { render :edit }
@@ -73,6 +76,6 @@ class PeopleController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
-      params.require(:person).permit(:first_name, :last_name, :title, :address, :mobile, :fax, :email)
+      params.require(:person).permit(:first_name, :last_name, :title, :address, :mobile, :fax, :email, :attachment)
     end
 end

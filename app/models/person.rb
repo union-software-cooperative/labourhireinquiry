@@ -4,6 +4,8 @@ class Person < ActiveRecord::Base
   devise :invitable, :database_authenticatable,# :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  mount_uploader :attachment, ProfileUploader
+  
   include Filterable
   scope :name_like, -> (name) {where("first_name ilike ? or last_name ilike ? or email ilike ?", "%#{name}%", "%#{name}%", "%#{name}%")}
 

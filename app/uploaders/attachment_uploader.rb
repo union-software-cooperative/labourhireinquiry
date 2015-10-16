@@ -1,11 +1,12 @@
 # encoding: utf-8
 
 class AttachmentUploader < CarrierWave::Uploader::Base
-
+  include CarrierWave::MimeTypes
+  include CarrierWave::MiniMagick
+  
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
-
+  
   # Choose what kind of storage to use for this uploader:
   #storage :file
   storage :fog
@@ -14,6 +15,31 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
+  
+  # downscale images to HD width or height 
+  process :set_content_type
+  
+  process resize_to_limit: [1280,1280], if: :image?
+  
+  def image?(new_file)
+    new_file.content_type.start_with? 'image'
+  end
+
+  process quality: 51, if: :jpeg?
+
+  def jpeg?(new_file)
+    %w[image/jpeg image/jpg].include?(new_file.content_type)
+  end
+
+  protected
+  
+  def quality(percentage)
+    manipulate! do |img|
+      img.quality(percentage.to_s)
+      img = yield(img) if block_given?
+      img
+    end
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

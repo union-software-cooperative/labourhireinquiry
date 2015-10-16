@@ -1,6 +1,6 @@
 <div class="post">
 	<h3>
-			<span class="glyphicon glyphicon-user"></span>
+			<%=profile_thumb(post.person)%>
 			<%=post.person.display_name%>
 			<small><%=I18n.l post.created_at, format: :long%></small>
 			<% if current_person == post.person %>
