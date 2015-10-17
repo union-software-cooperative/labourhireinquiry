@@ -8,7 +8,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :unions, controller: :supergroups, type: 'Union'
+  resources :unions, controller: :supergroups, type: 'Union' do
+    member do
+      get 'follow'
+    end
+  end
+  
   resources :people
   resources :recs do
     member do
