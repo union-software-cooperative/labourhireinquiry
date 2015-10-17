@@ -16,3 +16,6 @@ Feature: Maintain a list of unions
 		When I'm on the "unions" list
 		Then I can delete the "union" titled "NUW"
 	
+	Feature: Unions can have a banner and a logo
+		Scenario: Upload banner to union
+		

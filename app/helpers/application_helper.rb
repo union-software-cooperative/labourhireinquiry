@@ -6,4 +6,8 @@ module ApplicationHelper
 			"<span class=\"glyphicon glyphicon-user\"></span>".html_safe
 		end
 	end
+
+	def pencil_button
+		"<span class=\"small glyphicon glyphicon-pencil\"/>".html_safe 
+	end
 end

@@ -1,5 +1,9 @@
 <span id="union">
 	<a href="<%=polymorphic_path(union)%>">
-		<%= union.name %>
+		<% if union.logo.url.blank? %>
+			<%= union.short_name || union.name%>
+		<% else %>
+			<%= logo_thumb(union) %>
+		<% end %>
 	</a>
 </span>

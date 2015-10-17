@@ -1,26 +1,28 @@
 <div class="post">
-	<h3>
-			<%=profile_thumb(post.person)%>
-			<%=post.person.display_name%>
-			<small><%=I18n.l post.created_at, format: :long%></small>
-			<% if current_person == post.person %>
-				<small><%=link_to "<span class=\"glyphicon glyphicon-trash\"></span>".html_safe, post, method: :delete, data: { confirm: 'Are you sure?' }, class: "pull-right delete" %></small>
-			<% end %>
-	</h3>
-	
-	<% if !post.attachment.blank? %>
-		<div>
-			<% if post.attachment.content_type.include?("image") %>
-				<%=image_tag post.attachment.url, class: "post_image"%>
-			<% else %>
-				<%=link_to "<span class=\"glyphicon glyphicon-paperclip\"></span> #{post.attachment.file.filename}".html_safe, post.attachment.url %>
-			<% end %>
-		</div>
-	<% end %>
-	<p class="post_body">
-		<%= post.body %>
-	</p>
-	<%= render post.comments %>
-	<% @comment = Comment.new(post: post) %>
-	<%= render partial: "comments/form" %>
+	<div class="margins">
+		<h3>
+				<%=profile_thumb(post.person)%>
+				<%=post.person.display_name%>
+				<small><%=I18n.l post.created_at, format: :long%></small>
+				<% if current_person == post.person %>
+					<small><%=link_to "<span class=\"glyphicon glyphicon-trash\"></span>".html_safe, post, method: :delete, data: { confirm: 'Are you sure?' }, class: "pull-right delete" %></small>
+				<% end %>
+		</h3>
+		
+		<% if !post.attachment.blank? %>
+			<div>
+				<% if post.attachment.content_type.include?("image") %>
+					<%=image_tag post.attachment.url, class: "post_image"%>
+				<% else %>
+					<%=link_to "<span class=\"glyphicon glyphicon-paperclip\"></span> #{post.attachment.file.filename}".html_safe, post.attachment.url %>
+				<% end %>
+			</div>
+		<% end %>
+		<p class="post_body">
+			<%= post.body %>
+		</p>
+		<%= render post.comments %>
+		<% @comment = Comment.new(post: post) %>
+		<%= render partial: "comments/form" %>
+	</div>
 </div>

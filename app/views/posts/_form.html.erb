@@ -13,7 +13,7 @@
     <% end %>
     <h3>
       <%=profile_thumb(current_person)%>
-      Post your question or research here <small>x people are following...</small></h3>
+      <%=@post.parent.post_title%> <small>x people are following...</small></h3>
     <p>
       <div class="form_group">
         <%= f.file_field :attachment %>

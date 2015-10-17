@@ -1,19 +1,10 @@
-<p id="notice"><%= notice %></p>
+<% if @supergroup.banner.present? %>
+	<div class="banner-placeholder">
+		<%=banner_image %>
+		<%=render 'show' %>
+	</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @supergroup.name %>
-</p>
+<% else %>
+	<%=render 'show' %>
+<% end %>
 
-<p>
-  <strong>Type:</strong>
-  <%= @supergroup.type %>
-</p>
-
-<p>
-  <strong>Www:</strong>
-  <%= @supergroup.www %>
-</p>
-
-<%= link_to 'Edit', edit_polymorphic_path(@supergroup) %> |
-<%= link_to 'Back', polymorphic_path(supergroups) %>

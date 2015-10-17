@@ -9,4 +9,8 @@ class Rec < ActiveRecord::Base
 	validates :name, :company, :union, :person, :end_date, presence: true
 
 	serialize :nature_of_operation, Array
+
+	def post_title
+		"Post your question or industrial action pics here"
+	end
 end

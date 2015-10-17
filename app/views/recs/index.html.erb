@@ -1,37 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Agreements</h1>
+<h1>All Agreements</h1>
 
-<%= link_to 'New Agreement', new_rec_path, class: "btn btn-default" %>
-
-<div class="table-responsive">
-  <table class="table table-condensed table-striped box-shadow">
-    <thead>
-      <tr>
-        <th></th>
-        <th>Expiring</th>
-        <th>Name</th>
-        <th>Coverage</th>
-        <th>Company</th>
-        <th>Union</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @recs.each do |rec| %>
-        <tr class="">
-          <td> <%= link_to "<span class='glyphicon glyphicon-paperclip'/>".html_safe, rec.attachment_url if rec.attachment_url%></td>
-          <td><%= I18n.l rec.end_date, :format => :long %></td>
-          <td>
-              <%= link_to rec.name, rec %>
-          </td>
-          <td><%= rec.coverage %></td>
-          <td><%= render rec.company if rec.company %></td>
-          <td><%= render rec.union if rec.union%></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+<%= link_to 'New Agreement', new_rec_path, class: "btn btn-default new-button" %>
+<%= render 'recs' %>
 <br>
 

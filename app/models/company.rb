@@ -1,3 +1,5 @@
 class Company < Supergroup
-	has_many :posts, as: :parent
+	def post_title
+		"Post your questions or research here"
+	end
 end

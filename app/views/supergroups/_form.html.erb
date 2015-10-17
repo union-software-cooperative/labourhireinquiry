@@ -10,14 +10,27 @@
       </ul>
     </div>
   <% end %>
-
+   <div class="form-group">
+    <%= f.label :logo, "Logo" %><br>
+    <%=logo_image%>
+    <%= f.file_field :logo, class: "form-control", accept: 'image/jpeg,image/gif,image/png'  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :banner, "Banner" %><br>
+    <%=banner_image%>
+    <%= f.file_field :banner, class: "form-control", accept: 'image/jpeg,image/gif,image/png'  %>
+  </div>
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :short_name %><br>
+    <%= f.text_field :short_name, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :www %><br>
-    <%= f.text_field :www %>
+    <%= f.text_field :www, class: "form-control" %>
   </div>
   <div class="actions">
     <%= f.submit %>

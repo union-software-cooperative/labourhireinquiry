@@ -32,14 +32,18 @@ class AttachmentUploader < CarrierWave::Uploader::Base
     %w[image/jpeg image/jpg].include?(new_file.content_type)
   end
 
-  private
-
+private
   def quality(percentage)
     manipulate! do |img|
       img.quality(percentage.to_s)
       img = yield(img) if block_given?
       img
     end
+  end
+
+  def secure_token
+    var = :"@#{mounted_as}_secure_token"
+    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

@@ -18,6 +18,8 @@ class SupergroupsController < ApplicationController
   # GET /supergroups/1
   # GET /supergroups/1.json
   def show
+    @post = Post.new(parent: @supergroup)
+    @recs = Rec.where(["#{@klass}_id=?", @supergroup.id])
   end
 
   # GET /supergroups/new
@@ -82,6 +84,6 @@ class SupergroupsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def supergroup_params
       params[supergroup]['type'] = @klass.name
-      params.require(supergroup).permit(:name, :type, :www)
+      params.require(supergroup).permit(:name, :type, :www, :banner, :logo, :short_name)
     end
 end

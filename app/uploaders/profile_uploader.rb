@@ -36,7 +36,7 @@ class ProfileUploader < AttachmentUploader
     %w(jpg jpeg gif png)
   end
 
-private
+
   # Resize and crop square from Center
   # http://blog.aclarke.eu/crop-and-resize-an-image-using-minimagick/
   def resize_and_crop(size)  
@@ -54,7 +54,3 @@ private
   end
 end
 
-def secure_token
-  var = :"@#{mounted_as}_secure_token"
-  model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
-end
