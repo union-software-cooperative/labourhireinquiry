@@ -3,11 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .banner-placeholder {
-	#position: absolute;
-	#right:0;
 	width:100%;
-	#margin-left: -30px;
-	#margin-top: -20px;
 }
 
 .banner-image {
@@ -34,9 +30,6 @@
 	margin-top: -80px;
 	margin-left: 15px;
 }
-.banner-placeholder-shim {
-	height: 400px;
-}
 
 .banner-title a:visited {
     color: #fff !important;
@@ -58,3 +51,16 @@
 	margin-right: 15px;
 }
 
+.supergroup-follow {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+}
+
+.supergroup-follow a:link,
+.supergroup-follow a:visited,
+.supergroup-follow a:hover,
+.supergroup-follow a:focus,
+.supergroup-follow a:active {
+	  color: white;
+}

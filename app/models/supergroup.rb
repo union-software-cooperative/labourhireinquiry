@@ -8,4 +8,5 @@ class Supergroup < ActiveRecord::Base
   has_many :posts, as: :parent
   validates :name, :short_name, presence: true
 
+  acts_as_followable
 end

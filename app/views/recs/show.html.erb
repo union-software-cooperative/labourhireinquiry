@@ -31,7 +31,11 @@
     </p>
     <p><%=@rec.coverage%></p>
    
-    
+    <div style="position:relative; float:right">
+      <%= link_to current_person.follows?(@rec) ? "unfollow" : "follow", follow_rec_path(@rec), class: "btn btn-primary rec-follow" %>  
+    </div>
+</div>
+
   </div>
 
   <hr/>

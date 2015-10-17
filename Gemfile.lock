@@ -373,6 +373,8 @@ GEM
     shoulda-matchers (3.0.0)
       activesupport (>= 4.0.0)
     slop (3.6.0)
+    socialization (1.2.0)
+      activerecord
     spring (1.4.0)
     spring-commands-cucumber (1.0.1)
       spring (>= 0.9.1)
@@ -440,6 +442,7 @@ DEPENDENCIES
   select2-rails
   selenium-webdriver
   shoulda-matchers (~> 3.0)
+  socialization
   spring
   spring-commands-cucumber
   spring-commands-rspec

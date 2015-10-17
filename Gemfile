@@ -77,3 +77,5 @@ gem 'select2-rails'
 
 # Environment var helpers
 gem "figaro"
+
+gem "socialization"

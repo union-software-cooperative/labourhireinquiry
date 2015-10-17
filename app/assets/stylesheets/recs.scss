@@ -31,5 +31,20 @@
 }
 
 .rec h1, .rec h2, .rec h3 {
-	margin-left: 0px;
+	margin-left: 0px !important;
+}
+
+
+.rec-follow {
+  position: absolute;
+  bottom: 15px;
+  right: 0px;
+}
+
+.rec-follow a:link,
+.rec-follow a:visited,
+.rec-follow a:hover,
+.rec-follow a:focus,
+.rec-follow a:active {
+    color: white;
 }

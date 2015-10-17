@@ -10,6 +10,8 @@ class Rec < ActiveRecord::Base
 
 	serialize :nature_of_operation, Array
 
+	acts_as_followable
+
 	def post_title
 		"Post your question or industrial action pics here"
 	end

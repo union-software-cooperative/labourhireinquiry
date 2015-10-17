@@ -1,7 +1,7 @@
 class SupergroupsController < ApplicationController
   
   before_action :set_klass
-  before_action :set_supergroup, only: [:show, :edit, :update, :destroy]
+  before_action :set_supergroup, only: [:show, :edit, :update, :destroy, :follow]
 
   include SupergroupsHelper
   
@@ -69,6 +69,11 @@ class SupergroupsController < ApplicationController
       format.html { redirect_to polymorphic_url(supergroups), notice: "#{supergroup.titlecase} was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def follow
+    current_person.toggle_follow!(@supergroup)
+    redirect_to @supergroup
   end
 
   private

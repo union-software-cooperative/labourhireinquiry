@@ -1,5 +1,5 @@
 class RecsController < ApplicationController
-  before_action :set_rec, only: [:show, :edit, :update, :destroy]
+  before_action :set_rec, only: [:show, :edit, :update, :destroy, :follow]
 
   # GET /recs
   # GET /recs.json
@@ -60,6 +60,11 @@ class RecsController < ApplicationController
       format.html { redirect_to recs_url, notice: 'Rec was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def follow
+    current_person.toggle_follow!(@rec)
+    redirect_to @rec
   end
 
   private

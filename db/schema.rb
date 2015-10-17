@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151016232922) do
+ActiveRecord::Schema.define(version: 20151017112001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,39 @@ ActiveRecord::Schema.define(version: 20151016232922) do
 
   add_index "comments", ["person_id"], name: "index_comments_on_person_id", using: :btree
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
+
+  create_table "follows", force: :cascade do |t|
+    t.string   "follower_type"
+    t.integer  "follower_id"
+    t.string   "followable_type"
+    t.integer  "followable_id"
+    t.datetime "created_at"
+  end
+
+  add_index "follows", ["followable_id", "followable_type"], name: "fk_followables", using: :btree
+  add_index "follows", ["follower_id", "follower_type"], name: "fk_follows", using: :btree
+
+  create_table "likes", force: :cascade do |t|
+    t.string   "liker_type"
+    t.integer  "liker_id"
+    t.string   "likeable_type"
+    t.integer  "likeable_id"
+    t.datetime "created_at"
+  end
+
+  add_index "likes", ["likeable_id", "likeable_type"], name: "fk_likeables", using: :btree
+  add_index "likes", ["liker_id", "liker_type"], name: "fk_likes", using: :btree
+
+  create_table "mentions", force: :cascade do |t|
+    t.string   "mentioner_type"
+    t.integer  "mentioner_id"
+    t.string   "mentionable_type"
+    t.integer  "mentionable_id"
+    t.datetime "created_at"
+  end
+
+  add_index "mentions", ["mentionable_id", "mentionable_type"], name: "fk_mentionables", using: :btree
+  add_index "mentions", ["mentioner_id", "mentioner_type"], name: "fk_mentions", using: :btree
 
   create_table "people", force: :cascade do |t|
     t.string   "title"
@@ -86,8 +119,8 @@ ActiveRecord::Schema.define(version: 20151016232922) do
     t.string   "coverage"
     t.string   "union"
     t.string   "company"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.integer  "company_id"
     t.integer  "union_id"
     t.integer  "person_id"
@@ -103,6 +136,7 @@ ActiveRecord::Schema.define(version: 20151016232922) do
     t.string   "nature_of_operation"
     t.boolean  "specific_rights"
     t.text     "specific_rights_clause"
+    t.integer  "followers_count",           default: 0
   end
 
   add_index "recs", ["company_id"], name: "index_recs_on_company_id", using: :btree
@@ -113,11 +147,12 @@ ActiveRecord::Schema.define(version: 20151016232922) do
     t.string   "name"
     t.string   "type"
     t.string   "www"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "banner"
     t.string   "logo"
     t.string   "short_name"
+    t.integer  "followers_count", default: 0
   end
 
   add_foreign_key "comments", "people"

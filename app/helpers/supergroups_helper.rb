@@ -8,6 +8,10 @@ module SupergroupsHelper
 		@klass.name.pluralize.downcase
 	end
 
+	def follow_polymorphic_path()
+		eval("follow_#{supergroup}_path")
+	end
+
 	def banner_image
 		unless @supergroup.banner.blank?
 			image_tag @supergroup.banner.url, class: "banner-image"

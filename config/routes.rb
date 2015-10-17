@@ -2,10 +2,20 @@ Rails.application.routes.draw do
   resources :comments
   resources :posts
   devise_for :people
-  resources :companies, type: 'Company'
+  resources :companies, type: 'Company'  do
+    member do
+      get 'follow'
+    end
+  end
+
   resources :unions, controller: :supergroups, type: 'Union'
   resources :people
-  resources :recs
+  resources :recs do
+    member do
+      get 'follow'
+    end
+  end
+
   resources :agreements, controller: :recs, type: 'Rec'
   root "recs#index"
 
