@@ -79,3 +79,5 @@ gem 'select2-rails'
 gem "figaro"
 
 gem "socialization"
+
+gem "puma"
