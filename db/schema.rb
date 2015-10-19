@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151017112001) do
+ActiveRecord::Schema.define(version: 20151019034759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,30 +113,46 @@ ActiveRecord::Schema.define(version: 20151017112001) do
   create_table "recs", force: :cascade do |t|
     t.string   "name"
     t.string   "tags"
-    t.date     "start_date"
-    t.date     "end_date"
     t.string   "attachment"
-    t.string   "coverage"
-    t.string   "union"
-    t.string   "company"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.integer  "company_id"
     t.integer  "union_id"
     t.integer  "person_id"
-    t.boolean  "multi_site"
-    t.boolean  "grievance_handling"
-    t.text     "grievance_handling_clause"
-    t.boolean  "union_mandate"
-    t.text     "union_mandate_clause"
-    t.boolean  "anti_precariat"
-    t.text     "anti_precariat_clause"
-    t.text     "other_provisions"
-    t.boolean  "taking_action"
-    t.string   "nature_of_operation"
-    t.boolean  "specific_rights"
-    t.text     "specific_rights_clause"
-    t.integer  "followers_count",           default: 0
+    t.integer  "followers_count",                 default: 0
+    t.boolean  "financially_stable"
+    t.text     "financially_stable_comment"
+    t.boolean  "accommodation_secure"
+    t.text     "accommodation_secure_comment"
+    t.boolean  "primary_carer"
+    t.text     "primary_carer_comment"
+    t.boolean  "strained_family_life"
+    t.text     "strained_family_life_comment"
+    t.boolean  "community_life"
+    t.text     "community_life_comment"
+    t.boolean  "inflexible_hours"
+    t.text     "inflexible_hours_comment"
+    t.boolean  "prefer_full_time"
+    t.text     "prefer_full_time_comment"
+    t.boolean  "under_paid"
+    t.text     "under_paid_comment"
+    t.boolean  "not_paid"
+    t.text     "not_paid_comment"
+    t.boolean  "on_visa"
+    t.text     "on_visa_comment"
+    t.boolean  "poor_ohs"
+    t.text     "poor_ohs_comment"
+    t.boolean  "noncompliant_employment"
+    t.text     "noncompliant_employment_comment"
+    t.boolean  "informally_employed"
+    t.text     "informally_employed_comment"
+    t.text     "is_anonymous"
+    t.boolean  "is_union"
+    t.text     "host_employer"
+    t.string   "location"
+    t.string   "industry"
+    t.text     "solution"
+    t.string   "publish"
   end
 
   add_index "recs", ["company_id"], name: "index_recs_on_company_id", using: :btree

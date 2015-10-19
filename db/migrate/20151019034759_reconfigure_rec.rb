@@ -1,0 +1,54 @@
+class ReconfigureRec < ActiveRecord::Migration
+  def change
+    add_column :recs, :financially_stable, :boolean
+    add_column :recs, :financially_stable_comment, :text
+    add_column :recs, :accommodation_secure, :boolean
+    add_column :recs, :accommodation_secure_comment, :text
+    add_column :recs, :primary_carer, :boolean
+    add_column :recs, :primary_carer_comment, :text
+    add_column :recs, :strained_family_life, :boolean
+    add_column :recs, :strained_family_life_comment, :text
+    add_column :recs, :community_life, :boolean
+    add_column :recs, :community_life_comment, :text
+    add_column :recs, :inflexible_hours, :boolean
+    add_column :recs, :inflexible_hours_comment, :text
+    add_column :recs, :prefer_full_time, :boolean
+    add_column :recs, :prefer_full_time_comment, :text
+    add_column :recs, :under_paid, :boolean
+    add_column :recs, :under_paid_comment, :text
+    add_column :recs, :not_paid, :boolean
+    add_column :recs, :not_paid_comment, :text
+    add_column :recs, :on_visa, :boolean
+    add_column :recs, :on_visa_comment, :text
+    add_column :recs, :poor_ohs, :boolean
+    add_column :recs, :poor_ohs_comment, :text
+    add_column :recs, :noncompliant_employment, :boolean
+    add_column :recs, :noncompliant_employment_comment, :text
+    add_column :recs, :informally_employed, :boolean
+    add_column :recs, :informally_employed_comment, :text
+    add_column :recs, :is_anonymous, :text
+    add_column :recs, :is_union, :boolean
+    add_column :recs, :host_employer, :text
+    add_column :recs, :location, :string
+    add_column :recs, :industry, :string
+    add_column :recs, :solution, :text
+    add_column :recs, :publish, :string 
+    remove_column :recs, :start_date, :date
+    remove_column :recs, :end_date, :date
+    remove_column :recs, :coverage, :string
+    remove_column :recs, :union, :string
+    remove_column :recs, :company, :string
+    remove_column :recs, :multi_site, :boolean
+    remove_column :recs, :grievance_handling, :boolean
+    remove_column :recs, :grievance_handling_clause, :text
+    remove_column :recs, :union_mandate, :boolean
+    remove_column :recs, :union_mandate_clause, :text
+    remove_column :recs, :anti_precariat, :boolean
+    remove_column :recs, :anti_precariat_clause, :text
+    remove_column :recs, :other_provisions, :text
+    remove_column :recs, :taking_action, :boolean
+    remove_column :recs, :nature_of_operation, :string
+    remove_column :recs, :specific_rights, :boolean
+    remove_column :recs, :specific_rights_clause, :text   
+  end
+end
