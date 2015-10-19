@@ -21,152 +21,38 @@
       data: { 
         placeholder: "What's the main form of employment you wish to tell us about?",
       }, 
-      class: "ac-select2 form-control", 
+      class: "form-control", 
       style: "width: 100%;"
     %>
   </div>
 
   <div class="form-group">
     <%= f.label :when %><br>
-    <%= f.text_area :when, class: "form-control" %>
+    <%= f.select :when,
+      when_options, 
+      {
+          include_blank: true,
+      },
+      data: { 
+        placeholder: "When?",
+      }, 
+      class: "form-control", 
+      style: "width: 100%;"
+    %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :financially_stable %><br>
-    <%= f.check_box :financially_stable, class: "switch", :data => default_switch_options %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :financially_stable_comment %><br>
-    <%= f.text_area :financially_stable_comment, class: "form-control" %>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :accommodation_secure %><br>
-    <%= f.check_box :accommodation_secure, class: "switch", :data => default_switch_options %>
-  </div>
+  <% Rec.questions.each do |q| %> 
+    <div class="form-group">
+      <%= f.label q %><br>
+      <%= f.check_box q, class: "switch", :data => default_switch_options %>
+    </div>
 
     <div class="form-group">
-    <%= f.label :accommodation_secure_comment %><br>
-    <%= f.text_area :accommodation_secure_comment, class: "form-control" %>
-  </div>
+      <%= f.label comment(q) %><br>
+      <%= f.text_area comment(q), class: "form-control" %>
+    </div>
+  <% end %>
 
-  <div class="form-group">
-    <%= f.label :primary_carer %><br>
-    <%= f.check_box :primary_carer, class: "switch", :data => default_switch_options %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :primary_carer_comment %><br>
-    <%= f.text_area :primary_carer_comment, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :strained_family_life %><br>
-    <%= f.check_box :strained_family_life, class: "switch", :data => default_switch_options %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :strained_family_life_comment %><br>
-    <%= f.text_area :strained_family_life_comment, class: "form-control" %>
-  </div>
-
-  
-  <div class="form-group">
-    <%= f.label :community_life %><br>
-    <%= f.check_box :community_life, class: "switch", :data => default_switch_options %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :community_life_comment %><br>
-    <%= f.text_area :community_life_comment, class: "form-control" %>
-  </div>
-
-  
-  <div class="form-group">
-    <%= f.label :inflexible_hours %><br>
-    <%= f.check_box :inflexible_hours, class: "switch", :data => default_switch_options %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :inflexible_hours_comment %><br>
-    <%= f.text_area :inflexible_hours_comment, class: "form-control" %>
-  </div>
-
-  
-  <div class="form-group">
-    <%= f.label :prefer_full_time %><br>
-    <%= f.check_box :prefer_full_time, class: "switch", :data => default_switch_options %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :prefer_full_time_comment %><br>
-    <%= f.text_area :prefer_full_time_comment, class: "form-control" %>
-  </div>
-
-  
-  <div class="form-group">
-    <%= f.label :under_paid %><br>
-    <%= f.check_box :under_paid, class: "switch", :data => default_switch_options %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :under_paid_comment %><br>
-    <%= f.text_area :under_paid_comment, class: "form-control" %>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :not_paid %><br>
-    <%= f.check_box :not_paid, class: "switch", :data => default_switch_options %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :not_paid_comment %><br>
-    <%= f.text_area :not_paid_comment, class: "form-control" %>
-  </div>
-
-  
-  <div class="form-group">
-    <%= f.label :on_visa %><br>
-    <%= f.check_box :on_visa, class: "switch", :data => default_switch_options %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :on_visa_comment %><br>
-    <%= f.text_area :on_visa_comment, class: "form-control" %>
-  </div>
-
-  
-  <div class="form-group">
-    <%= f.label :poor_ohs %><br>
-    <%= f.check_box :poor_ohs, class: "switch", :data => default_switch_options %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :poor_ohs_comment %><br>
-    <%= f.text_area :poor_ohs_comment, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :noncompliant_employment %><br>
-    <%= f.check_box :noncompliant_employment, class: "switch", :data => default_switch_options %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :noncompliant_employment_comment %><br>
-    <%= f.text_area :noncompliant_employment_comment, class: "form-control" %>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :informally_employed %><br>
-    <%= f.check_box :informally_employed, class: "switch", :data => default_switch_options %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :informally_employed_comment %><br>
-    <%= f.text_area :informally_employed_comment, class: "form-control" %>
-  </div>
-    
   <div class="form-group">
     <%= f.label :is_union %><br>
     <%= f.check_box :is_union, class: "switch", :data => default_switch_options %>
@@ -174,17 +60,32 @@
 
   <div class="form-group">
     <%= f.label :host_employer %><br>
-    <%= f.text_area :host_employer, class: "form-control" %>
+    <%= f.text_field :host_employer, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :company %><br>
+    <%= f.text_field :company, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= f.label :location %><br>
-    <%= f.text_area :location, class: "form-control" %>
+    <%= f.text_field :location, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= f.label :industry %><br>
-    <%= f.text_area :industry, class: "form-control" %>
+    <%= f.text_field :industry, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :supermarket_supply %><br>
+    <%= f.check_box :supermarket_supply, class: "switch", :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :advertised %><br>
+    <%= f.text_field :advertised, class: "form-control" %>
   </div>
 
   <div class="form-group">
@@ -203,6 +104,51 @@
   </div>
 
   <div class="actions">
-    <%= f.submit value: "Save Submission", class: "btn btn-default"%>
+    <%= f.submit value: "Share your story", class: "btn btn-default"%>
   </div>
 <% end %>
+
+<script type='text/javascript'>
+  function compile_story() {
+    var story = "";
+    story = "I was " + $("#rec_nature_of_employment").val();
+    story += " " + $("#rec_when").val() + ".  ";
+    
+    <% Rec.questions.each do |q| %>
+      <% if @rec[q] %>
+        story += $('#rec_<%=comment(q)%>').val();
+      <% end %>
+    <% end %>
+    
+    if ($('#rec_host_employer'))
+      story += "  This happened at " + $("#rec_host_employer").val();
+    
+    if ($('#rec_location'))
+      story += ", " + $("#rec_host_location").val();
+    
+    if ($('#rec_company'))
+      story += " when I was employed by " + $("#rec_company").val() + ".  ";
+    
+    if ($('#rec_supermarket_supply').bootstrapSwitch('state'))
+      story += "I was making goods for sale in supermarkets.";
+
+    story += $('#rec_solution').val();
+
+    $("#rec_summary").val(story); 
+  };
+
+  <% Rec.questions.each do |q| %>
+    <% if @rec[q] %>
+      $('#rec_<%=comment(q)%>').parent().hide();
+      $('#rec_<%=comment(q)%>').blur(compile_story);
+    <% end %>
+  <% end %> 
+  $('#rec_supermarket_supply').blur(compile_story);
+  $('#rec_host_employer').blur(compile_story);
+  $('#rec_host_location').blur(compile_story);
+  $('#rec_solution').blur(compile_story);
+  $('#rec_nature_of_employment').blur(compile_story);
+  $('#rec_when').blur(compile_story);
+
+
+</script>

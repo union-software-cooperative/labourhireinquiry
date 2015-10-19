@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019065439) do
+ActiveRecord::Schema.define(version: 20151019205144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -114,12 +114,12 @@ ActiveRecord::Schema.define(version: 20151019065439) do
     t.string   "name"
     t.string   "tags"
     t.string   "attachment"
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.integer  "company_id"
     t.integer  "union_id"
     t.integer  "person_id"
-    t.integer  "followers_count",                 default: 0
+    t.integer  "followers_count",              default: 0
     t.string   "nature_of_employment"
     t.boolean  "financially_stable"
     t.text     "financially_stable_comment"
@@ -127,26 +127,8 @@ ActiveRecord::Schema.define(version: 20151019065439) do
     t.text     "accommodation_secure_comment"
     t.boolean  "primary_carer"
     t.text     "primary_carer_comment"
-    t.boolean  "strained_family_life"
-    t.text     "strained_family_life_comment"
     t.boolean  "community_life"
     t.text     "community_life_comment"
-    t.boolean  "inflexible_hours"
-    t.text     "inflexible_hours_comment"
-    t.boolean  "prefer_full_time"
-    t.text     "prefer_full_time_comment"
-    t.boolean  "under_paid"
-    t.text     "under_paid_comment"
-    t.boolean  "not_paid"
-    t.text     "not_paid_comment"
-    t.boolean  "on_visa"
-    t.text     "on_visa_comment"
-    t.boolean  "poor_ohs"
-    t.text     "poor_ohs_comment"
-    t.boolean  "noncompliant_employment"
-    t.text     "noncompliant_employment_comment"
-    t.boolean  "informally_employed"
-    t.text     "informally_employed_comment"
     t.text     "is_anonymous"
     t.boolean  "is_union"
     t.text     "host_employer"
@@ -158,6 +140,27 @@ ActiveRecord::Schema.define(version: 20151019065439) do
     t.text     "entitlements_comment"
     t.string   "when"
     t.string   "summary"
+    t.boolean  "family_life"
+    t.text     "family_life_comment"
+    t.boolean  "predictable_hours"
+    t.text     "predictable_hours_comment"
+    t.boolean  "compliant_employment"
+    t.text     "compliant_employment_comment"
+    t.boolean  "formally_employed"
+    t.text     "formally_employed_comment"
+    t.boolean  "prefer_flexibility"
+    t.text     "prefer_flexibility_comment"
+    t.boolean  "paid_fairly"
+    t.text     "paid_fairly_comment"
+    t.boolean  "secure_stay"
+    t.text     "secure_stay_comment"
+    t.boolean  "safe_work"
+    t.text     "safe_work_comment"
+    t.boolean  "could_speak_up"
+    t.text     "could_speak_up_comment"
+    t.string   "supermarket_supply"
+    t.string   "string"
+    t.string   "advertised"
   end
 
   add_index "recs", ["company_id"], name: "index_recs_on_company_id", using: :btree

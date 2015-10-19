@@ -11,9 +11,22 @@ module RecsHelper
 					'informally employed', 
 					'employed through labour hire agency',
 					'contracting with an ABN but to one employer only',
-					'directly employed casual'
+					'directly employed casual',
+					'on a rolling contract'
 					]).uniq, 
 				@rec.nature_of_employment
+			)
+	end
+
+	def when_options
+		options_for_select(
+				([
+					'current job', 
+					'less than 3 months ago',
+					'less than a year ago',
+					'more than a year ago'
+					]).uniq, 
+				@rec.when
 			)
 	end
 
@@ -21,4 +34,7 @@ module RecsHelper
 		{ :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success', 'off-color' => 'danger'}
 	end
 
+	def comment(q)
+		"#{q.to_s}_comment"
+	end
 end
