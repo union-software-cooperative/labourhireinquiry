@@ -20,4 +20,44 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  helpers:
+    label:
+      rec:
+        nature_of_employment: "For the sake of this submission, how were you primarily employed?"
+        when: Are you describing your current situation or a previous job.  If describing a previous job, how long ago was it?
+        host_employer:  For which company were you actually doing the work for?
+        industry: What industry were you working in?
+        company:  Which company was employing you?
+        location: In which location where you working?
+        financially_stable: "Could you comfortably meet your expenses each week"
+        financially_stable_comment: "Tell us more about the dificulties this causes your family"
+        accommodation_secure: Could you consistently pay your rent/mortgage when it was due?  And could you get finance to buy a house if you wanted to?
+        accommodation_secure_comment: Tell us what impact this had on yourself and your family
+        inflexible_hours: Did you have a predicable roster that you could plan around? 
+        inflexible_hours_comment: Tell us how your work was scheduled and how much say you had regarding availability
+        entitlements: Could you take leave when you needed without worrying about your job
+        entitlements_comment:  Tell us about the problems you faced
+        primary_carer: Do you have children and if so, can you easily organise someone to care for them while you work?
+        primary_carer_comment: Tell us about the difficulty juggling work and your children's needs
+        strained_family_life: Has this type of employment interfered with your family life, or made starting a family difficult?
+        strained_family_life_comment: What impact has this type of employment had on your family or ability to start a family?
+        community_life:  Do you have time to participate in regular community and club events?
+        community_life_comment:  Tell us about the community groups and clubs you wish to be more involved in but can't
+        prefer_full_time:  Do you prefer the 'flexibility' of casual over the benefits of full-time work
+        prefer_full_time_comment: Tell us how you'd go about obtaining more regular employment
+        under_paid: Where you always paid the entitled amount for the hours you worked
+        under_paid_comment: How were they under paying you? Were you working additional hours, not getting the award minimum wage or not paid the same as the permanent employees?
+        not_paid: Where you paid regulary and when you were due to be paid?
+        not_paid_comment: Tells what payments you think you missed out on
+        poor_ohs: Was your work always safe, with clear occupational health and safety guidelines and responsibilities?
+        poor_ohs_comment: Tell us some examples where it was potentially harmful or dangerous?
+        noncompliant_employment:  Was you employer complying with all their legal obligations regarding your employment
+        noncompliant_employment_comment: e.g. Or were you earning more than $450/month but not having your super or tax deducted?  Tell us.
+        on_visa: Did you feel that you could discuss your pay and conditions without risking your job or visa
+        on_visa_comment: Where you concerned you couldn't speak up without loosing your job.  Was your visa ever threated by your employer.
+        informally_employed:  Were you employed officially by established business
+        informally_employed_comment: Did you have an informal arrangement with an individual or family?  Tell us how it worked.
+        is_union:  Were you a union member?
+        is_union_comment:  What did the union do for casual members?
+        solution: If you were the premier of Victoria, what you would you do to fix the problem?
+        summary: Please summarize what you've told us into a story you are happy to have published.

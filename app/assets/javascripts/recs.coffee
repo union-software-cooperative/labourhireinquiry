@@ -4,7 +4,13 @@
 
 ready = ->
   
-  $('.switch').bootstrapSwitch();
+  $('.switch').bootstrapSwitch
+    onSwitchChange: (e, data)->
+      if data
+        $('#'+e.currentTarget.id+'_comment').parent().hide()  
+      else
+        $('#'+e.currentTarget.id+'_comment').parent().show()
+
   $('.ac-select2').each ->
     url = $(this).data('url')
     #placeholder = $(this).data('placeholder')
@@ -45,10 +51,14 @@ ready = ->
       allowClear: false
       tags: true
     return
+
+  $('input[type="checkbox"]').bind 'onSwitchChanged', (e) ->
+    alert(e.type)
   return
 
 $(document).ready(ready);
 $(document).on('page:load', ready);
+
 
 
 

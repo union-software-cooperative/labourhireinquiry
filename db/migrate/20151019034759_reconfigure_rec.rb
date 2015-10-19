@@ -1,5 +1,6 @@
 class ReconfigureRec < ActiveRecord::Migration
   def change
+    add_column :recs, :nature_of_employment, :string
     add_column :recs, :financially_stable, :boolean
     add_column :recs, :financially_stable_comment, :text
     add_column :recs, :accommodation_secure, :boolean

@@ -5,11 +5,20 @@ module RecsHelper
         []
 	end
 
-	def nature_of_operation_options
+	def nature_of_employment_options
 		options_for_select(
-				(%w[fresh-milk powdered-milk butter cheese yogurt ice-cream cream industrial-dairy food-service other-specific] + @rec.nature_of_operation).uniq, 
-				@rec.nature_of_operation
+				([
+					'informally employed', 
+					'employed through labour hire agency',
+					'contracting with an ABN but to one employer only',
+					'directly employed casual'
+					]).uniq, 
+				@rec.nature_of_employment
 			)
+	end
+
+	def default_switch_options
+		{ :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success', 'off-color' => 'danger'}
 	end
 
 end

@@ -1,4 +1,5 @@
 class RecsController < ApplicationController
+  before_action :authenticate_person!, except: [:index, :new]
   before_action :set_rec, only: [:show, :edit, :update, :destroy, :follow]
 
   # GET /recs

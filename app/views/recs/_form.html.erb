@@ -10,141 +10,199 @@
       </ul>
     </div>
   <% end %>
-  <div class="form-group">
-    <%= f.label :attachment %><br>
-    <%= f.file_field :attachment, accept: 'image/jpeg,image/gif,image/png' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :company_id %> <%=link_to "new company", new_polymorphic_path(Company), placeholder: "Please select a company.",
-        class: "small", :target => "_blank"%><br>
-    <%= f.select :company_id, 
-      selected_option(@rec.company),
-      #options_for_select(Union.all.collect {|u| [u.name, u.id ]}, @rec.union_id) , 
-      {
-          include_blank: false,
-      },
-      data: { 
-        url: companies_path
-      }, 
-      class: "ac-select2 form-control", 
-      style: "width: 100%;"
-    %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :union_id %> <%=link_to "new union", new_polymorphic_path(Union), class: "small", :target => "_blank"%><br>
-    <%= f.select :union_id, 
-      selected_option(@rec.union),  
-      {
-          include_blank: false,
-      },
-      data: { 
-        placeholder: "Please select a union.",
-        url: unions_path
-      }, 
-      class: "ac-select2 form-control", 
-      style: "width: 100%;"
-    %>
-  </div>
-  <div class="form-group">
-    <%= f.label :taking_action %><br>
-    <%= f.check_box :taking_action, class: "switch", :data => { :size => 'small', 'on-text'=>'On', 'off-text'=>'Off', 'on-color'=>'danger'} %>
-  </div>
-  <div class="form-group">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, class: "form-control", placeholder: "Please describe the agreement e.g. Nestle Australia (Tongara Plant) And NUW Enterprise Agreement 2014" %>
-  </div>
   
   <div class="form-group">
-    <%= f.label :person_id %> <%=link_to "invite person", new_person_invitation_path, class: "small", :target => "_blank"%><br>
-    <%= f.select :person_id,
-      selected_option(@rec.person),
-      {
-          include_blank: false,
-      },
-      data: { 
-        placeholder: "Please nominate a contact person.",
-        url: people_path
-      }, 
-      class: "ac-select2 form-control", 
-      style: "width: 100%;"
-    %>
-  </div>
-
-  <!--
-  <div class="form-group">
-    <%= f.label :tags %><br>
-    <%= f.text_field :tags %>
-  </div>
-  -->
-  <div class="form-group">
-    <%= f.label :start_date %><br>
-    <%= f.date_select :start_date %>
-  </div>
-  <div class="form-group">
-    <%= f.label :end_date %><br>
-    <%= f.date_select :end_date %>
-  </div>
-  <div class="form-group">
-    <%= f.label :multi_site %><br>
-    <%= f.check_box :multi_site, class: "switch", :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
-  </div>
-  <div class="form-group">
-    <%= f.label :coverage %><br>
-    <%= f.text_area :coverage, class: "form-control", placeholder: "please detail the plant/sites and members being covered" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :nature_of_operation %><br>
-    <%= f.select :nature_of_operation,
-      nature_of_operation_options, 
+    <%= f.label :nature_of_employment %><br>
+    <%= f.select :nature_of_employment,
+      nature_of_employment_options, 
       {
           include_blank: true,
       },
       data: { 
-        placeholder: "Please select one or more operations, or add your own.",
+        placeholder: "What's the main form of employment you wish to tell us about?",
       }, 
-      multiple: true, 
-      class: "ac-select2-tags form-control", 
+      class: "ac-select2 form-control", 
       style: "width: 100%;"
     %>
   </div>
+
   <div class="form-group">
-    <%= f.label :grievance_handling %><br>
-    <%= f.check_box :grievance_handling, class: "switch", :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
+    <%= f.label :when %><br>
+    <%= f.text_area :when, class: "form-control" %>
   </div>
+
   <div class="form-group">
-    <%= f.label :grievance_handling_clause %><br>
-    <%= f.text_area :grievance_handling_clause, class: "form-control" %>
+    <%= f.label :financially_stable %><br>
+    <%= f.check_box :financially_stable, class: "switch", :data => default_switch_options %>
   </div>
+
   <div class="form-group">
-    <%= f.label :union_mandate %><br>
-    <%= f.check_box :union_mandate, class: "switch", :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
+    <%= f.label :financially_stable_comment %><br>
+    <%= f.text_area :financially_stable_comment, class: "form-control" %>
   </div>
+  
   <div class="form-group">
-    <%= f.label :union_mandate_clause %><br>
-    <%= f.text_area :union_mandate_clause, class: "form-control" %>
+    <%= f.label :accommodation_secure %><br>
+    <%= f.check_box :accommodation_secure, class: "switch", :data => default_switch_options %>
   </div>
+
+    <div class="form-group">
+    <%= f.label :accommodation_secure_comment %><br>
+    <%= f.text_area :accommodation_secure_comment, class: "form-control" %>
+  </div>
+
   <div class="form-group">
-    <%= f.label :anti_precariat %><br>
-    <%= f.check_box :anti_precariat, class: "switch", :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
+    <%= f.label :primary_carer %><br>
+    <%= f.check_box :primary_carer, class: "switch", :data => default_switch_options %>
   </div>
+
   <div class="form-group">
-    <%= f.label :anti_precariat_clause %><br>
-    <%= f.text_area :anti_precariat_clause, class: "form-control" %>
+    <%= f.label :primary_carer_comment %><br>
+    <%= f.text_area :primary_carer_comment, class: "form-control" %>
   </div>
+
   <div class="form-group">
-    <%= f.label :specific_rights %><br>
-    <%= f.check_box :specific_rights, class: "switch", :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
+    <%= f.label :strained_family_life %><br>
+    <%= f.check_box :strained_family_life, class: "switch", :data => default_switch_options %>
   </div>
+
   <div class="form-group">
-    <%= f.label :specific_rights_clause %><br>
-    <%= f.text_area :specific_rights_clause, class: "form-control" %>
+    <%= f.label :strained_family_life_comment %><br>
+    <%= f.text_area :strained_family_life_comment, class: "form-control" %>
   </div>
+
+  
   <div class="form-group">
-    <%= f.label :other_provisions %><br>
-    <%= f.text_area :other_provisions, class: "form-control" %>
+    <%= f.label :community_life %><br>
+    <%= f.check_box :community_life, class: "switch", :data => default_switch_options %>
   </div>
+
+  <div class="form-group">
+    <%= f.label :community_life_comment %><br>
+    <%= f.text_area :community_life_comment, class: "form-control" %>
+  </div>
+
+  
+  <div class="form-group">
+    <%= f.label :inflexible_hours %><br>
+    <%= f.check_box :inflexible_hours, class: "switch", :data => default_switch_options %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :inflexible_hours_comment %><br>
+    <%= f.text_area :inflexible_hours_comment, class: "form-control" %>
+  </div>
+
+  
+  <div class="form-group">
+    <%= f.label :prefer_full_time %><br>
+    <%= f.check_box :prefer_full_time, class: "switch", :data => default_switch_options %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :prefer_full_time_comment %><br>
+    <%= f.text_area :prefer_full_time_comment, class: "form-control" %>
+  </div>
+
+  
+  <div class="form-group">
+    <%= f.label :under_paid %><br>
+    <%= f.check_box :under_paid, class: "switch", :data => default_switch_options %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :under_paid_comment %><br>
+    <%= f.text_area :under_paid_comment, class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :not_paid %><br>
+    <%= f.check_box :not_paid, class: "switch", :data => default_switch_options %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :not_paid_comment %><br>
+    <%= f.text_area :not_paid_comment, class: "form-control" %>
+  </div>
+
+  
+  <div class="form-group">
+    <%= f.label :on_visa %><br>
+    <%= f.check_box :on_visa, class: "switch", :data => default_switch_options %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :on_visa_comment %><br>
+    <%= f.text_area :on_visa_comment, class: "form-control" %>
+  </div>
+
+  
+  <div class="form-group">
+    <%= f.label :poor_ohs %><br>
+    <%= f.check_box :poor_ohs, class: "switch", :data => default_switch_options %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :poor_ohs_comment %><br>
+    <%= f.text_area :poor_ohs_comment, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :noncompliant_employment %><br>
+    <%= f.check_box :noncompliant_employment, class: "switch", :data => default_switch_options %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :noncompliant_employment_comment %><br>
+    <%= f.text_area :noncompliant_employment_comment, class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :informally_employed %><br>
+    <%= f.check_box :informally_employed, class: "switch", :data => default_switch_options %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :informally_employed_comment %><br>
+    <%= f.text_area :informally_employed_comment, class: "form-control" %>
+  </div>
+    
+  <div class="form-group">
+    <%= f.label :is_union %><br>
+    <%= f.check_box :is_union, class: "switch", :data => default_switch_options %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :host_employer %><br>
+    <%= f.text_area :host_employer, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :location %><br>
+    <%= f.text_area :location, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :industry %><br>
+    <%= f.text_area :industry, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :solution %><br>
+    <%= f.text_area :solution, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :summary %><br>
+    <%= f.text_area :summary, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :is_anonymous %><br>
+    <%= f.check_box :is_anonymous, class: "switch", :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
+  </div>
+
   <div class="actions">
-    <%= f.submit value: "Save Agreement", class: "btn btn-default"%>
+    <%= f.submit value: "Save Submission", class: "btn btn-default"%>
   </div>
 <% end %>
