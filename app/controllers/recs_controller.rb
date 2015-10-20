@@ -1,5 +1,5 @@
 class RecsController < ApplicationController
-  before_action :authenticate_person!, except: [:index, :new]
+  before_action :authenticate_person!, except: [:index, :new, :create]
   before_action :set_rec, only: [:show, :edit, :update, :destroy, :follow]
   include RecsHelper
 
@@ -18,6 +18,8 @@ class RecsController < ApplicationController
   # GET /recs/new
   def new
     @rec = Rec.new
+    @rec.person = Person.new
+    @rec.union = @union
   end
 
   # GET /recs/1/edit
@@ -28,10 +30,10 @@ class RecsController < ApplicationController
   # POST /recs.json
   def create
     @rec = Rec.new(rec_params)
-
+    
     respond_to do |format|
       if @rec.save
-        format.html { redirect_to @rec, notice: 'Rec was successfully created.' }
+        format.html { redirect_to recs_url, notice: 'The submission was successfully created.' }
         format.json { render :show, status: :created, location: @rec }
       else
         format.html { render :new }
@@ -45,7 +47,7 @@ class RecsController < ApplicationController
   def update
     respond_to do |format|
       if @rec.update(rec_params)
-        format.html { redirect_to @rec, notice: 'Rec was successfully updated.' }
+        format.html { redirect_to @rec, notice: 'The submission was successfully updated.' }
         format.json { render :show, status: :ok, location: @rec }
       else
         format.html { render :edit }
@@ -59,7 +61,7 @@ class RecsController < ApplicationController
   def destroy
     @rec.destroy
     respond_to do |format|
-      format.html { redirect_to recs_url, notice: 'Rec was successfully destroyed.' }
+      format.html { redirect_to recs_url, notice: 'The submission was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -77,8 +79,61 @@ class RecsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rec_params
-      result = params.require(:rec).permit(:taking_action, :name, :tags, :start_date, :end_date, :attachment, :coverage, :union_id, :company_id, :person_id, :multi_site, :union_mandate, :union_mandate_clause, :anti_precariat, :anti_precariat_clause, :grievance_handling, :grievance_handling_clause, :other_provisions, :specific_rights, :specific_rights_clause, :nature_of_operation => [])
-      result['nature_of_operation'].delete("")
+      result = params.require(:rec).permit(
+        [
+          :nature_of_employment,
+          :when,
+          :formally_employed,
+          :formally_employed_comment,
+          :paid_fairly,
+          :paid_fairly_comment,
+          :compliant_employment,
+          :compliant_employment_comment,
+          :could_speak_up,
+          :could_speak_up_comment,
+          :secure_stay,
+          :secure_stay_comment,
+          :safe_work,
+          :safe_work_comment,
+          :predictable_hours,
+          :predictable_hours_comment,
+          :family_life,
+          :family_life_comment,
+          :primary_carer,
+          :primary_carer_comment,
+          :entitlements,
+          :entitlements_comment,
+          :financially_stable,
+          :financially_stable_comment,
+          :accommodation_secure,
+          :accommodation_secure_comment,
+          :community_life,
+          :community_life_comment,
+          :prefer_flexibility,
+          :prefer_flexibility_comment,
+          :is_union,
+          :host_employer,
+          :company,
+          :location,
+          :industry,
+          :supermarket_supply,
+          :advertised,
+          :solution,
+          :summary,
+          :is_anonymous,
+          :union_id,
+          person_attributes: [
+            :first_name, 
+            :last_name, 
+            :email, 
+            :mobile,
+            :attachment, 
+            :title, 
+            :address,
+            :id
+          ]
+        ]
+      )
       result
     end
 end

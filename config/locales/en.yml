@@ -27,7 +27,7 @@ en:
         when: Are you describing your current situation or a previous job.  If describing a previous job, how long ago was it?
         supermarket_supply: Were you making goods for sale in supermarkets?
         host_employer:  Which company was your host-employer i.e. who were you working for?
-        company:  Which company or individual was paying you?
+        company_name:  Which company or individual was paying you?
         industry: What industry were you working in?
         location: What was the nearest town/city to where you were working?
         financially_stable: "Could you comfortably pay your bills and buy food each week"
@@ -63,4 +63,7 @@ en:
         solution: If you were the premier of Victoria, what you would you do to fix the problem?
         summary: "Your Story - Please edit what you've told us into a story you are happy to share."
         advertised: "How did you find and get the job?"
-        is_anonymous: Do you want to submit your story anonymously to the inquiry
+        is_anonymous: Do you wish the inquiry to keep your submission anonymous?
+      person:
+        attachment: A picture of you or your family to accompany your story
+        title: Job title or description

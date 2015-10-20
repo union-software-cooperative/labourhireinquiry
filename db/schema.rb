@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019205144) do
+ActiveRecord::Schema.define(version: 20151020012706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,7 +139,6 @@ ActiveRecord::Schema.define(version: 20151019205144) do
     t.boolean  "entitlements"
     t.text     "entitlements_comment"
     t.string   "when"
-    t.string   "summary"
     t.boolean  "family_life"
     t.text     "family_life_comment"
     t.boolean  "predictable_hours"
@@ -161,6 +160,8 @@ ActiveRecord::Schema.define(version: 20151019205144) do
     t.string   "supermarket_supply"
     t.string   "string"
     t.string   "advertised"
+    t.string   "summary"
+    t.string   "company_name"
   end
 
   add_index "recs", ["company_id"], name: "index_recs_on_company_id", using: :btree

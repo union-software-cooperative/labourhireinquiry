@@ -5,17 +5,18 @@ class Rec < ActiveRecord::Base
 	belongs_to :union
 	belongs_to :person
 	has_many :posts, :as => :parent
-	
-	validates :name, :company, :union, :person, :end_date, presence: true
+	accepts_nested_attributes_for :person
 
-	after_initialize :set_defaults
+	#validates :union,  presence: true
+
+	after_initialize :set_switch_defaults
 
 	serialize :nature_of_operation, Array
 
 	acts_as_followable
 
 	def post_title
-		"Post your question or industrial action pics here"
+		"Post questions and supplementary information here"
 	end
 
 	def self.questions 
@@ -37,9 +38,13 @@ class Rec < ActiveRecord::Base
 		]
 	end
 
-	def set_defaults
+	def self.comments
+		
+	end
+
+	def set_switch_defaults
 		Rec.questions.each do |q|
-			write_attribute q, true
+			write_attribute q, true if self[q].nil?
 		end
 	end
 end

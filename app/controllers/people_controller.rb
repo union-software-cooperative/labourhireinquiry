@@ -30,9 +30,7 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(person_params)
     #TODO Temp until invite system is going, and this action is removed
-    @person.password = SecureRandom.uuid
-    @person.password_confirmation = @person.password
-
+    
     respond_to do |format|
       if @person.save
         format.html { redirect_to @person, notice: 'Person was successfully created.' }

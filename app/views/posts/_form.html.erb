@@ -1,3 +1,4 @@
+<hr/>
 <div class="post">
   <%= form_for(@post, :html => { class: "form"}) do |f| %>
     <% if @post.errors.any? %>
@@ -14,7 +15,7 @@
     <h3>
       <%=profile_thumb(current_person)%>
       <%=@post.parent.post_title%> 
-      <small><%=@post.parent.followers_count%> people are following...</small></h3>
+      <br/><small><%=@post.parent.followers_count%> people are following...</small></h3>
     <p>
       <div class="form_group">
         <%= f.file_field :attachment %>

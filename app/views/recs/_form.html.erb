@@ -64,8 +64,8 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :company %><br>
-    <%= f.text_field :company, class: "form-control" %>
+    <%= f.label :company_name %><br>
+    <%= f.text_field :company_name, class: "form-control" %>
   </div>
 
   <div class="form-group">
@@ -103,6 +103,47 @@
     <%= f.check_box :is_anonymous, class: "switch", :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
   </div>
 
+  <h3 style="margin-left: 0px;">Your details
+    <small>We may need to contact you for additional info.</small>
+  </h3>
+
+  <%= f.fields_for :person do |p| %>
+    <div class="form-group">
+      <%= p.label :attachment %><br>
+      <%= p.file_field :attachment, accept: 'image/jpeg,image/gif,image/png'  %>
+    </div>
+    <div class="form-group">
+      <%= p.label :first_name %><br>
+      <%= p.text_field :first_name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= p.label :last_name %><br>
+      <%= p.text_field :last_name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= p.label :title %><br>
+      <%= p.text_field :title, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= p.label :address %><br>
+      <%= p.text_area :address, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= p.label :mobile %><br>
+      <%= p.text_field :mobile, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= p.label :fax %><br>
+      <%= p.text_field :fax, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= p.label :email %><br>
+      <%= p.text_field :email, class: "form-control" %>
+    </div> 
+    <%=p.hidden_field :id %>
+  <% end %>
+
+  <%= f.hidden_field :union_id %>
   <div class="actions">
     <%= f.submit value: "Share your story", class: "btn btn-default"%>
   </div>
@@ -120,14 +161,14 @@
       <% end %>
     <% end %>
     
-    if ($('#rec_host_employer'))
+    if (!$('#rec_host_employer') === undefined)
       story += "  This happened at " + $("#rec_host_employer").val();
     
-    if ($('#rec_location'))
+    if (!$('#rec_location') === undefined)
       story += ", " + $("#rec_host_location").val();
     
-    if ($('#rec_company'))
-      story += " when I was employed by " + $("#rec_company").val() + ".  ";
+    if (!$('#rec_company_name') === undefined)
+      story += " when I was employed by " + $("#rec_company_name").val() + ".  ";
     
     if ($('#rec_supermarket_supply').bootstrapSwitch('state'))
       story += "I was making goods for sale in supermarkets.";

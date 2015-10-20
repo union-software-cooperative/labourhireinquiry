@@ -9,9 +9,9 @@ module RecsHelper
 		options_for_select(
 				([
 					'informally employed', 
-					'employed through labour hire agency',
+					'employed through a labour hire agency',
 					'contracting with an ABN but to one employer only',
-					'directly employed casual',
+					'a directly employed casual',
 					'on a rolling contract'
 					]).uniq, 
 				@rec.nature_of_employment
@@ -21,7 +21,7 @@ module RecsHelper
 	def when_options
 		options_for_select(
 				([
-					'current job', 
+					'in my current job', 
 					'less than 3 months ago',
 					'less than a year ago',
 					'more than a year ago'

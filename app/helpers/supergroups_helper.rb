@@ -31,6 +31,6 @@ module SupergroupsHelper
 	end
 
 	def banner_title
-		  link_to  @supergroup.name, "http://#{@supergroup.www}", data: {short_name: @supergroup.short_name, name: @supergroup.name}, class: "banner-link"
+		  link_to  @supergroup.name, "http://#{@supergroup.www}", data: {short_name: @supergroup.short_name + ' Submissions', name: @supergroup.name + ' Submissions'}, class: "banner-link"
 	end
 end

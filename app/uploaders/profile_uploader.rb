@@ -30,6 +30,10 @@ class ProfileUploader < AttachmentUploader
     process resize_and_crop: [40]
   end
 
+  version :quote do 
+    process resize_and_crop: [150]
+  end
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list

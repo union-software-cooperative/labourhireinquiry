@@ -4,6 +4,8 @@ class Person < ActiveRecord::Base
   devise :invitable, :database_authenticatable,# :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  before_validation :set_default_password, on: [:create]
+
   mount_uploader :attachment, ProfileUploader
   
   acts_as_follower
@@ -17,5 +19,10 @@ class Person < ActiveRecord::Base
 
   def display_name
   	"#{first_name} #{last_name}"
+  end
+
+  def set_default_password
+    self.password ||= SecureRandom.uuid
+    self.password_confirmation ||= self.password
   end
 end

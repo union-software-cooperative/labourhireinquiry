@@ -1,15 +1,8 @@
 
-<div class="row" style="margin-left:0px">
-  <div class="col-xs-4">
-    <%= render rec.company if rec.company %>
-    <%= render rec.union if rec.union %>
-  </div>
-  <div class="col-xs-3">
-    <%= I18n.l rec.end_date, :format => :long %>
-  </div>
-  <div class="col-xs-5">
-    <%= link_to "<span class='glyphicon glyphicon-paperclip'/>".html_safe, rec.attachment_url if rec.attachment_url%>
-    <%= link_to rec.name, rec %>
-  </div>
-</div>
-<hr/>
+<blockquote>
+  <%=profile_picture(rec.person)%> 
+  <p>
+    <%=rec.summary%>
+  </p>
+  <footer><%=rec.person.display_name%></footer>
+</blockquote>

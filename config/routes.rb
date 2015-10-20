@@ -12,6 +12,11 @@ Rails.application.routes.draw do
     member do
       get 'follow'
     end
+    resources :recs do
+      member do
+        get 'follow'
+      end
+    end
   end
   
   resources :people
