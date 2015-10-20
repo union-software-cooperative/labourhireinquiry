@@ -10,7 +10,7 @@ class Person < ActiveRecord::Base
   has_many :comments
 
   before_validation :set_default_password, on: [:create]
-  validates :union, presence: true
+  validates :union, :first_name, presence: true
 
   mount_uploader :attachment, ProfileUploader
   
