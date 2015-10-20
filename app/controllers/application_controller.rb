@@ -10,8 +10,4 @@ class ApplicationController < ActionController::Base
   def set_union
   	@union = Union.find(params[:union_id] || owner_union.id)
   end
-
-  def after_sign_in_path_for(current_person)
-  	edit_person_path current_person
-	end
 end
