@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(current_person)
-    request.referrer
+    request.referrer || root_path
   end
 end
