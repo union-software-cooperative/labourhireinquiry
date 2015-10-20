@@ -1,7 +1,36 @@
-<p id="notice"><%= notice %></p>
-<%= render @union %>
+<!--<p id="notice"><%= notice %></p>-->
+<div class="banner-placeholder">
+	<%= image_tag owner_union.banner.url, class: "banner-image"%>
+	<div class="row margin" style="background: #900; color: white;">
+		<div class="col-sm-7">
+			<div class="jumbotron">
+				<h1 class="text-left">LET'S BRING BACK SECURE JOBS</h1>
+				<p class="margins">
+					The Victorian government says they are determined to regulate labour hire and irradicate sham contracting.  They say they want an end to the exploitation of a growing number people in insecure jobs.  More than 40% of Australians have insecure jobs.  That's un-Australian.   Have your say and make them fix it!
+				</p>
+			</div>
+		</div>
+		<div class="col-sm-5">
+			<p class="text-right">
+				<%= link_to 'Exploited? Tell your story to the inquiry'.html_safe, new_rec_path, class: "btn btn-default new-button" %>
+			</p>
+			<p class="text-right">
+				<%= link_to 'Doing ok? Sign the petition', "http://www.megaphone.org.au", class: "btn btn-default new-button" %>
+			</p>
+			<p class="text-right">
+				<%= link_to 'Download the paper', "http://economicdevelopment.vic.gov.au/__data/assets/pdf_file/0015/1215411/9390-IRV-Inquiry-in-the-Labour-Hire-Industry-and-Insecure-Work-Brochure.pdf", class: "btn btn-default new-button" %>
+			</p>
+		</div>
+	</div>
+</div>
 
-<%= link_to 'New Submission', new_rec_path, class: "btn btn-default new-button" %>
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-3">
+		<h2 class="text-center">
+			Join the chorus of submissions before they close on the 27 November 2015
+				<%= link_to 'Tell your story to the inquiry'.html_safe, new_rec_path, class: "btn btn-default new-button" %>
+		</h2>
+	</div>
+</div>
 <%= render 'recs' %>
-<br>
 
