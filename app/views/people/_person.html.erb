@@ -1,0 +1,8 @@
+<span id="person">
+	<%=profile_logo(person)%>
+	<% if current_person.union.id == owner_union.id || current_person.union.id == person.union.id %>
+		<%=link_to person.display_name, edit_person_path(person)%>
+	<% else %>
+		<%=person.display_name%>
+	<% end %>
+</span>

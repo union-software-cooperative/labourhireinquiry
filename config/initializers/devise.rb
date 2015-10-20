@@ -12,7 +12,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = ENV['EMAIL_FROM']
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -124,7 +124,7 @@ Devise.setup do |config|
 
   # Flag that force a record to be valid before being actually invited
   # Default: false
-  # config.validate_on_invite = true
+  config.validate_on_invite = true
 
   # Resend invitation if user with invited status is invited again
   # Default: true
@@ -147,7 +147,7 @@ Devise.setup do |config|
   # Auto-login after the user accepts the invite. If this is false,
   # the user will need to manually log in after accepting the invite.
   # Default: false
-  # config.allow_insecure_sign_in_after_accept = true
+  config.allow_insecure_sign_in_after_accept = true
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without

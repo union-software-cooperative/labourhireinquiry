@@ -4,7 +4,13 @@ class Person < ActiveRecord::Base
   devise :invitable, :database_authenticatable,# :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  belongs_to :union
+  has_many :recs
+  has_many :posts
+  has_many :comments
+
   before_validation :set_default_password, on: [:create]
+  validates :union, presence: true
 
   mount_uploader :attachment, ProfileUploader
   
