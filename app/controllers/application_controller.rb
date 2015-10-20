@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(current_person)
-    request.referrer || root_path
+    unless request.referrer == new_person_session_url
+      request.referrer || root_path
+    else
+      root_path
+    end
   end
 end
