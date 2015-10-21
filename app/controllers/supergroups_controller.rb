@@ -25,6 +25,7 @@ class SupergroupsController < ApplicationController
   # GET /supergroups/new
   def new
     @supergroup = @klass.new
+    @supergroup.set_defaults_from_owner
   end
 
   # GET /supergroups/1/edit

@@ -1,6 +1,6 @@
 <!--<p id="notice"><%= notice %></p>-->
 <div class="banner-placeholder">
-	<%= image_tag @supergroup.banner.url, class: "banner-image"%>
+	<%= image_tag @supergroup.banner.url, class: "banner-image" if @supergroup.banner.url %>
 	<div id="banner-styler" class="row margin" style="background: <%=@supergroup.background_colour%>; color: <%=@supergroup.font_colour%>;">
 		<div class="col-sm-7">
 			<div class="jumbotron">
