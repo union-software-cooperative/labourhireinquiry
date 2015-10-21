@@ -19,6 +19,7 @@ class RecsController < ApplicationController
   def new
     @rec = Rec.new
     @rec.person = Person.new
+    @rec.person.union = @union
     @rec.union = @union
   end
 
@@ -79,6 +80,11 @@ class RecsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rec_params
+      if params[:rec] && params[:rec][:person_attributes] && params[:rec][:person_attributes][:union_id].nil?
+        # hack to save emma's first submision and workaround union_id bug
+        params[:rec][:person_attributes][:union_id] = params[:rec][:union_id]
+      end
+
       result = params.require(:rec).permit(
         [
           :nature_of_employment,
@@ -122,6 +128,7 @@ class RecsController < ApplicationController
           :summary,
           :is_anonymous,
           :union_id,
+          :company_name,
           person_attributes: [
             :first_name, 
             :last_name, 
@@ -129,7 +136,7 @@ class RecsController < ApplicationController
             :mobile,
             :attachment, 
             :title, 
-            :address,
+            :union_id,
             :id
           ]
         ]
