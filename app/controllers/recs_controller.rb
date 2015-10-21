@@ -9,6 +9,7 @@ class RecsController < ApplicationController
   # GET /recs.json
   def index
     @recs = Rec.all
+    @supergroup = @union # TODO is there a better way?
   end
 
   # GET /recs/1
