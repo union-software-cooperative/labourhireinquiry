@@ -2,10 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-1
-2
-3
-	
 resize = ->
 	if $("body").width() < 768
 		$('.banner-link').text($('.banner-link').data("short-name"))
@@ -16,6 +12,8 @@ $( window ).resize ->
 	resize()
 
 supergroup_ready = ->
+	alert('here')
+	#(".colorpicker").colorpicker()
 	resize()
 
 $(document).ready(supergroup_ready);

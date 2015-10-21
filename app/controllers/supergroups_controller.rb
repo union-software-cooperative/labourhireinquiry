@@ -89,6 +89,6 @@ class SupergroupsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def supergroup_params
       params[supergroup]['type'] = @klass.name
-      params.require(supergroup).permit(:name, :type, :www, :banner, :logo, :short_name)
+      params.require(supergroup).permit(:name, :type, :www, :banner, :logo, :short_name, :call_to_action, :explanation, :submissions_heading, :background_colour, :font_colour)
     end
 end

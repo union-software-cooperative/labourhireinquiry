@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020094041) do
+ActiveRecord::Schema.define(version: 20151021191404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -174,12 +174,17 @@ ActiveRecord::Schema.define(version: 20151020094041) do
     t.string   "name"
     t.string   "type"
     t.string   "www"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "banner"
     t.string   "logo"
     t.string   "short_name"
-    t.integer  "followers_count", default: 0
+    t.integer  "followers_count",     default: 0
+    t.string   "call_to_action"
+    t.text     "explanation"
+    t.string   "submissions_heading"
+    t.string   "background_colour"
+    t.string   "font_colour"
   end
 
   add_foreign_key "comments", "people"

@@ -17,6 +17,7 @@
 //= require select2
 //= require bootstrap-switch.min
 //= require bootstrap-filestyle.min
+//= require bootstrap-colorpicker.min
 //= require application_helpers
 //= require jquery-fileupload/basic
 //= require_tree .
