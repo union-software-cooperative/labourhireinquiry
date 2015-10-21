@@ -42,4 +42,21 @@ module ApplicationHelper
 			""
 		end 
 	end
+
+	def union_logo
+		if @union.logo.url
+			image_tag @union.logo.thumb.url
+		else
+			image_tag owner_union.logo.thumb.url 
+		end 	
+	end
+
+	def can_edit_union(union)
+		false
+		if current_person
+			if current_person.union.id == owner_union.id || current_person.union.id == union.id
+				true
+			end 
+		end
+	end
 end

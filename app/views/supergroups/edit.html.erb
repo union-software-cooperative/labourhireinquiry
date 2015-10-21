@@ -1,6 +1,46 @@
-<h1>Editing <%=supergroup.titlecase%></h1>
+<%= render 'title' %>
+<div class="row">
+	<div class="col-sm-3">
+		<%= link_to "embed options", edit_union_path(@supergroup), class: "btn btn-default margins" %>
+	</div>
+	<div class="col-sm-9">
+		<h1>
+			Editing <%=@supergroup.name%>
+		</h1>
+		<%= render 'form' %>
+	</div>
+</div>
 
-<%= render 'form' %>
 
-<%= link_to 'Show', @supergroup %> |
-<%= link_to 'Back', polymorphic_path(supergroups) %>
+
+  <script type="text/javascript">
+    var ready = function() {
+      $("#union_call_to_action").blur(function(){
+      		$("#call_to_action").html($("#union_call_to_action").val());
+      });
+
+      $("#union_explanation").blur(function(){
+      		$("#explanation").html($("#union_explanation").val());
+      });
+
+      $("#union_submissions_heading").blur(function(){
+      		$("#submissions_heading").html($("#union_submissions_heading").val());
+      });
+
+      $("#union_action1").blur(function(){
+      		$(".action1").html($("#union_action1").val());
+      });
+
+      $("#union_background_colour").blur(function(){
+      		$("#banner-styler").css("background-color", $("#union_background_colour").val());
+      		$("#submissions_heading").css("color", $("#union_background_colour").val());
+      });
+
+      $("#union_font_colour").blur(function(){
+      		$("#banner-styler").css("color", $("#union_font_colour").val());
+      });
+    };
+
+    $(document).ready(ready);
+    $(document).on('page:load', ready);
+  </script>

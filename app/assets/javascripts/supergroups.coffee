@@ -12,7 +12,7 @@ $( window ).resize ->
 	resize()
 
 supergroup_ready = ->
-	alert('here')
+	#alert('here')
 	#(".colorpicker").colorpicker()
 	resize()
 

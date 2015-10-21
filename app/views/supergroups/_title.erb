@@ -1,18 +1,25 @@
 <!--<p id="notice"><%= notice %></p>-->
 <div class="banner-placeholder">
 	<%= image_tag @supergroup.banner.url, class: "banner-image"%>
-	<div class="row margin" style="background: #900; color: white;">
+	<div id="banner-styler" class="row margin" style="background: <%=@supergroup.background_colour%>; color: <%=@supergroup.font_colour%>;">
 		<div class="col-sm-7">
 			<div class="jumbotron">
-				<h1 class="text-left"><%=@supergroup.call_to_action%></h1>
-				<p class="margins">
+				<h1 class="text-left">
+					<div id="call_to_action">
+						<%=@supergroup.call_to_action%>
+					<div>
+					<% if can_edit_union(@supergroup) %>
+						<%=link_to "<span class=\"glyphicon glyphicon-pencil\"></span>".html_safe, edit_polymorphic_path(@supergroup) %>
+					<% end %>
+				</h1>
+				<p id="explanation" class="margins">
 					<%=@supergroup.explanation%>
 				</p>
 			</div>
 		</div>
 		<div class="col-sm-5">
 			<p class="text-right">
-				<%= link_to @supergroup.action1, new_rec_path, class: "btn btn-default new-button" %>
+				<%= link_to @supergroup.action1, new_rec_path, class: "action1 btn btn-default new-button" %>
 			</p>
 			<!--
 			<p class="text-right">
@@ -28,8 +35,10 @@
 <div class="row">
 	<div class="col-sm-6 col-sm-offset-3">
 		<h2 class="text-center">
-			<%=@supergroup.submissions_heading%><br/>
-				<%= link_to @supergroup.action1, new_rec_path, class: "btn btn-default new-button" %>
+			<div id="submissions_heading" style="color: <%=@supergroup.background_colour%>">
+				<%=@supergroup.submissions_heading%><br/>
+			</div>
+				<%= link_to @supergroup.action1, new_rec_path, class: "action1 btn btn-default new-button" %>
 		</h2>
 	</div>
 </div>
