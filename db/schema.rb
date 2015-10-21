@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021191404) do
+ActiveRecord::Schema.define(version: 20151021203301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -185,6 +185,7 @@ ActiveRecord::Schema.define(version: 20151021191404) do
     t.string   "submissions_heading"
     t.string   "background_colour"
     t.string   "font_colour"
+    t.string   "action1"
   end
 
   add_foreign_key "comments", "people"

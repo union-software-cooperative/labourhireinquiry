@@ -1,7 +1,35 @@
-	<div class="banner-title">
-		<h1>
-			<%= logo_thumb(@supergroup) %>
-		  <%= banner_title %>
-		  <%= link_to pencil_button, edit_polymorphic_path(@supergroup) %>
-		</h1>
+<!--<p id="notice"><%= notice %></p>-->
+<div class="banner-placeholder">
+	<%= image_tag @supergroup.banner.url, class: "banner-image"%>
+	<div class="row margin" style="background: #900; color: white;">
+		<div class="col-sm-7">
+			<div class="jumbotron">
+				<h1 class="text-left"><%=@supergroup.call_to_action%></h1>
+				<p class="margins">
+					<%=@supergroup.explanation%>
+				</p>
+			</div>
+		</div>
+		<div class="col-sm-5">
+			<p class="text-right">
+				<%= link_to @supergroup.action1, new_rec_path, class: "btn btn-default new-button" %>
+			</p>
+			<!--
+			<p class="text-right">
+				<%= link_to 'Doing ok? Sign the petition', "http://www.megaphone.org.au", class: "btn btn-default new-button" %>
+			</p> -->
+			<p class="text-right">
+				<%= link_to 'Download the paper', "http://economicdevelopment.vic.gov.au/__data/assets/pdf_file/0015/1215411/9390-IRV-Inquiry-in-the-Labour-Hire-Industry-and-Insecure-Work-Brochure.pdf", class: "btn btn-default new-button" %>
+			</p>
+		</div>
 	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-3">
+		<h2 class="text-center">
+			<%=@supergroup.submissions_heading%><br/>
+				<%= link_to @supergroup.action1, new_rec_path, class: "btn btn-default new-button" %>
+		</h2>
+	</div>
+</div>
