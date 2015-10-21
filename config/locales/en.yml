@@ -61,7 +61,7 @@ en:
         is_union:  Were you a union member?
         is_union_comment:  What did the union do for casual members?
         solution: If you were the premier of Victoria, what you would you do to fix the problem?
-        summary: "Your Story - Please edit what you've told us into a story you are happy to share."
+        summary: "Please edit what you've told us into a story you are happy to share."
         advertised: "How did you find and get the job?"
         is_anonymous: Do you wish the inquiry to keep your submission anonymous?
       person:
