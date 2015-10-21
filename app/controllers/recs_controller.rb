@@ -1,6 +1,8 @@
 class RecsController < ApplicationController
-  before_action :authenticate_person!, except: [:index, :new, :create]
+  before_action :authenticate_person!, except: [:index, :new, :create, :review, :video_upload]
   before_action :set_rec, only: [:show, :edit, :update, :destroy, :follow]
+  before_action :set_rec_from_token, only: [:review, :video_upload]
+
   include RecsHelper
 
   # GET /recs
@@ -27,6 +29,20 @@ class RecsController < ApplicationController
   def edit
   end
 
+  # After posting a submission
+  def review
+  end
+
+  def video_upload
+    respond_to do |format|
+      if @rec.update(rec_params)
+        format.json { render json: { url: @rec.attachment.url, content_type: @rec.attachment.content_type} }
+      else
+        format.json { render json: @rec.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # POST /recs
   # POST /recs.json
   def create
@@ -34,7 +50,10 @@ class RecsController < ApplicationController
     
     respond_to do |format|
       if @rec.save
-        format.html { redirect_to recs_url, notice: 'The submission was successfully created.' }
+        # let unauthenticated users review with a temporary url
+        success_url = current_person ? rec_url(@rec.id)  : secured_review_rec_url
+    
+        format.html { redirect_to success_url, notice: 'The submission was successfully created.' }
         format.json { render :show, status: :created, location: @rec }
       else
         format.html { render :new }
@@ -76,6 +95,18 @@ class RecsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_rec
       @rec = Rec.find(params[:id])
+    end
+
+    # allow a user to review their submission after posting, without letting them guess at other URLs and review things they should
+    def secured_review_rec_url
+      token = SecureRandom.hex(4) # the token is only to keep the urls restful and to allow migration to a persisted token in future 
+      session[token] = @rec.id
+      review_rec_url(token)
+    end
+  
+    def set_rec_from_token
+      @token = params[:id]
+      @rec = Rec.find(session[@token])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -129,6 +160,7 @@ class RecsController < ApplicationController
           :is_anonymous,
           :union_id,
           :company_name,
+          :attachment,
           person_attributes: [
             :first_name, 
             :last_name, 

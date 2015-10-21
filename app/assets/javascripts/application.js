@@ -16,5 +16,7 @@
 //= require turbolinks
 //= require select2
 //= require bootstrap-switch.min
+//= require bootstrap-filestyle.min
 //= require application_helpers
+//= require jquery-fileupload/basic
 //= require_tree .

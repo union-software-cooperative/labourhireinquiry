@@ -1,3 +1,4 @@
+
 app_helper_ready = ->
 	$('input[type=file]').bind 'change', ->
 	  size_in_megabytes = Math.round(@files[0].size / 1024 / 1024)
@@ -39,3 +40,4 @@ app_helper_ready = ->
 
 $(document).ready(app_helper_ready);
 $(document).on('page:load', app_helper_ready);
+

@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :recs do
       member do
         get 'follow'
+        get 'review'
+        put 'video_upload'
       end
     end
   end
@@ -23,10 +25,12 @@ Rails.application.routes.draw do
   resources :recs do
     member do
       get 'follow'
+      get 'review'
+      patch 'video_upload'
     end
   end
 
-  resources :agreements, controller: :recs, type: 'Rec'
+  resources :submission, controller: :recs, type: 'Rec'
   root "recs#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -34,4 +34,12 @@ module ApplicationHelper
         options_for_select([[entity.name, entity.id]], entity.id) :
         []
 	end
+
+	def ios_video(attachment)
+		if %w[video/quicktime video/mov].include?(attachment.content_type)
+			"ios_video"
+		else
+			""
+		end 
+	end
 end
