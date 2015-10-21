@@ -83,7 +83,11 @@ class SupergroupsController < ApplicationController
     end
 
     def set_supergroup
-      @supergroup = @klass.find(params[:id])
+      if (Integer(params[:id]) rescue nil)
+        @supergroup = @klass.find(params[:id])
+      else
+        @supergroup = @klass.where("short_name ilike ?", params[:id].downcase).first
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -7,6 +7,7 @@ class Supergroup < ActiveRecord::Base
 
   has_many :posts, as: :parent
   validates :name, :short_name, presence: true
-
+  validates_uniqueness_of :short_name
+  
   acts_as_followable
 end
