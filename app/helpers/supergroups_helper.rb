@@ -1,5 +1,5 @@
 module SupergroupsHelper
-	
+
 	def supergroup
 		@klass.name.downcase
 	end

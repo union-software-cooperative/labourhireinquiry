@@ -1,13 +1,13 @@
 <div style="position:relative; float:right">
-<%= link_to current_person.follows?(@supergroup) ? "unfollow" : "follow", follow_polymorphic_path, class: "btn btn-primary supergroup-follow" %>	
+<%= link_to current_person.follows?(@supergroup) ? "unfollow" : "follow", follow_polymorphic_path, class: "btn btn-primary supergroup-follow" %>
 </div>
 <% if @supergroup.banner.present? %>
 	<div class="banner-placeholder">
-		<%=banner_image %>
-		<%=render 'show' %>
+		<%= banner_image %>
+		<%= render 'show' %>
 	</div>
 
 <% else %>
-	<%=render 'show' %>
+	<%= render 'show' %>
 <% end %>
 

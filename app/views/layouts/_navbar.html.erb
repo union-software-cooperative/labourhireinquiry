@@ -4,13 +4,13 @@
     <div class="navbar-header">
       <div class="navbar-brand" href="/">
         <a href="http://economicdevelopment.vic.gov.au/about-us/strategies-and-initiatives/inquiry-into-the-labour-hire-industry-and-insecure-work">
-          <img src="<%=image_path('Vic.png')%>"/>
+          <img src="<%= image_path('Vic.png') %>" />
         </a>
         <a href="http://www.vthc.org.au">
-          <img class="vthc-stamp" src="<%=image_path('VTHC logo.png')%>"/>
+          <img class="vthc-stamp" src="<%= image_path('VTHC logo.png') %>" />
         </a>
         <a href="/">
-          <%=ENV['APP_TITLE']%>
+          <%= ENV['APP_TITLE'] %>
         </a>
       </div>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -36,8 +36,8 @@
           </li>
           <li class="dropdown">
             <a class="dropdown-toggle" aria-expanded="false" area-haspopup="true" role="button" data-toggle="dropdown" href="#">
-              <%=profile_thumb(current_person)%>
-              <%=current_person.display_name%>
+              <%= profile_thumb(current_person)%>
+              <%= current_person.display_name%>
             </a>
             <ul class="dropdown-menu">
               <li>

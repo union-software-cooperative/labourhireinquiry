@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+union = Union.create( name: "National Union of Workers", www: "https://www.nuw.org.au/", short_name: "NUW" )
+user = Person.create( email: "admin@nuw.org.au", password: "temptemp", password_confirmation: "temptemp", first_name: "Admin", union: union )

@@ -1,11 +1,23 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+==== Installation
+
+You'll need to be running Ruby 2.2.3, if you don't have it already.
+
+For rbenv users, first make sure your ruby-build is up to date with 
+`cd ~/.rbenv/plugins/ruby-build` and `git pull`. Then you should be able 
+to run `rbenv install 2.2.3` without any problems.
+
+RVM instructions to come.
+
+With your version sorted, `git clone 
+https://github.com/union-software-cooperative/labourhireinquiry.git`.
+In the project directory, first set your `rbenv local 2.2.3`. Then 
+you're clear to run `bundle install`. You may need to first install
+Bundler with `gem install bundler` if yours was a fresh `ruby-2.2.3`
+installation.
 
 Things you may want to cover:
-
-* Ruby version
 
 * System dependencies
 
