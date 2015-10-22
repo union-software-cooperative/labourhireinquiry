@@ -55,7 +55,7 @@ class RecsController < ApplicationController
       if @rec.save
         # let unauthenticated users review with a temporary url
         success_url = current_person ? rec_url(@rec.id)  : secured_review_rec_url
-        success_url = secured_embed_review_rec_url
+        success_url = secured_embed_review_rec_url if params[:embed]
 
         format.html { redirect_to success_url, notice: 'The submission was successfully created.' }
         format.json { render :show, status: :created, location: @rec }
