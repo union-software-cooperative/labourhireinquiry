@@ -10,6 +10,7 @@ class RecsController < ApplicationController
   def index
     @recs = Rec.all
     @supergroup = @union # TODO is there a better way?
+    return render 'embed', layout: false if params[:embed]
   end
 
   # GET /recs/1
@@ -24,6 +25,7 @@ class RecsController < ApplicationController
     @rec.person = Person.new
     @rec.person.union = @union
     @rec.union = @union
+    return render 'embed_new', layout: false if params[:embed]
   end
 
   # GET /recs/1/edit
@@ -32,6 +34,7 @@ class RecsController < ApplicationController
 
   # After posting a submission
   def review
+      return render 'embed_review', layout: false if params[:embed]
   end
 
   def video_upload
@@ -53,11 +56,17 @@ class RecsController < ApplicationController
       if @rec.save
         # let unauthenticated users review with a temporary url
         success_url = current_person ? rec_url(@rec.id)  : secured_review_rec_url
-    
+        success_url = secured_embed_review_rec_url
+
         format.html { redirect_to success_url, notice: 'The submission was successfully created.' }
         format.json { render :show, status: :created, location: @rec }
       else
-        format.html { render :new }
+        if params[:embed]
+          result = render 'embed_new', layout: false 
+        else
+          result = render :new
+        end if 
+        format.html { result }
         format.json { render json: @rec.errors, status: :unprocessable_entity }
       end
     end
@@ -101,10 +110,17 @@ class RecsController < ApplicationController
     # allow a user to review their submission after posting, without letting them guess at other URLs and review things they should
     def secured_review_rec_url
       token = SecureRandom.hex(4) # the token is only to keep the urls restful and to allow migration to a persisted token in future 
-      session[token] = @rec.id
+      session[token] = rec.id
       review_rec_url(token)
     end
   
+    # allow a user to review their submission after posting, without letting them guess at other URLs and review things they should
+    def secured_embed_review_rec_url
+      @token = SecureRandom.hex(4) # the token is only to keep the urls restful and to allow migration to a persisted token in future 
+      session[@token] = @rec.id
+      "/embed/#{@union.id}/review/#{@token}"
+    end
+
     def set_rec_from_token
       @token = params[:id]
       @rec = Rec.find(session[@token])

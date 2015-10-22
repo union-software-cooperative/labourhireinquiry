@@ -8,6 +8,12 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/embed/:union_id' => 'recs#index', embed: true
+  get '/embed/:union_id/new' => 'recs#new', embed: true
+  #patch '/embed/:union_id/create' => 'recs#create'
+  get '/embed/:union_id/review/:id' => 'recs#review', embed: true
+  #patch '/embed/:union_id/file_upload' => 'recs#file_upload'
+  
   resources :unions, controller: :supergroups, type: 'Union' do
     member do
       get 'follow'
@@ -20,7 +26,7 @@ Rails.application.routes.draw do
       end
     end
   end
-  
+
   resources :people
   resources :recs do
     member do
