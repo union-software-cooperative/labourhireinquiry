@@ -8,9 +8,8 @@ class RecsController < ApplicationController
   # GET /recs
   # GET /recs.json
   def index
-    @recs = Rec.all
+    @recs = Rec.all.eager_load(:person)
     @supergroup = @union # TODO is there a better way?
-    return render 'embed', layout: false if params[:embed]
   end
 
   # GET /recs/1

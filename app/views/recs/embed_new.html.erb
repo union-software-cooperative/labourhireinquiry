@@ -1,6 +1,12 @@
 <%= stylesheet_link_tag    'application', media: 'all' %>
 <%= javascript_include_tag 'application' %>
-  
+<!-- TODO find where 100% height is coming from, causing switches to get tall -->
+<style type="text/css">
+     .bootstrap-switch .bootstrap-switch-handle-off, .bootstrap-switch .bootstrap-switch-handle-on, .bootstrap-switch .bootstrap-switch-label {
+       height: inherit;
+     }
+</style>
+
 <div style="margin-bottom:3em;">
 	<h3 class='text-center'>We're going to prompt you with a series a questions the inquiry is looking to have answered</h3> 
 

@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(current_person)
-    unless request.referrer == new_person_session_url
+    unless request.referrer.include?(new_person_session_url)
       request.referrer || root_path
     else
       root_path

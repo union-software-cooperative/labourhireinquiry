@@ -11,5 +11,5 @@
    </video>
   </p>
 
-  <footer><%=rec.person.display_name%></footer>
+  <footer><%=rec.person.display_name%><%=link_to "<span class=\"glyphicon glyphicon-pencil\"></span>".html_safe, rec_path(rec) if current_person %></footer>
 </blockquote>
