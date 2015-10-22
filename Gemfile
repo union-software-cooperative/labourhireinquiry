@@ -43,6 +43,8 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'spring-commands-rspec'
   gem 'spring-commands-cucumber'
+
+
 end
 
 group :test do
@@ -81,3 +83,5 @@ gem "figaro"
 gem "socialization"
 
 gem "puma"
+
+gem 'bootstrap-colorpicker-rails'

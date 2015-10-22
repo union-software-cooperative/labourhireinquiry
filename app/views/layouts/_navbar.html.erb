@@ -3,14 +3,15 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <div class="navbar-brand" href="/">
+        <!--
         <a href="http://economicdevelopment.vic.gov.au/about-us/strategies-and-initiatives/inquiry-into-the-labour-hire-industry-and-insecure-work">
-          <img src="<%= image_path('Vic.png') %>" />
+          <img src="<%=image_path('Vic.png')%>"/>
+        </a>-->
+        <a href="http://<%=@union.www%>">
+          <%=union_logo%>
         </a>
-        <a href="http://www.vthc.org.au">
-          <img class="vthc-stamp" src="<%= image_path('VTHC logo.png') %>" />
-        </a>
-        <a href="/">
-          <%= ENV['APP_TITLE'] %>
+        <a href="<%union_recs_path(@union)%>">
+          <%=ENV['APP_TITLE']%>
         </a>
       </div>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">

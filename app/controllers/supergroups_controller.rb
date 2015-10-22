@@ -25,6 +25,7 @@ class SupergroupsController < ApplicationController
   # GET /supergroups/new
   def new
     @supergroup = @klass.new
+    @supergroup.set_defaults_from_owner
   end
 
   # GET /supergroups/1/edit
@@ -83,12 +84,16 @@ class SupergroupsController < ApplicationController
     end
 
     def set_supergroup
-      @supergroup = @klass.find(params[:id])
+      if (Integer(params[:id]) rescue nil)
+        @supergroup = @klass.find(params[:id])
+      else
+        @supergroup = @klass.where("short_name ilike ?", params[:id].downcase).first
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def supergroup_params
       params[supergroup]['type'] = @klass.name
-      params.require(supergroup).permit(:name, :type, :www, :banner, :logo, :short_name)
+      params.require(supergroup).permit(:name, :type, :www, :banner, :logo, :short_name, :call_to_action, :explanation, :submissions_heading, :background_colour, :font_colour, :action1)
     end
 end

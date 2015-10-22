@@ -8,7 +8,14 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
 
   def set_union
-  	@union = Union.find(params[:union_id] || owner_union.id)
+    id = params[:union_id] || (params[:controller]=="supergroups" ? params[:id] : nil) 
+    id ||= owner_union.id
+    
+    if (Integer(id) rescue nil)
+      @union = Supergroup.find(id)
+    else
+      @union = Supergroup.where("short_name ilike ?",id.downcase).first
+    end
   end
 
   def after_sign_in_path_for(current_person)

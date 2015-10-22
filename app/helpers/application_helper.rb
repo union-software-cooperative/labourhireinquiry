@@ -34,4 +34,29 @@ module ApplicationHelper
         options_for_select([[entity.name, entity.id]], entity.id) :
         []
 	end
+
+	def ios_video(attachment)
+		if %w[video/quicktime video/mov].include?(attachment.content_type)
+			"ios_video"
+		else
+			""
+		end 
+	end
+
+	def union_logo
+		if @union.logo.url
+			image_tag @union.logo.thumb.url
+		else
+			image_tag owner_union.logo.thumb.url 
+		end 	
+	end
+
+	def can_edit_union(union)
+		false
+		if current_person
+			if current_person.union.id == owner_union.id || current_person.union.id == union.id
+				true
+			end 
+		end
+	end
 end
