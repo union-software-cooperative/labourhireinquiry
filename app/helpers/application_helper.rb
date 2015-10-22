@@ -43,6 +43,10 @@ module ApplicationHelper
 		end 
 	end
 
+	def owner?
+		current_person.union.id == owner_union.id
+	end
+
 	def union_logo
 		if @union.logo.url
 			image_tag @union.logo.thumb.url
