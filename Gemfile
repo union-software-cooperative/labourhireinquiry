@@ -83,5 +83,3 @@ gem "figaro"
 gem "socialization"
 
 gem "puma"
-
-gem 'bootstrap-colorpicker-rails'

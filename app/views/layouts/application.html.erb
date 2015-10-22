@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title><%=ENV['APP_TITLE']%></title>
+	<title><%=ENV['APP_TITLE']%></title>
 
-  <!-- Google fonts -->
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<!-- Google fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render "layouts/navbar" %>
-<div class="container-fluid content-area">
-	<%= yield %>
-</div>
-
+	<%= render "layouts/navbar" %>
+	<div class="container-fluid content-area">
+		<%= yield %>
+	</div>
 </body>
 </html>

@@ -3,16 +3,8 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <div class="navbar-brand" href="/">
-        <!--
-        <a href="http://economicdevelopment.vic.gov.au/about-us/strategies-and-initiatives/inquiry-into-the-labour-hire-industry-and-insecure-work">
-          <img src="<%=image_path('Vic.png')%>"/>
-        </a>-->
-        <a href="http://<%=@union.www%>">
-          <%=union_logo%>
-        </a>
-        <a href="<%union_recs_path(@union)%>">
-          <%=ENV['APP_TITLE']%>
-        </a>
+        <%= link_to union_logo, union_path(@union) %>
+        <%= link_to ENV['APP_TITLE'], root_path %>
       </div>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -42,10 +34,13 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <%= link_to "my profile", edit_person_path(id:current_person.id) %>
+                <%= link_to "my profile", edit_person_path(id: current_person.id) %>
               </li>
-              <li><%= link_to "invite someone", new_person_invitation_path %></li>
-              <li><%= link_to "sign out", destroy_person_session_path, :method=>'delete' %>
+              <li>
+                <%= link_to "invite someone", new_person_invitation_path %>
+              </li>
+              <li>
+                <%= link_to "sign out", destroy_person_session_path, :method => 'delete' %>
               </li>
             </ul>
           </li>

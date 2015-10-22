@@ -1,10 +1,6 @@
 <p id="notice"><%= notice %></p>
-<div class="margins">
-  <div class="row">
-    <%= link_to current_person.follows?(@rec) ? "unfollow" : "follow", follow_rec_path(@rec), class: "btn btn-primary btn-follow-rec" %>
-    <%=render @rec %>
-  </div>
-</div>
-<%=render partial: 'posts/form' %>
-<%=render @rec.posts %>
+<%= link_to current_person.follows?(@rec) ? "unfollow" : "follow", follow_rec_path(@rec), class: "btn btn-primary btn-follow-rec" %>
+<%= render @rec %>
+<%= render partial: 'posts/form' %>
+<%= render @rec.posts %>
 

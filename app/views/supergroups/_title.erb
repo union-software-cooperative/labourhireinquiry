@@ -1,44 +1,32 @@
 <!--<p id="notice"><%= notice %></p>-->
 <div class="banner-placeholder">
-	<%= image_tag @supergroup.banner.url, class: "banner-image" if @supergroup.banner.url %>
-	<div id="banner-styler" class="row margin" style="background: <%=@supergroup.background_colour%>; color: <%=@supergroup.font_colour%>;">
-		<div class="col-sm-7">
-			<div class="jumbotron">
-				<h1 class="text-left">
-					<div id="call_to_action">
-						<%=@supergroup.call_to_action%>
-					<div>
-					<% if can_edit_union(@supergroup) %>
-						<%=link_to "<span class=\"glyphicon glyphicon-pencil\"></span>".html_safe, edit_polymorphic_path(@supergroup) %>
-					<% end %>
-				</h1>
-				<p id="explanation" class="margins">
-					<%=@supergroup.explanation%>
-				</p>
-			</div>
-		</div>
-		<div class="col-sm-5">
-			<p class="text-right">
-				<%= link_to @supergroup.action1, new_union_rec_path(@union.id), class: "action1 btn btn-default new-button" %>
-			</p>
-			<!--
-			<p class="text-right">
-				<%= link_to 'Doing ok? Sign the petition', "http://www.megaphone.org.au", class: "btn btn-default new-button" %>
-			</p> -->
-			<p class="text-right">
-				<%= link_to 'Download the paper', "http://economicdevelopment.vic.gov.au/__data/assets/pdf_file/0015/1215411/9390-IRV-Inquiry-in-the-Labour-Hire-Industry-and-Insecure-Work-Brochure.pdf", class: "btn btn-default new-button" %>
-			</p>
-		</div>
-	</div>
+  <%= image_tag @supergroup.banner.url, class: "banner-image" if @supergroup.banner.url %>
+  <div id="banner-styler" style="background: <%=@supergroup.background_colour%>; color: <%= @supergroup.font_colour %>;">
+    <div class="jumbotron inverted">
+      <hgroup>
+        <h1 id="call_to_action">
+          <%= @supergroup.call_to_action %>
+          <% if can_edit_union(@supergroup) %>
+            <%= link_to "<span class=\"glyphicon glyphicon-pencil\"></span>".html_safe, edit_polymorphic_path(@supergroup) %>
+          <% end %>
+        </h1>
+        <h4 id="explanation">
+          <%= @supergroup.explanation %>
+        </h4>
+      </hgroup>
+      <p class="text-right">
+        <%= link_to @supergroup.action1, new_union_rec_path(@union.id), class: "action1 btn btn-default" %>
+      </p>
+      <p class="text-right">
+        <%= link_to 'Download the paper', "http://economicdevelopment.vic.gov.au/__data/assets/pdf_file/0015/1215411/9390-IRV-Inquiry-in-the-Labour-Hire-Industry-and-Insecure-Work-Brochure.pdf", class: "btn btn-default" %>
+      </p>
+    </div>
+  </div>
 </div>
 
-<div class="row">
-	<div class="col-sm-6 col-sm-offset-3">
-		<h2 class="text-center">
-			<div id="submissions_heading" style="color: <%=@supergroup.background_colour%>">
-				<%=@supergroup.submissions_heading%><br/>
-			</div>
-				<%= link_to @supergroup.action1, new_union_rec_path(@union.id), class: "action1 btn btn-default new-button" %>
-		</h2>
-	</div>
-</div>
+<h2 class="text-center">
+  <div id="submissions_heading" style="color: <%= @supergroup.background_colour %>">
+    <%= @supergroup.submissions_heading %><br/>
+  </div>
+    <%= link_to @supergroup.action1, new_union_rec_path(@union.id), class: "action1 btn btn-default" %>
+</h2>
