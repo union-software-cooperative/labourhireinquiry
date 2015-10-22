@@ -145,7 +145,7 @@
   <div class="actions">
     <%= f.submit value: "Share your story", class: "btn btn-default"%>
   </div>
-  <%= hidden_field_tag 'embed', true %>
+  <%= hidden_field_tag 'embed', params[:embed] %>
 <% end %>
 
 <script type='text/javascript'>
