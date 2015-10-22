@@ -1,0 +1,16 @@
+<%= stylesheet_link_tag    'application', media: 'all' %>
+<%= javascript_include_tag 'application' %>
+  
+
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-3">
+		<h2 class="text-center">
+			<div id="submissions_heading" style="color: <%=@supergroup.background_colour%>">
+				<%=@supergroup.submissions_heading%><br/>
+			</div>
+				<%= link_to @supergroup.action1, "/embed/#{@supergroup.short_name}/new", class: "action1 btn btn-default new-button" %>
+		</h2>
+	</div>
+</div>
+
+<%= render 'recs/recs' %>

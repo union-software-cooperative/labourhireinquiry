@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/embed/:union_id' => 'recs#index', embed: true
+  get '/embed/:id' => 'supergroups#show', type: 'Union', embed: true
   get '/embed/:union_id/new' => 'recs#new', embed: true
   #patch '/embed/:union_id/create' => 'recs#create'
   get '/embed/:union_id/review/:id' => 'recs#review', embed: true

@@ -1,5 +1,5 @@
 class SupergroupsController < ApplicationController
-  
+  before_action :authenticate_person!, except: [:show]
   before_action :set_klass
   before_action :set_supergroup, only: [:show, :edit, :update, :destroy, :follow]
 
@@ -19,7 +19,8 @@ class SupergroupsController < ApplicationController
   # GET /supergroups/1.json
   def show
     @post = Post.new(parent: @supergroup)
-    @recs = Rec.where(["#{@klass}_id=?", @supergroup.id])
+    @recs = Rec.eager_load(:person).where(["recs.#{@klass}_id=?", @supergroup.id])
+    return render 'embed', layout: false if params[:embed]
   end
 
   # GET /supergroups/new

@@ -7,5 +7,5 @@
 		Your browser doesn't support HTML 5 video
 	</video>
 
-	<footer><cite><%= rec.person.display_name %></cite></footer>
+	<footer><cite><%= rec.person.display_name %></cite> <%=link_to "<span class=\"glyphicon glyphicon-pencil\"></span>".html_safe, rec_path(rec) if current_person %></footer>
 </blockquote>
