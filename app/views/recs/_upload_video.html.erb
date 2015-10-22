@@ -2,7 +2,7 @@
         <div class="upload-feedback">
         </div>
         
-        <%= form_for(@rec, url: video_upload_rec_path(@token), :html => { multipart: true, id: 'fileupload',  class: "form", display: "none"}) do |f| %>
+        <%= form_for(@rec, url: video_upload_rec_path(@token || @rec.id), :html => { multipart: true, id: 'fileupload',  class: "form", display: "none"}) do |f| %>
           <!-- requires javascript to switch on, for jquery file upload -->      
           <div class="bar-border" style="display:none; border-radius: 3px; border: 1px solid #aaa;width:100%; height:7px;">
             <div class="bar" style=" background-color: green; height: 6px; width:0%;"></div>
