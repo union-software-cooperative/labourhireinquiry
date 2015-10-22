@@ -1,34 +1,34 @@
 <!--<p id="notice"><%= notice %></p>-->
 <div class="banner-placeholder">
-	<% if owner_union.banner.present? %>
-		<%= image_tag owner_union.banner.url, class: "banner-image"%>
-	<% end %>
-	<div class="row inverted">
-		<div class="jumbotron">
-			<hgroup>
-				<h1 class="text-left">LET'S BRING BACK SECURE JOBS</h1>
-				<h3 class="text-left">
-					The Victorian government says they are determined to regulate labour hire and eradicate sham contracting.  They say they want an end to the exploitation of a growing number of people in insecure jobs. More than 40% of Australians have insecure jobs. That's un-Australian. Have your say and make them fix it!
-				</h3>
-			</hgroup>
-		</div>
-		<p class="text-right">
-			<%= link_to 'Exploited? Tell your story to the inquiry'.html_safe, new_rec_path, class: "btn btn-default new-button" %>
-		</p>
-		<p class="text-right">
-			<%= link_to 'Doing ok? Sign the petition', "http://www.megaphone.org.au", class: "btn btn-default new-button" %>
-		</p>
-		<p class="text-right">
-			<%= link_to 'Download the paper', "http://economicdevelopment.vic.gov.au/__data/assets/pdf_file/0015/1215411/9390-IRV-Inquiry-in-the-Labour-Hire-Industry-and-Insecure-Work-Brochure.pdf", class: "btn btn-default new-button" %>
-		</p>
-	</div>
+  <% if owner_union.banner.present? %>
+    <%= image_tag owner_union.banner.url, class: "banner-image"%>
+  <% end %>
+  <div class="container-fluid inverted">
+    <div class="jumbotron">
+      <hgroup>
+        <h1>LET'S BRING BACK SECURE JOBS</h1>
+        <h3>
+          The Victorian government says they are determined to regulate labour hire and eradicate sham contracting. They say they want an end to the exploitation of a growing number of people in insecure jobs. More than 40% of Australians have insecure jobs. That's un-Australian. Have your say and make them fix it!
+        </h3>
+      </hgroup>
+    </div>
+    <p class="text-right">
+      <%= link_to 'Exploited? Tell your story to the inquiry'.html_safe, new_rec_path, class: "btn btn-default new-button" %>
+    </p>
+    <p class="text-right">
+      <%= link_to 'Doing ok? Sign the petition', "http://www.megaphone.org.au", class: "btn btn-default new-button" %>
+    </p>
+    <p class="text-right">
+      <%= link_to 'Download the paper', "http://economicdevelopment.vic.gov.au/__data/assets/pdf_file/0015/1215411/9390-IRV-Inquiry-in-the-Labour-Hire-Industry-and-Insecure-Work-Brochure.pdf", class: "btn btn-default new-button" %>
+    </p>
+  </div>
 </div>
 
 <div class="row">
-	<h2 class="text-center">
-		Join the chorus of submissions before they close on the 27 November 2015 <br/>
-			<%= link_to 'Tell your story to the inquiry'.html_safe, new_rec_path, class: "btn btn-default new-button" %>
-	</h2>
+  <h2 class="text-center">
+    Join the chorus of submissions before they close on the 27 November 2015 <br/>
+      <%= link_to 'Tell your story to the inquiry'.html_safe, new_rec_path, class: "btn btn-default new-button" %>
+  </h2>
 </div>
 <%= render 'recs' %>
 

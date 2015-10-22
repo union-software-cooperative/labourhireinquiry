@@ -1,8 +1,7 @@
-
 <blockquote>
-  <%=profile_picture(rec.person)%> 
+  <%= profile_picture(rec.person) %>
   <p>
-    <%=rec.summary%>
+    <%= rec.summary %>
   </p>
-  <footer><%=rec.person.display_name%></footer>
+  <footer><cite><%= rec.person.display_name %></cite></footer>
 </blockquote>

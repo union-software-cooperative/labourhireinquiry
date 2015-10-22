@@ -1,17 +1,10 @@
 <p id="notice"><%= notice %></p>
-
-  <div class="margins">
-    <div class="row">
-      <div class="col-sm-6 col-sm-offset-3">
-        <div style="position:relative; float:right">
-        </div>
-        <%=render @rec %>
-      </div>
-      <div class="col-sm-1">
-        <%= link_to current_person.follows?(@rec) ? "unfollow" : "follow", follow_rec_path(@rec), class: "btn btn-primary rec-follow" %>
-      </div>
-    </div>
+<div class="margins">
+  <div class="row">
+    <%= link_to current_person.follows?(@rec) ? "unfollow" : "follow", follow_rec_path(@rec), class: "btn btn-primary btn-follow-rec" %>
+    <%=render @rec %>
   </div>
-  <%=render partial: 'posts/form' %>
-  <%=render @rec.posts %>
+</div>
+<%=render partial: 'posts/form' %>
+<%=render @rec.posts %>
 

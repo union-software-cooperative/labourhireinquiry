@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 .jumbotron {
   background-color: transparent !important;
   padding-top: 0px !important;
@@ -10,7 +9,7 @@
 }
 
 .bootstrap-switch-id-rec_taking_action {
-	float:right;
+  float: right;
 }
 
 .rec {
@@ -26,18 +25,10 @@
 }
 
 .new-button {
-	margin: 15px;
-	margin-bottom: 15px !important;
+  margin: 15px;
+  margin-bottom: 15px !important;
 }
 
 .rec h1, .rec h2, .rec h3 {
-	margin-left: 0px !important;
-}
-
-.rec-follow a:link,
-.rec-follow a:visited,
-.rec-follow a:hover,
-.rec-follow a:focus,
-.rec-follow a:active {
-    color: white !important;
+  margin-left: 0px !important;
 }
