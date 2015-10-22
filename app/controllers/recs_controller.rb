@@ -110,15 +110,15 @@ class RecsController < ApplicationController
     # allow a user to review their submission after posting, without letting them guess at other URLs and review things they should
     def secured_review_rec_url
       token = SecureRandom.hex(4) # the token is only to keep the urls restful and to allow migration to a persisted token in future 
-      session[token] = rec.id
+      session[token] = @rec.id
       review_rec_url(token)
     end
   
     # allow a user to review their submission after posting, without letting them guess at other URLs and review things they should
     def secured_embed_review_rec_url
-      @token = SecureRandom.hex(4) # the token is only to keep the urls restful and to allow migration to a persisted token in future 
-      session[@token] = @rec.id
-      "/embed/#{@union.id}/review/#{@token}"
+      token = SecureRandom.hex(4) # the token is only to keep the urls restful and to allow migration to a persisted token in future 
+      session[token] = @rec.id
+      "/embed/#{@union.id}/review/#{token}"
     end
 
     def set_rec_from_token
