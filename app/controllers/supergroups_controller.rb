@@ -1,8 +1,9 @@
 class SupergroupsController < ApplicationController
   before_action :authenticate_person!, except: [:show]
+  skip_before_action :authenticate_person!, if: :ok_to_skip_authentication
   before_action :set_klass
   before_action :set_supergroup, only: [:show, :edit, :update, :destroy, :follow]
-
+  
   include SupergroupsHelper
   
   # GET /supergroups
@@ -96,5 +97,9 @@ class SupergroupsController < ApplicationController
     def supergroup_params
       params[supergroup]['type'] = @klass.name
       params.require(supergroup).permit(:name, :type, :www, :banner, :logo, :short_name, :call_to_action, :explanation, :submissions_heading, :background_colour, :font_colour, :action1)
+    end
+
+    def ok_to_skip_authentication
+      action_name=='index'  && (request.format.json?)
     end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021203301) do
+ActiveRecord::Schema.define(version: 20151023052419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20151021203301) do
     t.string   "last_name"
     t.string   "attachment"
     t.integer  "union_id"
+    t.string   "gender"
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true, using: :btree
@@ -116,21 +117,17 @@ ActiveRecord::Schema.define(version: 20151021203301) do
     t.string   "name"
     t.string   "tags"
     t.string   "attachment"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.integer  "company_id"
     t.integer  "union_id"
     t.integer  "person_id"
-    t.integer  "followers_count",              default: 0
+    t.integer  "followers_count",            default: 0
     t.string   "nature_of_employment"
     t.boolean  "financially_stable"
-    t.text     "financially_stable_comment"
     t.boolean  "accommodation_secure"
-    t.text     "accommodation_secure_comment"
     t.boolean  "primary_carer"
-    t.text     "primary_carer_comment"
     t.boolean  "community_life"
-    t.text     "community_life_comment"
     t.text     "is_anonymous"
     t.boolean  "is_union"
     t.text     "host_employer"
@@ -139,31 +136,26 @@ ActiveRecord::Schema.define(version: 20151021203301) do
     t.text     "solution"
     t.string   "publish"
     t.boolean  "entitlements"
-    t.text     "entitlements_comment"
     t.string   "when"
-    t.boolean  "family_life"
-    t.text     "family_life_comment"
     t.boolean  "predictable_hours"
-    t.text     "predictable_hours_comment"
     t.boolean  "compliant_employment"
-    t.text     "compliant_employment_comment"
-    t.boolean  "formally_employed"
-    t.text     "formally_employed_comment"
-    t.boolean  "prefer_flexibility"
-    t.text     "prefer_flexibility_comment"
     t.boolean  "paid_fairly"
-    t.text     "paid_fairly_comment"
-    t.boolean  "secure_stay"
-    t.text     "secure_stay_comment"
     t.boolean  "safe_work"
-    t.text     "safe_work_comment"
     t.boolean  "could_speak_up"
     t.text     "could_speak_up_comment"
     t.string   "supermarket_supply"
     t.string   "string"
-    t.string   "advertised"
     t.string   "summary"
     t.string   "company_name"
+    t.text     "pay_and_conditions_comment"
+    t.boolean  "safe_work_explained"
+    t.boolean  "hsr_explained"
+    t.text     "health_and_safety_comment"
+    t.text     "personal_impact_comment"
+    t.boolean  "feeling_secure"
+    t.text     "financial_security_comment"
+    t.boolean  "options"
+    t.text     "feeling_trapped_comment"
   end
 
   add_index "recs", ["company_id"], name: "index_recs_on_company_id", using: :btree
@@ -174,8 +166,8 @@ ActiveRecord::Schema.define(version: 20151021203301) do
     t.string   "name"
     t.string   "type"
     t.string   "www"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "banner"
     t.string   "logo"
     t.string   "short_name"
@@ -186,6 +178,7 @@ ActiveRecord::Schema.define(version: 20151021203301) do
     t.string   "background_colour"
     t.string   "font_colour"
     t.string   "action1"
+    t.boolean  "enabled",             default: false
   end
 
   add_foreign_key "comments", "people"
