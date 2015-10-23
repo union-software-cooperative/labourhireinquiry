@@ -88,3 +88,15 @@
     <%= f.submit class: "btn btn-default" %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  function configure_url_display() {
+    $("#union_urls").html("");
+    $("#union_urls").append("<li>"+ window.location.origin + "/unions/" + $("#union_short_name").val()+"</li>");
+    $("#union_urls").append("<li>"+ window.location.origin + "/embed/" + $("#union_short_name").val()+"</li>");
+    $("#union_urls").append("<li>"+ window.location.origin + "/embed/" + $("#union_short_name").val()+"/new</li>");
+  }
+<% if @supergroup.enabled %>  
+  configure_url_display();
+<% end %>
+</script>
