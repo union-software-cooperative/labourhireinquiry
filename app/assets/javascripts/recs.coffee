@@ -2,17 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-ready = ->
-  
-  $('.switch').bootstrapSwitch
-    onSwitchChange: (e, data)->
-      if data
-        $('#'+e.currentTarget.id+'_comment').parent().hide()  
-      else
-        $('#'+e.currentTarget.id+'_comment').parent().show()
-    
-
-  
+rec_ready = ->  
   $('.ac-select2-tags').each ->
     placeholder = $(this).data('placeholder')
     $(this).select2
@@ -26,8 +16,8 @@ ready = ->
   if(!/iPhone|iPad|iPod|Safari/i.test(navigator.userAgent))
     $('.ios_video').hide()
 
-$(document).ready(ready);
-$(document).on('page:load', ready);
+$(document).ready(rec_ready);
+$(document).on('page:load', rec_ready);
 
 
 

@@ -23,47 +23,39 @@ en:
   helpers:
     label:
       rec:
-        nature_of_employment: "For the sake of this submission, what kind of insecure work do you wish to tell us about?"
-        when: Are you describing your current situation or a previous job.  If describing a previous job, how long ago was it?
-        supermarket_supply: Were you making goods for sale in supermarkets?
-        host_employer:  Which company was your host-employer i.e. who were you working for?
-        company_name:  Which company or individual was paying you?
-        industry: What industry were you working in?
-        location: What was the nearest town/city to where you were working?
-        financially_stable: "Could you comfortably pay your bills and buy food each week"
-        financially_stable_comment: "Tell us more about the difficulties this causes your family"
-        accommodation_secure: Could you consistently pay your rent/mortgage when it was due?  And could you get finance to buy a house if you wanted to?
-        accommodation_secure_comment: Tell us what impact this had on yourself and your family
-        predictable_hours: Did you have a predicable roster that you could plan around? 
-        predictable_hours_comment: Tell us how your work was scheduled and how much say you had regarding availability
-        entitlements: Could you take leave when you needed without worrying about your job
-        entitlements_comment:  Tell us about the problems you faced
-        primary_carer: Would it be possible to organise regular care for your children while you are at work?
-        primary_carer_comment: Tell us about the difficulty juggling work and your children's needs
-        family_life: Could you comfortably raise a family
-        family_life_comment: What impact has this had on your family or prospects of starting a family?
-        community_life:  Do you have time to participate in regular community and club activities?
-        community_life_comment:  Tell us about the community groups and clubs you wish to be more involved in but can't
-        prefer_flexibility:  Do you prefer the 'flexibility' of insecure work over the benefits of full-time and part-time work
-        prefer_flexibility_comment: Tell us how you'd go about obtaining more regular employment
-        paid_fairly: Where you regularly paid the amount you were entitled to for the hours you worked
-        paid_fairly_comment: How were they under paying you? Were you working additional hours, not getting the award minimum wage or not paid the same as the permanent employees?
-        safe_work: Was your work always safe, with clear occupational health and safety guidelines and responsibilities?
-        safe_work_comment: Tell us some examples where it was potentially harmful or dangerous?
-        compliant_employment:  Do you believe your employer was complying with all their legal obligations regarding your employment
-        compliant_employment_comment: e.g. Or were you earning more than $450/month but not having your super or tax deducted?  Tell us.
-        secure_stay: Did you feel free to find other work
-        secure_stay_comment: What made you feel obligated to stay? Were you worried about being deported?
+        nature_of_employment: "What kind of insecure work do you want to tell us about?"
+        when: Are you describing your current or previous job?  
+        paid_fairly: Were you paid fairly and correctly for the hours you worked?
+        compliant_employment:  Do you believe your employer was complying with the law regarding your employment?
         could_speak_up: Did you feel that you could discuss your pay and conditions without risking your job?
-        could_speak_up_comment: What did you think would happen to workers who spoke up about poor treatment?
-        formally_employed:  Were you officially employed and paid by an established business
-        formally_employed_comment: Did you have an informal arrangement with an individual or family?  Tell us how it worked.
-        is_union:  Were you a union member?
-        is_union_comment:  What did the union do for casual members?
-        solution: If you were the premier of Victoria, what you would you do to fix the problem?
-        summary: "Please edit what you've told us into a story you are happy to share."
-        advertised: "How did you find and get the job?"
-        is_anonymous: Do you wish the inquiry to keep your submission anonymous?
+        pay_and_conditions_comment: Please explain the problems you had with your pay and conditions...
+        safe_work: Was your work always safe, with clearly explained health and safety guidelines and responsibilities?
+        safe_work_explained:  Were you told about WorkCover Insurance and what to do if you were injured? 
+        hsr_explained:  Did you know who your health and safety representive was?
+        health_and_safety_comment: Please explain the problems you had with your health and safety...
+        predictable_hours: Did you have a predicable roster that you could plan your life around? 
+        primary_carer: Could you or your co-workers organise childcare to suit your work schedule?
+        entitlements: Could you take leave when you needed without worrying about loosing your job?
+        community_life:  Did you have time to participate in regular community and club activities?
+        personal_impact_comment: Please explain the personal problems you had because of insecure work...
+        financially_stable: Could you pay your bills and buy food each week?
+        accommodation_secure: Could you pay your rent/mortgage when it was due?  
+        feeling_secure: Did you feel confident about the future of your job and income?
+        financial_security_comment: Please explain the stresses, worries and anxieties you faced...
+        options: Were you able to find another job?
+        feeling_trapped_comment: Please explain your difficulties finding other work...
+        is_union:  Are you a union member?
+        host_employer:  Which company was your host-employer (i.e. what company/site did you work on)?
+        company_name:  Which agency or individual was paying you? (who was paying you?)
+        location: What was the nearest town/city to where you were working?
+        industry: What industry were you working in?
+        supermarket_supply: Did you work on things for sale in supermarkets?
+        solution: If you were prime minister, what you would you do to fix the problem?
+        summary: Is there anything else you want to share with the inquiry and this website?  Please edit what you've told us so far.  
+        is_anonymous:  Do you wish to share your story anonymously? (Its more powerful with your name on it.)
       person:
         attachment: A picture of you or your family to accompany your story
         title: Job title or description
+  your_details: Your Details
+  your_details_reasoning:  We may need to contact your for additional information.  
+      

@@ -127,55 +127,45 @@ class RecsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rec_params
-      if params[:rec] && params[:rec][:person_attributes] && params[:rec][:person_attributes][:union_id].nil?
+      #if params[:rec] && params[:rec][:person_attributes] && params[:rec][:person_attributes][:union_id].nil?
         # hack to save emma's first submision and workaround union_id bug
-        params[:rec][:person_attributes][:union_id] = params[:rec][:union_id]
-      end
-
+      #  params[:rec][:person_attributes][:union_id] = params[:rec][:union_id]
+      #end
+      binding.pry
       result = params.require(:rec).permit(
         [
           :nature_of_employment,
           :when,
-          :formally_employed,
-          :formally_employed_comment,
           :paid_fairly,
-          :paid_fairly_comment,
           :compliant_employment,
-          :compliant_employment_comment,
           :could_speak_up,
-          :could_speak_up_comment,
-          :secure_stay,
-          :secure_stay_comment,
+          :pay_and_conditions_comment,
           :safe_work,
-          :safe_work_comment,
+          :safe_work_explained, 
+          :hsr_explained,
+          :health_and_safety_comment,
           :predictable_hours,
-          :predictable_hours_comment,
-          :family_life,
-          :family_life_comment,
           :primary_carer,
-          :primary_carer_comment,
           :entitlements,
-          :entitlements_comment,
-          :financially_stable,
-          :financially_stable_comment,
-          :accommodation_secure,
-          :accommodation_secure_comment,
           :community_life,
-          :community_life_comment,
-          :prefer_flexibility,
-          :prefer_flexibility_comment,
+          :personal_impact_comment,
+          :financially_stable,
+          :accommodation_secure,
+          :feeling_secure, 
+          :financial_security_comment,
+          :options,
+          :feeling_trapped_comment,
           :is_union,
           :host_employer,
           :company,
+          :company_name,
           :location,
           :industry,
           :supermarket_supply,
-          :advertised,
           :solution,
           :summary,
           :is_anonymous,
           :union_id,
-          :company_name,
           :attachment,
           person_attributes: [
             :first_name, 

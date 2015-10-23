@@ -41,107 +41,124 @@
     %>
   </div>
 
-  <% Rec.questions.each do |q| %> 
+  <% Rec.questions.each do |k,v| %> 
+    <%=field_set_tag t(k) do %>
+      <% v.each do |q| %>
+        <div class="form-group">
+          <%= f.label q %><br>
+          <%= f.check_box q, class: "was_switch", :data => default_switch_options %>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.label comment(k) %><br>
+        <%= f.text_area comment(k), class: "form-control" %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%=field_set_tag t("Optional") do %>
+    
     <div class="form-group">
-      <%= f.label q %><br>
-      <%= f.check_box q, class: "switch", :data => default_switch_options %>
+      <%= f.label :host_employer %><br>
+      <%= f.text_field :host_employer, class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= f.label comment(q) %><br>
-      <%= f.text_area comment(q), class: "form-control" %>
+      <%= f.label :company_name %><br>
+      <%= f.text_field :company_name, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :location %><br>
+      <%= f.text_field :location, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :industry %><br>
+      <%= f.text_field :industry, class: "form-control" %>
+    </div>
+
+    <% if @rec.union.short_name == "NUW" %>
+      <div class="form-group">
+        <%= f.label :supermarket_supply %><br>
+        <%= f.check_box :supermarket_supply, class: "was_switch", :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%=field_set_tag t("Solution") do %>
+    <div class="form-group">
+      <%= f.label :solution %><br>
+      <%= f.text_area :solution, class: "form-control" %>
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :is_union %><br>
-    <%= f.check_box :is_union, class: "switch", :data => default_switch_options %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :host_employer %><br>
-    <%= f.text_field :host_employer, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :company_name %><br>
-    <%= f.text_field :company_name, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :location %><br>
-    <%= f.text_field :location, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :industry %><br>
-    <%= f.text_field :industry, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :supermarket_supply %><br>
-    <%= f.check_box :supermarket_supply, class: "switch", :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :advertised %><br>
-    <%= f.text_field :advertised, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :solution %><br>
-    <%= f.text_area :solution, class: "form-control" %>
-  </div>
-
-  <h3  style="margin-left: 0px;">
-    Ok now, edit your submission
-    <br/> <small>It your story, make it your own.  Is there anything else you want to add.</small>  
-  </h3>
-  <div class="form-group">
-    <%= f.label :summary %><br>
-    <%= f.text_area :summary, class: "form-control", rows: 10 %>
-  </div>
-
-  <h3 style="margin-left: 0px;">Your details
-    <br/><small>We require your contact details for the inquiry but you can choose to remain anonymous.</small>
-  </h3>
-
-  <div class="form-group">
-    <%= f.label :is_anonymous %><br>
-    <%= f.check_box :is_anonymous, class: "switch", :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
-  </div>
-
-
-  <%= f.fields_for :person do |p| %>
+  <%= field_set_tag t("Your Story") do %>
     <div class="form-group">
-      <%= p.label :attachment %><br>
-      <%= p.file_field :attachment, accept: 'image/jpeg,image/gif,image/png'  %>
+      <%= f.label :summary %><br>
+      <%= f.text_area :summary, class: "form-control", rows: 10 %>
     </div>
+
     <div class="form-group">
-      <%= p.label :first_name %><br>
-      <%= p.text_field :first_name, class: "form-control" %>
+      <%= f.label :is_anonymous %><br>
+      <%= f.check_box :is_anonymous, class: "was_switch", :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
     </div>
-    <div class="form-group">
-      <%= p.label :last_name %><br>
-      <%= p.text_field :last_name, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= p.label :title %><br>
-      <%= p.text_field :title, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= p.label :mobile %><br>
-      <%= p.text_field :mobile, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= p.label :email %><br>
-      <%= p.text_field :email, class: "form-control" %>
-    </div> 
-    <%=p.hidden_field :union_id %> <!-- TODO rec not person field being rendered -->
-    <%=p.hidden_field :id %>
   <% end %>
 
-  <%= f.hidden_field :union_id %>
+  <%= field_set_tag t("your_details") do %> 
+
+    <%= f.fields_for :person do |p| %>
+      <div class="form-group">
+        <%= p.label :attachment %><br>
+        <%= p.file_field :attachment, accept: 'image/jpeg,image/gif,image/png'  %>
+      </div>
+      <div class="form-group">
+        <%= p.label :first_name %><br>
+        <%= p.text_field :first_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= p.label :last_name %><br>
+        <%= p.text_field :last_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= p.label :title %><br>
+        <%= p.text_field :title, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= p.label :mobile %><br>
+        <%= p.text_field :mobile, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= p.label :email %><br>
+        <%= p.text_field :email, class: "form-control" %>
+      </div> 
+      <div class="form-group">
+        <%= f.label :is_union %><br>
+        <%= f.check_box :is_union, class: "was_switch", :data => default_switch_options %>
+      </div>
+
+      <div class="form-group">
+        <%= p.label :union_id %><br>
+        <%= p.select :union_id,
+          union_options, 
+          {
+              include_blank: false,
+          },
+          data: { 
+            placeholder: 'which union',
+          }, 
+          class: "form-control", 
+          style: "width: 100%;"
+        %>
+      </div>
+
+      <%=p.hidden_field :id %>
+    <% end %>
+  <% end %>
+
+  <%=f.hidden_field :union_id %> <!-- TODO rec not person field being rendered -->
+      
   <div class="actions">
     <%= f.submit value: "Share your story", class: "btn btn-default"%>
   </div>
@@ -154,41 +171,93 @@
     story = "I was " + $("#rec_nature_of_employment").val();
     story += " " + $("#rec_when").val() + ".  ";
     
-    <% Rec.questions.each do |q| %>
-      <% if @rec[q] %>
-        story += $('#rec_<%=comment(q)%>').val();
-      <% end %>
+    <% Rec.questions.each do |k,v| %>
+      story += $('#rec_<%=comment(k)%>').val() + '  ' ;
     <% end %>
     
-    if (!$('#rec_host_employer') === undefined)
+    if (!$('#rec_host_employer').val() == '')
       story += "  This happened at " + $("#rec_host_employer").val();
     
-    if (!$('#rec_location') === undefined)
-      story += ", " + $("#rec_host_location").val();
+    if (!$('#rec_location').val() == '')
+      story += ", " + $("#rec_location").val();
     
-    if (!$('#rec_company_name') === undefined)
+    if (!$('#rec_company_name').val() == '')
       story += " when I was employed by " + $("#rec_company_name").val() + ".  ";
-    
-    if ($('#rec_supermarket_supply').bootstrapSwitch('state'))
-      story += "I was making goods for sale in supermarkets.";
+
+    if (!$('#rec_industry').val() == '')
+      story += ' This happened in the ' +$("#rec_industry").val() + ' industry.  ';
+
+    <% if @union.short_name == 'NUW' %>
+      if ($('#rec_supermarket_supply').bootstrapSwitch('state'))
+        story += "I was making goods for sale in supermarkets.";
+    <% end %> 
 
     story += $('#rec_solution').val();
 
     $("#rec_summary").val(story); 
   };
 
-  <% Rec.questions.each do |q| %>
-    <% if @rec[q] %>
-      $('#rec_<%=comment(q)%>').parent().hide();
-      $('#rec_<%=comment(q)%>').blur(compile_story);
+function submission_ready() {
+
+  // Setup pretty switches  
+  <% Rec.questions.each do |k,v| %>
+    <% v.each do |q| %>
+  
+  $('#rec_<%=q%>').bootstrapSwitch({
+    onSwitchChange: toggle_<%=k%>
+  });
+
     <% end %>
-  <% end %> 
+  <% end %>
+
+  $('#rec_is_anonymous').bootstrapSwitch();
+
+  $('#rec_is_union').bootstrapSwitch({
+    onSwitchChange: function (e, data) {
+      if (data)
+        $('#rec_person_attributes_union_id').parent().slideDown();
+      else
+        $('#rec_person_attributes_union_id').parent().slideUp();
+    }
+  })
+  <% unless @rec.is_union %>
+    $('#rec_person_attributes_union_id').parent().hide();
+  <% end %>
+
+  // Call backs for show/hide comments
+  <% Rec.questions.each do |k,v| %>
+  function toggle_<%=k %>() {
+    var comment_on = false;
+    <% v.each do |q| %>
+    if (!$('#rec_<%=q%>').bootstrapSwitch('state')) comment_on = true;
+    <% end %>
+    if (comment_on)
+      $('#rec_<%=comment(k)%>').parent().slideDown();
+    else
+      $('#rec_<%=comment(k)%>').parent().slideUp();
+  };
+  toggle_<%=k%>();
+  <% end %>
+
+
+  // callbacks for compiling story after editing
+  <% Rec.questions.each do |k,v| %>
+  $('#rec_<%=comment(k)%>').blur(compile_story);
+  <% end %>
+
+  $('#rec_nature_of_employment').blur(compile_story);
+
+  $('#rec_when').blur(compile_story);
+
   $('#rec_supermarket_supply').blur(compile_story);
+
   $('#rec_host_employer').blur(compile_story);
   $('#rec_host_location').blur(compile_story);
   $('#rec_solution').blur(compile_story);
-  $('#rec_nature_of_employment').blur(compile_story);
-  $('#rec_when').blur(compile_story);
+}
 
-
+$(document).ready(submission_ready);
+$(document).on('page:load', submission_ready);
 </script>
+
+

@@ -25,6 +25,15 @@ module RecsHelper
 			)
 	end
 
+	def union_options
+		result = []
+		Union.all.order(:short_name).each do |u|
+			result << ["#{u.short_name}: #{u.name}", u.id]
+		end
+		result
+	end
+
+
 	def default_switch_options
 		{ :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success', 'off-color' => 'danger'}
 	end
