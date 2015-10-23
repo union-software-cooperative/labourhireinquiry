@@ -1,7 +1,11 @@
 <%=render 'title' %>
-<%=render partial: 'recs/recs' if @recs %>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+		<%=render partial: 'recs/recs' if @recs %>
 
-<% if current_person %>
-	<%=render partial: 'posts/form'%>
-	<%=render @supergroup.posts%>
-<% end %>
+		<% if current_person %>
+			<%=render partial: 'posts/form'%>
+			<%=render @supergroup.posts%>
+		<% end %>
+	</div>
+</div>

@@ -26,8 +26,13 @@ html {
   font-size: 62.5%;
 }
 
+.container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
 body {
-  max-width: 630px;
+  //max-width: 630px;
   margin: 0 auto;
   background-color: #fffffc;
   color: #555;
@@ -78,8 +83,8 @@ blockquote p {
 /*** END BLOCKQUOTE STYLES ***/
 
 .jumbotron {
-  padding-top: 0px !important;
-  padding-bottom: 1rem;
+  //padding-top: 0px !important;
+  //padding-bottom: 1rem;
 }
 
 .inverted {

@@ -5,12 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+union = Union.new( name: "Victorian Trades Hall Council", www: "vthc.org.au", short_name: "VTHC" )
+union.save(validate: false)
+user = Person.create!( email: "admin@vthc.org.au", password: "temptemp", password_confirmation: "temptemp", first_name: "Admin", union: union )
 
-union = Union.build( name: "Victorian Trades Hall Council", www: "vthc.org.au", short_name: "VTHC" )
-union.save!(validate: false)
-user = Person.create!( email: "admin@vthc.org", password: "temptemp", password_confirmation: "temptemp", first_name: "Admin", union: union )
-
-unions = Union.build([
+unions = Union.create([
 { name: "National Union of Workers", short_name: "NUW", enabled: false, www: "secure.work", type: "Union"},
 { name: "Civil Air", short_name: "Civil Air", enabled: false, www: "secure.work", type: "Union"},
 { name: "Professionals Australia", short_name: "APESMA", enabled: false, www: "secure.work", type: "Union"},

@@ -3,30 +3,36 @@
   <%= image_tag @supergroup.banner.url, class: "banner-image" if @supergroup.banner.url %>
   <div id="banner-styler" style="background: <%=@supergroup.background_colour%>; color: <%= @supergroup.font_colour %>;">
     <div class="jumbotron inverted">
-      <hgroup>
-        <h1 id="call_to_action">
-          <%= @supergroup.call_to_action %>
-          <% if can_edit_union(@supergroup) %>
-            <%= link_to "<span class=\"glyphicon glyphicon-pencil\"></span>".html_safe, edit_polymorphic_path(@supergroup) %>
-          <% end %>
-        </h1>
-        <h4 id="explanation">
-          <%= @supergroup.explanation %>
-        </h4>
-      </hgroup>
-      <p class="text-right">
-        <%= link_to @supergroup.action1, new_union_rec_path(@union.id), class: "action1 btn btn-default" %>
-      </p>
-      <p class="text-right">
-        <%= link_to 'Download the paper', "http://economicdevelopment.vic.gov.au/__data/assets/pdf_file/0015/1215411/9390-IRV-Inquiry-in-the-Labour-Hire-Industry-and-Insecure-Work-Brochure.pdf", class: "btn btn-default" %>
-      </p>
+          <h1 id="call_to_action" class="text-center">
+            <%= @supergroup.call_to_action %>
+            <% if can_edit_union(@supergroup) %>
+              <%= link_to "<span class=\"glyphicon glyphicon-pencil\"></span>".html_safe, edit_polymorphic_path(@supergroup) %>
+            <% end %>
+          </h1>
+        <div class="row">
+          <div class="col-sm-4 col-sm-offset-2">
+            <h4 id="explanation">
+              <%= @supergroup.explanation %>
+            </h4>
+          </div>
+          <div class="col-sm-4" style="margin: 15px;">
+            <p class="text-right">
+              <%= link_to @supergroup.action1, new_union_rec_path(@union.id), class: "action1 btn btn-default" %>
+            </p>
+            <p class="text-right">
+              <%= link_to 'Download the paper', "http://economicdevelopment.vic.gov.au/__data/assets/pdf_file/0015/1215411/9390-IRV-Inquiry-in-the-Labour-Hire-Industry-and-Insecure-Work-Brochure.pdf", class: "btn btn-default" %>
+            </p>
+          </div>
+        </div>
     </div>
   </div>
 </div>
 
-<h2 class="text-center">
-  <div id="submissions_heading" style="color: <%= @supergroup.background_colour %>">
-    <%= @supergroup.submissions_heading %><br/>
-  </div>
-    <%= link_to @supergroup.action1, new_union_rec_path(@union.id), class: "action1 btn btn-default" %>
-</h2>
+<div class="row col-sm-8 col-sm-offset-2">
+  <h2 class="text-center">
+    <div id="submissions_heading" style="color: <%= @supergroup.background_colour %>">
+      <%= @supergroup.submissions_heading %><br/>
+    </div>
+      <%= link_to @supergroup.action1, new_union_rec_path(@union.id), class: "action1 btn btn-default" %>
+  </h2>
+</div>
