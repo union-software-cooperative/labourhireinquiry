@@ -10,6 +10,12 @@
       </ul>
     </div>
   <% end %>
+  <div class="form-group">
+    <%= f.label :enabled %><br>
+    <%= f.check_box :enabled, class: "union_switch", :data => { :size => 'large', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
+  </div>
+  <ul id="union_urls">
+  </ul>
    <div class="form-group">
     <%= f.label :logo, "Logo" %><br>
     <%= f.file_field :logo, accept: 'image/jpeg,image/gif,image/png'  %>
@@ -60,6 +66,22 @@
   <div class="field">
     <%= f.label :font_color %><br>
     <%= f.text_field :font_colour, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :union_rep %><br>
+    <%= f.file_field :union_rep, accept: 'image/jpeg,image/gif,image/png'  %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :union_rep_quote %><br>
+    <%= image_tag @union.union_rep.quote.url if @union.union_rep.quote.url %><br>
+    <%= f.text_area :union_rep_quote, class: "form-control"   %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :union_rep_cite %><br>
+    <%= f.text_field :union_rep_cite, class: "form-control"   %>
   </div>
 
   <div class="actions">

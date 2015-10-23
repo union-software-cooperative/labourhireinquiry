@@ -16,6 +16,7 @@ rec_ready = ->
   if(!/iPhone|iPad|iPod|Safari/i.test(navigator.userAgent))
     $('.ios_video').hide()
 
+
 $(document).ready(rec_ready);
 $(document).on('page:load', rec_ready);
 

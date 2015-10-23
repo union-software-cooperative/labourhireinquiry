@@ -7,6 +7,19 @@ resize = ->
 		$('.banner-link').text($('.banner-link').data("short-name"))
 	else
 		$('.banner-link').text($('.banner-link').data("name"))
+
+	$('.union_list_switch').bootstrapSwitch
+		readonly: true
+		size: 'mini'
+
+	$('.union_switch').bootstrapSwitch
+		onSwitchChange: (e,data) ->
+			if data
+				$("#union_urls").append("<li>test</li>");
+				$("#union_urls").slideDown();
+			else
+				$("#union_urls").slideUp();
+				
 		
 $( window ).resize ->
 	resize()

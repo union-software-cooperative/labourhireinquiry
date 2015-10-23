@@ -5,9 +5,9 @@ class Person < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :union
-  has_many :recs
-  has_many :posts
-  has_many :comments
+  has_many :recs,:dependent => :delete_all
+  has_many :posts,:dependent => :delete_all
+  has_many :comments,:dependent => :delete_all
 
   before_validation :set_default_password, on: [:create]
   validates :union, :first_name, presence: true
@@ -18,6 +18,8 @@ class Person < ActiveRecord::Base
   
   include Filterable
   scope :name_like, -> (name) {where("first_name ilike ? or last_name ilike ? or email ilike ?", "%#{name}%", "%#{name}%", "%#{name}%")}
+  scope :invited, -> {where("not invited_by_id is null")}
+  scope :not_invited, -> {where("invited_by_id is null")}
 
   def name
   	"#{first_name} #{last_name}"

@@ -33,7 +33,6 @@ module RecsHelper
 		result
 	end
 
-
 	def default_switch_options
 		{ :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success', 'off-color' => 'danger'}
 	end

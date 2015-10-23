@@ -55,6 +55,17 @@ module ApplicationHelper
 		end 	
 	end
 
+	def gender_options(person)
+    options_for_select(
+      ([
+        'male', 
+        'female',
+        'its complicated'
+        ]).uniq, 
+      person.gender
+    )
+  end
+
 	def can_edit_union(union)
 		false
 		if current_person

@@ -1,5 +1,27 @@
 == README
 
+-- TODO
+Order database and people list
+People filter between users and everyone else
+Delete submission
+Publish union pages
+VTHC is home union?
+Set union defaults on edit?
+Notification on follow
+SSL cert
+Data download
+Mailgun config
+Change quote over submission
+Gender on rec
+Youtube field
+Video transcoding
+Pay for heroku
+Sharing of submissions
+Navbar bug
+
+
+
+
 ==== Installation
 
 You'll need to be running Ruby 2.2.3, if you don't have it already.

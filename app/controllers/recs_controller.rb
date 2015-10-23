@@ -131,11 +131,11 @@ class RecsController < ApplicationController
         # hack to save emma's first submision and workaround union_id bug
       #  params[:rec][:person_attributes][:union_id] = params[:rec][:union_id]
       #end
-      binding.pry
       result = params.require(:rec).permit(
         [
           :nature_of_employment,
           :when,
+          :youtube, 
           :paid_fairly,
           :compliant_employment,
           :could_speak_up,
@@ -170,6 +170,7 @@ class RecsController < ApplicationController
           person_attributes: [
             :first_name, 
             :last_name, 
+            :gender, 
             :email, 
             :mobile,
             :attachment, 

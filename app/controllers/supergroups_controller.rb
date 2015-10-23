@@ -9,7 +9,7 @@ class SupergroupsController < ApplicationController
   # GET /supergroups
   # GET /supergroups.json
   def index
-    @supergroups = @klass.filter(params.slice(:name_like))
+    @supergroups = @klass.filter(params.slice(:name_like)).order(:short_name)
     respond_to do |format|
       format.html
       format.json { render json: @supergroups }
@@ -19,6 +19,7 @@ class SupergroupsController < ApplicationController
   # GET /supergroups/1
   # GET /supergroups/1.json
   def show
+    not_found unless @supergroup.enabled || current_person
     @post = Post.new(parent: @supergroup)
     @recs = Rec.eager_load(:person).where(["recs.#{@klass}_id=?", @supergroup.id])
     return render 'embed', layout: false if params[:embed]
@@ -96,10 +97,10 @@ class SupergroupsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def supergroup_params
       params[supergroup]['type'] = @klass.name
-      params.require(supergroup).permit(:name, :type, :www, :banner, :logo, :short_name, :call_to_action, :explanation, :submissions_heading, :background_colour, :font_colour, :action1)
+      params.require(supergroup).permit(:name, :type, :www, :banner, :logo, :short_name, :call_to_action, :explanation, :submissions_heading, :background_colour, :font_colour, :action1, :enabled, :union_rep, :union_rep_quote, :union_rep_cite)
     end
 
     def ok_to_skip_authentication
-      action_name=='index'  && (request.format.json?)
+      (action_name=='index'  && (request.format.json?)) 
     end
 end

@@ -5,6 +5,9 @@ class PeopleController < ApplicationController
   # GET /people.json
   def index
     @people = Person.filter(params.slice(:name_like))
+    @invited = @people.invited.order(:last_name, :first_name).eager_load(:union)
+    @not_invited = @people.not_invited.order(:last_name, :first_name).eager_load(:union)
+
     respond_to do |format|
       format.html
       format.json
@@ -23,6 +26,7 @@ class PeopleController < ApplicationController
 
   # GET /people/1/edit
   def edit
+    @recs = @person.recs
   end
 
   # POST /people

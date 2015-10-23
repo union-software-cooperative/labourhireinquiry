@@ -125,6 +125,20 @@
         <%= p.label :title %><br>
         <%= p.text_field :title, class: "form-control" %>
       </div>
+       <div class="form-group">
+        <%= p.label :gender %><br>
+        <%= p.select :gender,
+          gender_options(@rec.person), 
+          {
+              include_blank: true,
+          },
+          data: { 
+            placeholder: "Gender",
+          }, 
+          class: "form-control", 
+          style: "width: 100%;"
+        %>
+      </div>
       <div class="form-group">
         <%= p.label :mobile %><br>
         <%= p.text_field :mobile, class: "form-control" %>

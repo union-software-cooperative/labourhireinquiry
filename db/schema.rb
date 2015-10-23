@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023052419) do
+ActiveRecord::Schema.define(version: 20151023125002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -156,6 +156,7 @@ ActiveRecord::Schema.define(version: 20151023052419) do
     t.text     "financial_security_comment"
     t.boolean  "options"
     t.text     "feeling_trapped_comment"
+    t.string   "youtube"
   end
 
   add_index "recs", ["company_id"], name: "index_recs_on_company_id", using: :btree
@@ -179,6 +180,9 @@ ActiveRecord::Schema.define(version: 20151023052419) do
     t.string   "font_colour"
     t.string   "action1"
     t.boolean  "enabled",             default: false
+    t.text     "union_rep_quote"
+    t.string   "union_rep"
+    t.string   "union_rep_cite"
   end
 
   add_foreign_key "comments", "people"
