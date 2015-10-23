@@ -8,7 +8,7 @@
 union = Union.new( name: "Victorian Trades Hall Council", www: "vthc.org.au", short_name: "VTHC", enabled: true )
 union.save(validate: false)
 user = Person.create!( email: "admin@vthc.org.au", password: "temptemp", password_confirmation: "temptemp", first_name: "Admin", union: union )
-user.update!(invited_by_id: user.id) # invite self for the sake of looking like a user
+user.update!(invited_by: user) # invite self for the sake of looking like a user
 
 unions = Union.create([
 { name: "National Union of Workers", short_name: "NUW", enabled: false, www: "securing.work", type: "Union"},

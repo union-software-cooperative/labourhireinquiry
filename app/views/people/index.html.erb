@@ -20,7 +20,7 @@
             <td><%=render person.union if person.union%></td>
             <td><%=render person %></td>
             <td><%=person.title %></td>
-           	<td><%=person.invited_by.display_name %></td>
+            <td><%=person.invited_by.display_name if person.invited_by %></td>
             <td><span class="glyphicon glyphicon-envelope"></span></td>
           </tr>
         <% end %>
