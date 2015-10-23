@@ -1,31 +1,25 @@
 <p id="notice"><%= notice %></p>
-<div class="row">
-  <div class="col-sm-3">
-      <%= link_to 'Invite trouble', new_person_invitation_path, class: "margins btn btn-default" %>
-  </div>
-  <div class="col-sm-9">
-		<% unless @people.blank? %>
-		  <table class="table table-condensed table-striped box-shadow">
-		    <thead>
-		      <tr>
-		        <th>Union</th>
-		        <th>Person</th>
-		        <th>Title</th>
-		      	<th></th>
-		      </tr>
-		    </thead>
+<%= link_to 'Invite trouble', new_person_invitation_path, class: "btn btn-default pull-right" %>
+<% unless @people.blank? %>
+  <table class="table table-condensed table-striped box-shadow">
+    <thead>
+      <tr>
+        <th>Union</th>
+        <th>Person</th>
+        <th>Title</th>
+      	<th></th>
+      </tr>
+    </thead>
 
-		    <tbody>
-		      <% @people.each do |person| %>
-		        <tr class="">
-		          <td style="vertical-align: middle"><%=render person.union if person.union%></td>
-		          <td style="vertical-align: middle"><%=render person %></td>
-		          <td style="vertical-align: middle"><%=person.title %></td>
-		         	<td style="vertical-align: middle"><span class="glyphicon glyphicon-envelope"></span></td>
-		        </tr>
-		      <% end %>
-		    </tbody>
-		  </table>
-		<% end %>
-	</div>
-</div>
+    <tbody>
+      <% @people.each do |person| %>
+        <tr class="">
+          <td><%=render person.union if person.union%></td>
+          <td><%=render person %></td>
+          <td><%=person.title %></td>
+         	<td><span class="glyphicon glyphicon-envelope"></span></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

@@ -1,6 +1,6 @@
 
-        <div class="upload-feedback">
-        </div>
+
+        <div class="upload-feedback"></div>
         
         <%= form_for(@rec, url: video_upload_rec_path(@token || @rec.id), :html => { multipart: true, id: 'fileupload',  class: "form", display: "none"}) do |f| %>
           <!-- requires javascript to switch on, for jquery file upload -->      

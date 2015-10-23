@@ -1,14 +1,8 @@
-  <p id="notice"><%= notice %></p>
-  
-  <div class="margins">
-    <div class="row">
-      <div class="col-sm-6 col-sm-offset-3">
-        <h1>
-          Thank you for your submission!
-          <br/><small>We are one voice closer to being a deafening roar</small>
-        </h1>
-        <%=render @rec %>
-        <%=render 'upload_video'%>
-      </div>
-    </div>
-  </div>
+<p id="notice"><%= notice %></p>
+<hgroup>
+  <h1>Thank you for your submission!</h1>
+  <h4>We are one voice closer to a deafening roar</h4>
+</hgroup>
+
+<%= render @rec %>
+<%= render 'upload_video' %>

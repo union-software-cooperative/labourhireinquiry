@@ -1,15 +1,11 @@
-
 <blockquote>
-  <%=profile_picture(rec.person)%> 
-  <p>
-    <%=rec.summary%>
-  </p>
-  </p>
-   <video id="vid" class="<%=ios_video(rec.attachment)%>" style="<%='display:none;' unless rec.attachment.url %> width: 100%; margin-left:auto; margin-right: auto;" controls>
-          <source id="vid-source" src="<%=rec.attachment.url%>"/>
-            Your browser doesn't support HTML 5 video
-   </video>
-  </p>
+	<%= profile_picture(rec.person) %>
+	<%= rec.summary %>
+	<br />
+	<video id="vid" class="<%=ios_video(rec.attachment)%>" style="<%='display:none;' unless rec.attachment.url %> width: 100%; margin-left: auto; margin-right: auto;" controls>
+		<source id="vid-source" src="<%=rec.attachment.url%>"/>
+		Your browser doesn't support HTML 5 video
+	</video>
 
-  <footer><%=rec.person.display_name%><%=link_to "<span class=\"glyphicon glyphicon-pencil\"></span>".html_safe, rec_path(rec) if current_person %></footer>
+	<footer><cite><%= rec.person.display_name %></cite> <%=link_to "<span class=\"glyphicon glyphicon-pencil\"></span>".html_safe, rec_path(rec) if current_person %></footer>
 </blockquote>

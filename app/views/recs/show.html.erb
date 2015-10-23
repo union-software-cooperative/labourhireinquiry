@@ -1,21 +1,7 @@
 <p id="notice"><%= notice %></p>
-  
-  <div class="margins">
-    <div class="row">
-      <div class="col-sm-1">
-        <%= link_to 'edit submission', edit_rec_path(@rec), class: "btn btn-default"  if can_edit_union(@rec.union) %> 
-      </div>
-      <div class="col-sm-6 col-sm-offset-2">
-        <div style="position:relative; float:right"> 
-        </div>
-        <%=render @rec %>
-        <%=render 'upload_video' if can_edit_union(@rec.union) %>
-      </div>
-      <div class="col-sm-1">
-        <%= link_to current_person.follows?(@rec) ? "unfollow" : "follow", follow_rec_path(@rec), class: "btn btn-primary rec-follow" %> 
-      </div>
-    </div>
-  </div>
-  <%=render partial: 'posts/form' %>
-  <%=render @rec.posts %>
-    
+<%= link_to current_person.follows?(@rec) ? "unfollow" : "follow", follow_rec_path(@rec), class: "btn btn-primary btn-follow-rec" %>
+<%= link_to 'edit submission', edit_rec_path(@rec), class: "btn btn-default"  if can_edit_union(@rec.union) %>
+<%= render @rec %>
+<%= render 'upload_video' if can_edit_union(@rec.union) %>
+<%= render partial: 'posts/form' %>
+<%= render @rec.posts %>
