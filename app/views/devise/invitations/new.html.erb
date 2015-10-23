@@ -1,10 +1,13 @@
-<h2><%= t "devise.invitations.new.header" %></h2>
-<div class="margins">
-	<%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post}, class: 'form' do |f| %>
-	  <%= devise_error_messages! %>
+<div class="col-sm-8 col-sm-offset-2"/>
 
-		<%=render partial: 'people/form_fields', locals: { f: f} %>
+	<h2 class="no-left-margin"><%= t "devise.invitations.new.header" %></h2>
+	<div class="margins">
+		<%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post}, class: 'form' do |f| %>
+		  <%= devise_error_messages! %>
 
-	  <p><%= f.submit t("devise.invitations.new.submit_button") %></p>
-	<% end %>
+			<%=render partial: 'people/form_fields', locals: { f: f} %>
+
+		  <p><%= f.submit t("devise.invitations.new.submit_button") %></p>
+		<% end %>
+	</div>
 </div>

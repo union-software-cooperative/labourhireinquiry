@@ -1,8 +1,11 @@
-<% unless @person.union.nil? %>
-  <%= link_to @person.union.short_name + " Submissions", union_path(@person.union), class: "btn btn-default pull-right" %>
-<% end %>
-<h1>
-  Editing <%= profile_heading %>
-  <br/><small>These details will only be visible to <%=owner_union.short_name%><%= @person.union.id == owner_union.id ? "" : " and " + @person.union.short_name %> employees</small>
-</h1>
-<%= render 'form' %>
+<div class="col-sm-8 col-sm-offset-2"/>
+	<p id="notice"><%= notice %></p>
+  <% unless @person.union.nil? %>
+	  <%= link_to @person.union.short_name + " Submissions", union_path(@person.union), class: "btn btn-default pull-right" %>
+	<% end %>
+	<h1>
+	  Editing <%= profile_heading %>
+	  <br/><small>These details will only be visible to <%=owner_union.short_name%><%= @person.union.id == owner_union.id ? "" : " and " + @person.union.short_name %> employees</small>
+	</h1>
+	<%= render 'form' %>
+</div>

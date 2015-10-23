@@ -50,9 +50,9 @@
             $("#vid").load();
                 
             if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
-              $(":file").filestyle({iconName: "glyphicon glyphicon-record", input:false, buttonText: "click here to record (EXPERIMENTAL)", badge: false});
+              $("#rec_attachment:file").filestyle({iconName: "glyphicon glyphicon-record", input:false, buttonText: "click here to record (EXPERIMENTAL)", badge: false});
               else
-                $(":file").filestyle({iconName: "glyphicon glyphicon-upload", input:false, buttonText: "drop and drag an mp4 or ogg file here", badge: false});
+                $("#rec_attachment:file").filestyle({iconName: "glyphicon glyphicon-upload", input:false, buttonText: "drop and drag an mp4 or ogg file here", badge: false});
           };
 
           $(document).ready(ready);

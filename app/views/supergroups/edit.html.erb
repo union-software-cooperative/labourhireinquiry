@@ -1,10 +1,11 @@
 <%= render 'title' %>
 
-<%= link_to "embed options", edit_union_path(@supergroup), class: "btn btn-default pull-right" %>
-<h1>
-  Editing <%= @supergroup.name %>
-</h1>
-<%= render 'form' %>
+<div class="col-sm-8 col-sm-offset-2">
+  <h1>
+    Editing <%= @supergroup.name %>
+  </h1>
+  <%= render 'form' %>
+</div>
 
 <script type="text/javascript">
   var ready = function() {

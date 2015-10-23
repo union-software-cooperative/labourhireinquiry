@@ -4,7 +4,7 @@
     <div class="navbar-header">
       <div class="navbar-brand" href="/">
         <%= link_to union_logo, union_path(@union) %>
-        <%= link_to ENV['APP_TITLE'], root_path %>
+        <%= link_to ENV['APP_TITLE'], root_url %>
       </div>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -19,13 +19,13 @@
       <ul class="nav navbar-nav navbar-right">
         <% if person_signed_in? -%>
           <li>
-            <%= link_to "unions", unions_path %>
+            <%= link_to "Unions", unions_path %>
           </li>
           <!--<li>
-            <%= link_to "companies", companies_path %>
+            <%= link_to "Companies", companies_path %>
           </li>-->
           <li>
-            <%= link_to "directory", people_path %>
+            <%= link_to "People", people_path %>
           </li>
           <li class="dropdown">
             <a class="dropdown-toggle" aria-expanded="false" area-haspopup="true" role="button" data-toggle="dropdown" href="#">

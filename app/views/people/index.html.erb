@@ -1,25 +1,27 @@
-<p id="notice"><%= notice %></p>
-<%= link_to 'Invite trouble', new_person_invitation_path, class: "btn btn-default pull-right" %>
-<% unless @people.blank? %>
-  <table class="table table-condensed table-striped box-shadow">
-    <thead>
-      <tr>
-        <th>Union</th>
-        <th>Person</th>
-        <th>Title</th>
-      	<th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @people.each do |person| %>
-        <tr class="">
-          <td><%=render person.union if person.union%></td>
-          <td><%=render person %></td>
-          <td><%=person.title %></td>
-         	<td><span class="glyphicon glyphicon-envelope"></span></td>
+<div class="col-sm-8 col-sm-offset-2"/>
+  <p id="notice"><%= notice %></p>
+  <%= link_to 'Invite a colleague', new_person_invitation_path, class: "btn btn-default pull-right" %>
+  <% unless @people.blank? %>
+    <table class="table table-condensed table-striped box-shadow">
+      <thead>
+        <tr>
+          <th>Union</th>
+          <th>Person</th>
+          <th>Title</th>
+        	<th></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
+      </thead>
+
+      <tbody>
+        <% @people.each do |person| %>
+          <tr class="">
+            <td><%=render person.union if person.union%></td>
+            <td><%=render person %></td>
+            <td><%=person.title %></td>
+           	<td><span class="glyphicon glyphicon-envelope"></span></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
