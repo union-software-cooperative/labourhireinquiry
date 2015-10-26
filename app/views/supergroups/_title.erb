@@ -1,8 +1,8 @@
 <!--<p id="notice"><%= notice %></p>-->
 <div class="banner-placeholder">
   <%= image_tag @supergroup.banner.url, class: "banner-image" if @supergroup.banner.url %>
-  <div id="banner-styler" style="background-color: <%=@supergroup.background_colour%>; color: <%= @supergroup.font_colour %>;">
-    <div class="jumbotron inverted">
+  <div>
+    <div id="banner-styler" class="jumbotron" style="background-color: <%=@supergroup.background_colour%>; color: <%= @supergroup.font_colour %>">
           <h1 id="call_to_action" class="text-center">
             <%= @supergroup.call_to_action %>
             <% if can_edit_union(@supergroup) %>
@@ -11,7 +11,7 @@
           </h1>
         <div class="row">
           <div class="col-sm-4 col-sm-offset-2">
-            <h4 id="explanation">
+            <h4 id="explanation" style="color: <%= @supergroup.font_colour %>">
               <%= @supergroup.explanation %>
             </h4>
           </div>

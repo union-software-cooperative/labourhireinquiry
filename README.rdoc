@@ -1,23 +1,25 @@
 == README
 
 -- TODO
-Order database and people list
-People filter between users and everyone else
-Delete submission
-Publish union pages
-VTHC is home union?
+DONE Order database and people list
+DONE People filter between users and everyone else
+DONE Delete submission
+DONE Publish union pages
+DONE VTHC is home union?
 Set union defaults on edit?
-Notification on follow
+DONE Notification on follow
 SSL cert
 Data download
-Mailgun config
-Change quote over submission
-Gender on rec
+DONE-ish Mailgun config
+DONE Change quote over submission
+DONE Gender on rec
 Youtube field
 Video transcoding
 Pay for heroku
 Sharing of submissions
-Navbar bug
+DONE Navbar bug
+Unpublish submissions
+Follow by posting not getting
 
 
 

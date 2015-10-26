@@ -8,7 +8,7 @@
 </div>
 
 <script type="text/javascript">
-  var ready = function() {
+  var union_edit_ready = function() {
     $("#union_call_to_action").blur(function(){
       $("#call_to_action").html($("#union_call_to_action").val());
     });
@@ -32,9 +32,10 @@
 
     $("#union_font_colour").blur(function(){
       $("#banner-styler").css("color", $("#union_font_colour").val());
+      $("#explanation").css("color", $("#union_font_colour").val());
     });
   };
 
-  $(document).ready(ready);
-  $(document).on('page:load', ready);
+  $(document).ready(union_edit_ready);
+  $(document).on('page:load', union_edit_ready);
 </script>
