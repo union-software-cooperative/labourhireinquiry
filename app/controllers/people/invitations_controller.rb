@@ -8,9 +8,12 @@ class People::InvitationsController < Devise::InvitationsController
 
   def invite_resource
     ## skip sending emails on invite
-    resource_class.invite!(invite_params, current_inviter) do |u|
+    @invitee =resource_class.invite!(invite_params, current_inviter) do |u|
       #u.skip_invitation = true
     end
+    # invitee automatically follows union
+    @invitee.follow!(Union.find(invite_params[:union_id]))
+    @invitee
   end
 
   def invite_params
