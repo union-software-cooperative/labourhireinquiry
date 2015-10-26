@@ -37,6 +37,9 @@ Rails.application.routes.draw do
   end
 
   resources :submission, controller: :recs, type: 'Rec'
+  get '/:id' => 'supergroups#show', type: 'Union'
+  get '/:union_id/new' => 'recs#new'
+  
   root "recs#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

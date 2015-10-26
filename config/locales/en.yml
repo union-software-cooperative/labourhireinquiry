@@ -56,6 +56,10 @@ en:
       person:
         attachment: A picture of you or your family to accompany your story
         title: Job title or description
+      union:
+        union_rep_cite: Union rep name
+        enabled: Publish union site
+        union_rep: Union rep (shown at the top of new submissions)
   your_details: Your Details
   your_details_reasoning:  We may need to contact your for additional information.  
       
