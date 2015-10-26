@@ -80,7 +80,7 @@ gem 'select2-rails'
 # Environment var helpers
 gem "figaro"
 
-gem "socialization", path: "/home/lrohde/socialization" # :git => 'https://github.com/union-software-cooperative/socialization.git'
+gem "socialization", :git => 'https://github.com/union-software-cooperative/socialization.git'
 
 gem "puma"
 

@@ -1,5 +1,6 @@
-PATH
-  remote: /home/lrohde/socialization
+GIT
+  remote: https://github.com/union-software-cooperative/socialization.git
+  revision: 06e5e05006c907068b9e129caed2897207d0270c
   specs:
     socialization (1.2.0)
       activerecord

@@ -82,7 +82,7 @@ private
 
   def notify
     @post.parent.followers(Person).each do |p|
-      if @post.person.id != current_person.id
+      if p.id != current_person.id
         PersonMailer.post_notice(p, @post, request).deliver_now
       end
     end
