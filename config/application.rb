@@ -24,6 +24,9 @@ module Lhi
     config.active_record.raise_in_transactional_callbacks = true
     config.after_initialize do
         config.owner_union = Union.find_by_short_name(ENV['OWNER_UNION'])
+
+
+        
     end
   end
 end

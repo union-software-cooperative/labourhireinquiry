@@ -104,3 +104,5 @@ class SupergroupsController < ApplicationController
       (action_name=='index'  && (request.format.json?)) 
     end
 end
+
+

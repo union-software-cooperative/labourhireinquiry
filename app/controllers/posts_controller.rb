@@ -23,6 +23,8 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     respond_to do |format|
       if @post.save
+        notify
+
         format.html { redirect_to @post.parent, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
@@ -65,16 +67,24 @@ class PostsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
-    end
+private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def post_params
-      result = params.require(:post).permit(:body, :attachment, :person_id, :parent_id, :parent_type)
-      result[:person] = current_person
-      result
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def post_params
+    result = params.require(:post).permit(:body, :attachment, :person_id, :parent_id, :parent_type)
+    result[:person] = current_person
+    result
+  end
+
+  def notify
+    @post.parent.followers(Person).each do |p|
+      if @post.person.id != current_person.id
+        PersonMailer.post_notice(p, @post, request).deliver_now
+      end
     end
+  end
 end

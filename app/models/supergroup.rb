@@ -10,8 +10,6 @@ class Supergroup < ActiveRecord::Base
   validates :name, :short_name, :www, :call_to_action, :action1, :background_colour, :font_colour, :explanation, presence: true
   validates_uniqueness_of :short_name
   
-  acts_as_followable
-
   def set_defaults_from_owner
 		owner = Union.find(Rails.application.config.owner_union.id)
 		self.call_to_action ||= owner.call_to_action

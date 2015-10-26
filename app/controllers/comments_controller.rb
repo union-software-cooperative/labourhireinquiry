@@ -7,6 +7,8 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     respond_to do |format|
       if @comment.save
+        notify
+
         format.html { redirect_to @comment.post.parent, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
@@ -33,16 +35,29 @@ class CommentsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_comment
-      @comment = Comment.find(params[:id])
-    end
+private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def comment_params
-      result = params.require(:comment).permit(:body, :person_id, :post_id)
-      result[:person] = current_person
-      result
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def comment_params
+    result = params.require(:comment).permit(:body, :person_id, :post_id)
+    result[:person] = current_person
+    result
+  end
+
+  def notify
+    # The poster and anyone who commented.
+    recipients = [@comment.post.person]
+    @comment.post.comments.each do |c|
+      recipients << c.person
     end
+    recipients.uniq.each do |p|
+      if p.id != current_person.id
+        PersonMailer.comment_notice(p, @comment, request).deliver_now      
+      end
+    end
+  end
 end

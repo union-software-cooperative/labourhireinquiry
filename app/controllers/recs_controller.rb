@@ -51,8 +51,11 @@ class RecsController < ApplicationController
   def create
     @rec = Rec.new(rec_params)
     
+    # TODO fix this horrible mess
     respond_to do |format|
       if @rec.save
+        notify
+
         # let unauthenticated users review with a temporary url
         success_url = current_person ? rec_url(@rec.id)  : secured_review_rec_url
         success_url = secured_embed_review_rec_url if params[:embed] == "true"
@@ -104,6 +107,12 @@ class RecsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_rec
       @rec = Rec.find(params[:id])
+    end
+
+    def notify
+      @rec.union.followers(Person).each do |p|
+        PersonMailer.rec_notice(p, @rec, request).deliver_now
+      end
     end
 
     # allow a user to review their submission after posting, without letting them guess at other URLs and review things they should
