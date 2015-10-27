@@ -1,6 +1,6 @@
 class RecsController < ApplicationController
   before_action :authenticate_person!, except: [:index, :new, :create, :review, :video_upload]
-  before_action :set_rec, only: [:show, :edit, :update, :destroy, :follow]
+  before_action :set_rec, only: [:show, :edit, :update, :destroy, :follow, :video_upload]
   before_action :set_rec_from_token, only: [:review, :video_upload]
 
   include RecsHelper
