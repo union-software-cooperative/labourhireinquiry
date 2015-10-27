@@ -1,6 +1,6 @@
 class RecsController < ApplicationController
   before_action :authenticate_person!, except: [:index, :new, :create, :review, :video_upload]
-  before_action :set_rec, only: [:show, :edit, :update, :destroy, :follow, :video_upload]
+  before_action :set_rec, only: [:show, :edit, :update, :destroy, :follow]
   before_action :set_rec_from_token, only: [:review, :video_upload]
 
   include RecsHelper
@@ -131,7 +131,9 @@ class RecsController < ApplicationController
 
     def set_rec_from_token
       @token = params[:id]
-      @rec = Rec.find(session[@token])
+      id = session[@token]
+      id = params[:id] if id.nil? && current_person 
+      @rec = Rec.find(id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
