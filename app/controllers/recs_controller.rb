@@ -117,23 +117,17 @@ class RecsController < ApplicationController
 
     # allow a user to review their submission after posting, without letting them guess at other URLs and review things they should
     def secured_review_rec_url
-      token = SecureRandom.hex(4) # the token is only to keep the urls restful and to allow migration to a persisted token in future 
-      session[token] = @rec.id
-      review_rec_url(token)
+      review_rec_url(@rec.token)
     end
   
     # allow a user to review their submission after posting, without letting them guess at other URLs and review things they should
     def secured_embed_review_rec_url
-      token = SecureRandom.hex(4) # the token is only to keep the urls restful and to allow migration to a persisted token in future 
-      session[token] = @rec.id
-      "/embed/#{@union.id}/review/#{token}"
+      "/embed/#{@union.id}/review/#{@rec.token}"
     end
 
     def set_rec_from_token
-      @token = params[:id]
-      id = session[@token]
-      id = params[:id] if id.nil? && current_person 
-      @rec = Rec.find(id)
+      @rec = Rec.find_by_token(params[:id])
+      @rec = Rec.find(params[:id]) if @rec.nil? && current_person # only allow id if logged in (for video_upload from show)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

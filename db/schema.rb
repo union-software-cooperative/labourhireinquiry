@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023125002) do
+ActiveRecord::Schema.define(version: 20151027081410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -157,6 +157,12 @@ ActiveRecord::Schema.define(version: 20151023125002) do
     t.boolean  "options"
     t.text     "feeling_trapped_comment"
     t.string   "youtube"
+    t.boolean  "enabled"
+    t.boolean  "facebooked"
+    t.boolean  "tweeted"
+    t.string   "token"
+    t.boolean  "volunteer"
+    t.string   "volunteer_comment"
   end
 
   add_index "recs", ["company_id"], name: "index_recs_on_company_id", using: :btree

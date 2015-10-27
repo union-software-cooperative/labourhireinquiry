@@ -5,6 +5,15 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+	<% if @union %>
+		<!-- For facebook -->
+		<meta property="og:title" content="Help bring back secure jobs" />
+		<meta property="og:type" content="article" />
+		<meta property="og:image" content="<%=@union.union_rep.quote.url%>" />
+		<meta property="og:url" content="" />
+		<meta property="og:description" content="<%=@union.explanation%>" />
+	<% end %>
+
 	<title><%=ENV['APP_TITLE']%></title>
 
 	<!-- Google fonts -->
