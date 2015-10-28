@@ -76,7 +76,7 @@ class Rec < ActiveRecord::Base
 		# 7 alternate vowels and consonants gives me 16M, the root of which is 4000, which is the number of submission before I've got even odds of colliding
 		(1..7).each do |i|
 			s << c[SecureRandom.random_number(c.count)] if i % 2 == 1
-			s << v[SecureRandom.random_number(s.count)] if i % 2 == 0 
+			s << v[SecureRandom.random_number(v.count)] if i % 2 == 0 
 		end
 		s = Rec.token if Rec.find_by_token(s) # recursively find another token, if this one is used
 		s
