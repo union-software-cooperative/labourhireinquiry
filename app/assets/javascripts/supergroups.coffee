@@ -15,9 +15,10 @@ resize = ->
 	$('.union_switch').bootstrapSwitch
 		onSwitchChange: (e,data) ->
 			if data
-				configure_url_display
+				configure_url_display()
 				$("#union_urls").slideDown();
 			else
+				configure_url_display()
 				$("#union_urls").slideUp();
 				
 

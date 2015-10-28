@@ -67,7 +67,7 @@ class Rec < ActiveRecord::Base
 	end
 
 	def self.token
-		# generate a vague readable/memorable token of alternating vowel and consonants
+		# generate a vaguely readable/memorable token of alternating vowel and consonants
 		v = %w[a e i o u]
 		c = ('a'..'z').to_a
 		c = c - v - ['x', 'q'] # I don't like the ones with x and q
