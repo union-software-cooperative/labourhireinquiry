@@ -81,8 +81,6 @@ class RecsController < ApplicationController
   def update
     respond_to do |format|
       if @rec.update(rec_params)
-        notify
-  
         format.html { redirect_to @rec, notice: 'The submission was successfully updated.' }
         format.json { render :show, status: :ok, location: @rec }
       else
@@ -120,8 +118,10 @@ class RecsController < ApplicationController
 
     def notify
       @rec.union.followers(Person).each do |p|
-        can_edit = can_edit_union(@rec.union)
-        PersonMailer.rec_notice(p, @rec, request, can_edit).deliver_now
+        if p.invitation_accepted_at
+          can_edit = can_edit_union(@rec.union)
+          PersonMailer.rec_notice(p, @rec, request, can_edit).deliver_now
+        end 
       end
     end
 

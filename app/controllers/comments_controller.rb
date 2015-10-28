@@ -55,7 +55,7 @@ private
       recipients << c.person
     end
     recipients.uniq.each do |p|
-      if p.id != current_person.id
+      if p.id != current_person.id && p.invitation_accepted_at
         PersonMailer.comment_notice(p, @comment, request).deliver_now      
       end
     end
