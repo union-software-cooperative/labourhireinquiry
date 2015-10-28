@@ -195,6 +195,7 @@ class RecsController < ApplicationController
             :attachment, 
             :title, 
             :union_id,
+            :volunteer,
             :id
           ]
         ]

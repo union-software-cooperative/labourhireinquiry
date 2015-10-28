@@ -2,6 +2,8 @@ Hi <%=@person.first_name%>
 
 -- A submission has been received for <%= @rec.union.short_name %> --
 
+<%="VOLUNTEER!" if @rec.person.volunteer %>
+
 "<%= @rec.summary%>" - <%= @rec.person.display_name %>, <%= @rec.location %>
 
 <%="#{@request.protocol}#{@request.host}/recs/#{@rec.id}"%>

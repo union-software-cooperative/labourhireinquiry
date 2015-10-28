@@ -11,6 +11,7 @@ Hi <%=@person.first_name%>
 	<footer>
 		<cite>
 			<%= "#{@rec.display_name}" %>
+			<%="(WANTS TO VOLUNTEER - please contact.)" if @rec.person.volunteer %>
 		</cite> 
 		</footer>
 </blockquote>

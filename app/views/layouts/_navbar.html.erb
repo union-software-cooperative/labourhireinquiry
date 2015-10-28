@@ -37,7 +37,7 @@
                 <%= link_to "my profile", edit_person_path(id: current_person.id) %>
               </li>
               <li>
-                <%= link_to "invite someone", new_person_invitation_path %>
+                <%= link_to "invite an administrator", new_person_invitation_path %>
               </li>
               <li>
                 <%= link_to "sign out", destroy_person_session_path, :method => 'delete' %>

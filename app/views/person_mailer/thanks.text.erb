@@ -1,7 +1,8 @@
 Hi <%=@person.first_name%>
 
-Thank you for your submission!
- 
+Thank you for your submission! <% if @rec.person.volunteer %> And thanks for offering to volunteer, hopefully someone will contact you soon.
+<% end %>
+
 The public URL for it is here 
 <%=review_rec_url(@rec.token)%>
 
