@@ -9,7 +9,7 @@
 
 	<footer>
 		<cite>
-			<%= "#{rec.person.display_name}, #{rec.location}" %>
+			<%= "#{rec.display_name}" %>
 			<%=link_to "<span class=\"glyphicon glyphicon-pencil\"></span>".html_safe, edit_person_path(rec.person) if can_edit_union(rec.union) %>
 		</cite> 
 		</footer>

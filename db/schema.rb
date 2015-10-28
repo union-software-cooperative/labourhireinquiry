@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151027081410) do
+ActiveRecord::Schema.define(version: 20151028060405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,8 +117,8 @@ ActiveRecord::Schema.define(version: 20151027081410) do
     t.string   "name"
     t.string   "tags"
     t.string   "attachment"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.integer  "company_id"
     t.integer  "union_id"
     t.integer  "person_id"
@@ -128,7 +128,6 @@ ActiveRecord::Schema.define(version: 20151027081410) do
     t.boolean  "accommodation_secure"
     t.boolean  "primary_carer"
     t.boolean  "community_life"
-    t.text     "is_anonymous"
     t.boolean  "is_union"
     t.text     "host_employer"
     t.string   "location"
@@ -163,6 +162,7 @@ ActiveRecord::Schema.define(version: 20151027081410) do
     t.string   "token"
     t.boolean  "volunteer"
     t.string   "volunteer_comment"
+    t.boolean  "is_anonymous",               default: false
   end
 
   add_index "recs", ["company_id"], name: "index_recs_on_company_id", using: :btree

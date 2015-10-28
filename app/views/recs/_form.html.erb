@@ -224,7 +224,14 @@ function submission_ready() {
     <% end %>
   <% end %>
 
-  $('#rec_is_anonymous').bootstrapSwitch();
+  $('#rec_is_anonymous').bootstrapSwitch({
+    onSwitchChange: function (e, data) {
+      if (data)
+        $('input[type="submit"]').val('Share your story anonymously');
+      else
+        $('input[type="submit"]').val('Share your story');
+    }
+  });
 
   $('#rec_is_union').bootstrapSwitch({
     onSwitchChange: function (e, data) {
@@ -268,6 +275,7 @@ function submission_ready() {
   $('#rec_host_employer').blur(compile_story);
   $('#rec_host_location').blur(compile_story);
   $('#rec_solution').blur(compile_story);
+
 }
 
 $(document).ready(submission_ready);

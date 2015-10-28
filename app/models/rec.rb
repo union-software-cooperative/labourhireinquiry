@@ -55,11 +55,22 @@ class Rec < ActiveRecord::Base
 		}
 	end
 
+	def display_name
+		result = ""
+		if self.is_anonymous
+			result = "Anonymous"
+		else 
+			result = self.person.display_name
+		end
+		result += ", #{self.location}" unless self.location.blank?
+		result
+	end
+
 	def self.token
-		# generate a vague readable/memorable token
+		# generate a vague readable/memorable token of alternating vowel and consonants
 		v = %w[a e i o u]
 		c = ('a'..'z').to_a
-		c = c - v
+		c = c - v - ['x', 'q'] # I don't like the ones with x and q
 		s = ""
 
 		(1..7).each do |i|

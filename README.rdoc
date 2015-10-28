@@ -8,18 +8,18 @@ DONE Publish union pages
 DONE VTHC is home union?
 Set union defaults on edit?
 DONE Notification on follow
-SSL cert
+DONE SSL cert
 Data download
 DONE-ish Mailgun config
 DONE Change quote over submission
 DONE Gender on rec
 Youtube field
 Video transcoding
-Pay for heroku
+DONE Pay for heroku
 Sharing of submissions
 DONE Navbar bug
 Unpublish submissions
-Follow by posting not getting
+DONE Follow by posting not getting
 
 
 
