@@ -1,10 +1,11 @@
 class PersonMailer < ApplicationMailer
 	add_template_helper(ApplicationHelper)
 
-	def rec_notice(person, rec, request)
+	def rec_notice(person, rec, request, can_edit)
 		@person = person
 		@rec = rec
 		@request = request
+		@can_edit = can_edit
 		mail(from: from(request), to: person.email, subject: "#{rec.person.display_name} has made a submission.")
 	end
 

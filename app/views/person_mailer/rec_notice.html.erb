@@ -1,0 +1,33 @@
+Hi <%=@person.first_name%>
+
+<h1>A submission has been received for <%= @rec.union.short_name %></h1>
+
+<blockquote>
+	<%= profile_picture(@rec.person) %>
+	<%="HIDDEN: <S>".html_safe unless @rec.enabled %>
+	<%= @rec.summary %>
+	<%="</S>".html_safe unless @rec.enabled %>
+	<%="<p>WARNING: HAS VIDEO!</p>" if @rec.attachment.url %>
+	<footer>
+		<cite>
+			<%= "#{@rec.display_name}" %>
+		</cite> 
+		</footer>
+</blockquote>
+
+<% if @can_edit %>
+	<p>
+		<a href="<%=toggle_rec_url(@rec)%>"><%= @rec.enabled ? "HIDE IT" : "PUBLISH IT"%></a>
+	</p>
+	<p>
+		<a href="<%=edit_rec_url(@rec)%>">Edit Online</a>
+	</p>
+<% else %>
+	<p>
+		<a href="<%=rec_url(@rec)%>">View Online</a>
+	</p>
+<% end %>
+
+<p>
+	You received this because you are following <%= @rec.union.short_name %>
+</p>

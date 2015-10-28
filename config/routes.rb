@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :people, :controllers => { :invitations => 'people/invitations' }
   resources :companies, type: 'Company'  do
     member do
-      get 'follow'
+      post 'follow'
     end
   end
 
@@ -16,13 +16,14 @@ Rails.application.routes.draw do
   
   resources :unions, controller: :supergroups, type: 'Union' do
     member do
-      get 'follow'
+      post 'follow'
     end
     resources :recs do
       member do
-        get 'follow'
+        post 'follow'
         get 'review'
-        put 'video_upload'
+        patch 'video_upload'
+        get 'toggle' # get so it can be done from email link
       end
     end
   end
@@ -30,9 +31,10 @@ Rails.application.routes.draw do
   resources :people
   resources :recs do
     member do
-      get 'follow'
+      post 'follow'
       get 'review'
       patch 'video_upload'
+      get 'toggle' # get so it can be done from email link
     end
   end
 

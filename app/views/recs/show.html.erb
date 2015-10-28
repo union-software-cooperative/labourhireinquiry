@@ -10,12 +10,13 @@
 
 		<div class="rec_header" style: "margin-left:15px">
 		<%= link_to 'edit submission', edit_rec_path(@rec), class: "btn btn-default"  if can_edit_union(@rec.union) %>
-		
+
+		<%= link_to @rec.enabled ? 'hide submission' : 'publish submission', toggle_rec_path(@rec), class: "btn btn-default"  if can_edit_union(@rec.union) %>
 		
 	</div>
 
 		<%= render @rec %>
-		<%= link_to current_person.follows?(@rec) ? "unfollow" : "follow", follow_rec_path(@rec), class: "btn btn-primary btn-follow-rec" %>
+		<%= link_to current_person.follows?(@rec) ? "unfollow" : "follow", follow_rec_path(@rec), class: "btn btn-primary btn-follow-rec", method: "post" %>
 		<%= render 'upload_video' if can_edit_union(@rec.union) %>
 		<%= render partial: 'posts/form' %>
 		<%= render @rec.posts %>

@@ -1,5 +1,5 @@
 <% if current_person %>
   <div class="follow-container">
-    <%= link_to current_person.follows?(@supergroup) ? "unfollow" : "follow", follow_polymorphic_path, class: "btn btn-primary btn-follow-sg" %>
+    <%= link_to current_person.follows?(@supergroup) ? "unfollow" : "follow", follow_polymorphic_path, class: "btn btn-primary btn-follow-sg", method: "post" %>
   </div>
 <% end %>

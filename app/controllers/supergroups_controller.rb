@@ -22,6 +22,7 @@ class SupergroupsController < ApplicationController
     not_found unless @supergroup.enabled || current_person
     @post = Post.new(parent: @supergroup)
     @recs = Rec.eager_load(:person).where(["recs.#{@klass}_id=?", @supergroup.id])
+    @recs = @recs.where(enabled: true) unless current_person
     return render 'embed', layout: false if params[:embed]
   end
 

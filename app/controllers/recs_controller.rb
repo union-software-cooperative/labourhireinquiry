@@ -1,6 +1,6 @@
 class RecsController < ApplicationController
   before_action :authenticate_person!, except: [:index, :new, :create, :review, :video_upload]
-  before_action :set_rec, only: [:show, :edit, :update, :destroy, :follow]
+  before_action :set_rec, only: [:show, :edit, :update, :destroy, :follow, :toggle]
   before_action :set_rec_from_token, only: [:review, :video_upload]
 
   include RecsHelper
@@ -9,6 +9,7 @@ class RecsController < ApplicationController
   # GET /recs.json
   def index
     @recs = Rec.all.eager_load(:person)
+    @recs = @recs.where(enabled: true) unless current_person
     @supergroup = @union # TODO is there a better way?
   end
 
@@ -80,6 +81,8 @@ class RecsController < ApplicationController
   def update
     respond_to do |format|
       if @rec.update(rec_params)
+        notify
+  
         format.html { redirect_to @rec, notice: 'The submission was successfully updated.' }
         format.json { render :show, status: :ok, location: @rec }
       else
@@ -104,6 +107,11 @@ class RecsController < ApplicationController
     redirect_to @rec
   end
 
+  def toggle
+    @rec.update(enabled: !@rec.enabled)
+    redirect_to @rec
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_rec
@@ -112,7 +120,8 @@ class RecsController < ApplicationController
 
     def notify
       @rec.union.followers(Person).each do |p|
-        PersonMailer.rec_notice(p, @rec, request).deliver_now
+        can_edit = can_edit_union(@rec.union)
+        PersonMailer.rec_notice(p, @rec, request, can_edit).deliver_now
       end
     end
 
