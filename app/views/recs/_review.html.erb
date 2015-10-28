@@ -4,9 +4,12 @@
   <h3 class="text-center">Increase your impact by asking your friends and family to tell their story too</h3>
 </hgroup>
 <div style="text-align: center">
-  <a style="display:inline-block" class="btn btn-primary" href="https://www.facebook.com/sharer/sharer.php?u=<%=CGI.escape "https://#{request.host}/#{@rec.union.short_name}?source=facebook&token=#{@rec.token}"%>" target='_blank'><img src="<%=image_path('facebook.png')%>" alt="Facebook Logo" height="30px">Share on Facebook</a>
+  <a style="display:inline-block" class="btn btn-primary" href="<%=facebook_share_rec_url(@rec,request)%>" target='_blank'><img src="<%=image_path('facebook.png')%>" alt="Facebook Logo" height="30px">Share on Facebook</a>
 
-  <a style="display:inline-block" class="text-center btn btn-primary" href="https://twitter.com/share?text=Help+bring+back+secure+jobs!&url=<%=CGI.escape "https://#{request.host}/#{@rec.union.short_name}?source=twitter&token=#{@rec.token}"%>"  target='_blank'><img src="<%=image_path('twitter.png')%>" alt="Facebook Logo" height="24px" style="margin: 3px;">Share on Twitter</a>
+  <a style="display:inline-block" class="text-center btn btn-primary" href="<%=twitter_share_rec_url(@rec, request)%>"  target='_blank'><img src="<%=image_path('twitter.png')%>" alt="Twitter Logo" height="24px" style="margin: 3px;">Share on Twitter</a>
+  <a style="display:inline-block" class="text-center btn btn-primary" href="mailto:?subject=<%=@rec.union.call_to_action%>&body=<%=CGI.escape(render partial: 'share_mail', formats: ['text'], locals: {rec: @rec, request: request}).gsub('+', ' ') %>"  target='_top'>
+  	<img src="<%=image_path('envelope_white.png')%>" alt="Email Icon" height="24px" style="margin: 3px;">
+  	Share by Email</a>
 </div>
 
 <%= render @rec %>

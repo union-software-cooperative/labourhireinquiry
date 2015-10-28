@@ -1,0 +1,26 @@
+Hi <%=@person.first_name%>
+
+<p>
+Thank you for your submission!
+</p>
+<p>
+The public URL for it is here 
+<%=link_to review_rec_url(@rec.token), review_rec_url(@rec.token)%>
+</p>
+<p>
+
+Increase your impact by asking your friends and family to tell their story too...
+</p>
+<p>
+
+<%=link_to "Share on Facebook", facebook_share_rec_url(@rec, @request)%>
+</p>
+<p>
+
+<%=link_to "Share on Twitter", twitter_share_rec_url(@rec, @request)%>
+</p>
+<p>
+
+Or forward the following message 
+</p>
+<%=render partial: 'recs/share_mail', formats: ['html'], locals: {rec: @rec, request: @request} %>

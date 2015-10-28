@@ -1,7 +1,19 @@
 <div class="row">
 	<div class="col-sm-8 col-sm-offset-2">
 		<p id="notice"><%= notice %></p>
-		<%= link_to 'edit submission', edit_rec_path(@rec), class: "btn btn-default", style: "margin-left:15px"  if can_edit_union(@rec.union) %>
+
+
+		<p>
+			The public URL for this submission is 
+			<a href="<%=review_rec_url(@rec.token)%>"><%=review_rec_url(@rec.token)%></a>
+		</p>
+
+		<div class="rec_header" style: "margin-left:15px">
+		<%= link_to 'edit submission', edit_rec_path(@rec), class: "btn btn-default"  if can_edit_union(@rec.union) %>
+		
+		
+	</div>
+
 		<%= render @rec %>
 		<%= link_to current_person.follows?(@rec) ? "unfollow" : "follow", follow_rec_path(@rec), class: "btn btn-primary btn-follow-rec" %>
 		<%= render 'upload_video' if can_edit_union(@rec.union) %>

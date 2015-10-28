@@ -1,4 +1,6 @@
 class PersonMailer < ApplicationMailer
+	add_template_helper(ApplicationHelper)
+
 	def rec_notice(person, rec, request)
 		@person = person
 		@rec = rec
@@ -18,6 +20,13 @@ class PersonMailer < ApplicationMailer
 		@comment = comment
 		@request = request
 		mail(from: from(request), to: person.email, subject: "#{comment.person.display_name} has left a comment.")
+	end
+
+	def thanks(person, rec, request)
+		@person = person
+		@rec = rec
+		@request = request
+		mail(from: from(request), to: person.email, subject: "Thanks for your submission")
 	end
 
 private

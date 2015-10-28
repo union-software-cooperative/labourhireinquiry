@@ -1,0 +1,14 @@
+<h1><%= rec.union.call_to_action %></h1>
+
+<p>
+<%= rec.union.explanation %>
+</p>
+<p>
+<%= rec.union.submissions_heading %>
+</p>
+<p>
+<%=link_to "#{request.protocol}#{request.host}", "https://#{request.host}/#{rec.union.short_name}?source=mail&token=#{rec.token}"%>
+</p>
+<p>
+Thanks<br/> 
+<%= rec.person.first_name %>

@@ -74,4 +74,14 @@ module ApplicationHelper
 			end 
 		end
 	end
+
+	def twitter_share_rec_url(rec, request)
+		url = "#{request.protocol}#{request.host}/#{rec.union.short_name}?source=twitter&token=#{rec.token}"
+		"https://twitter.com/share?text=#{CGI.escape rec.union.call_to_action}!&url=#{CGI.escape url}".gsub('+','%20')
+	end
+
+	def facebook_share_rec_url(rec, request)
+		url = "#{request.protocol}#{request.host}/#{rec.union.short_name}?source=facebook&token=#{rec.token}"
+		"https://www.facebook.com/sharer/sharer.php?u=#{CGI.escape url}".gsub('+', '%20')
+	end
 end
