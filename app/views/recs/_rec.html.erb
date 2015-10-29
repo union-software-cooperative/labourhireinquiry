@@ -1,12 +1,15 @@
+
 <blockquote>
 	<%= profile_picture(rec.person) %>
 	<%="HIDDEN: <S>".html_safe unless rec.enabled %>
-	<%= rec.summary %>
+		<span class="ellipsis">
+			<%= rec.summary %>
+		</span>
 	<%="</S>".html_safe unless rec.enabled %>
 	
 	<%=link_to "<span class=\"glyphicon glyphicon-pencil\"></span>".html_safe, rec_path(rec) if current_person %>
-	<br />
-	<video id="vid" class="<%=ios_video(rec.attachment)%>" style="<%='display:none;' unless rec.attachment.url %> width: 100%; margin-left: auto; margin-right: auto;" controls>
+
+	<video id="vid" class="<%=ios_video(rec.attachment)%>" style="<%='display:none;' unless rec.attachment.url %> width: 100%; max-width: 320px; margin-left: auto; margin-right: auto;display:block;" controls >
 		<source id="vid-source" src="<%=rec.attachment.url%>"/>
 		Your browser doesn't support HTML 5 video
 	</video>

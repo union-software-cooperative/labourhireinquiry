@@ -16,10 +16,21 @@ DONE Gender on rec
 Youtube field
 Video transcoding
 DONE Pay for heroku
-Sharing of submissions
+DONE Sharing of submissions
 DONE Navbar bug
-Unpublish submissions
+DONE Unpublish submissions
 DONE Follow by posting not getting
+See submission and volunteer status from people list
+Source tracking
+Fix weird width issues on iphone - overflow
+Jumbotron rounded corners
+Seeding social networking with organisers
+Facebook share image
+Secretary send from
+VTHC page not showing all
+DONE Video narrow and ellipsis
+
+
 
 
 
