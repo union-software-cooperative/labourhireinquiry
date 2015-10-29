@@ -85,3 +85,5 @@ gem "socialization", :git => 'https://github.com/union-software-cooperative/soci
 gem "puma"
 
 gem "delayed_job_active_record"
+
+gem "exception_notification"

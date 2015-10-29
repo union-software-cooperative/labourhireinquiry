@@ -112,6 +112,9 @@ GEM
     domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
+    exception_notification (4.1.1)
+      actionmailer (>= 3.0.4)
+      activesupport (>= 3.0.4)
     excon (0.45.4)
     execjs (2.6.0)
     factory_girl (4.5.0)
@@ -435,6 +438,7 @@ DEPENDENCIES
   delayed_job_active_record
   devise
   devise_invitable
+  exception_notification
   factory_girl_rails
   figaro
   fog
