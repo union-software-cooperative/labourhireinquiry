@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029023959) do
+ActiveRecord::Schema.define(version: 20151029213655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -190,6 +190,9 @@ ActiveRecord::Schema.define(version: 20151029023959) do
     t.text     "union_rep_quote"
     t.string   "union_rep"
     t.string   "union_rep_cite"
+    t.string   "hashtags"
+    t.string   "tweet"
+    t.string   "facebook_image"
   end
 
   add_foreign_key "comments", "people"

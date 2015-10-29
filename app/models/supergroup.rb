@@ -5,6 +5,7 @@ class Supergroup < ActiveRecord::Base
   mount_uploader :banner, BannerUploader
   mount_uploader :logo, LogoUploader
 	mount_uploader :union_rep, ProfileUploader
+	mount_uploader :facebook_image, AttachmentUploader
 
   has_many :posts, as: :parent
   validates :name, :short_name, :www, :call_to_action, :action1, :background_colour, :font_colour, :explanation, presence: true

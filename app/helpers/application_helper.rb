@@ -76,8 +76,11 @@ module ApplicationHelper
 	end
 
 	def twitter_share_rec_url(rec, request)
+		tweet = rec.union.tweet 
+		tweet = rec.union.call_to_action if tweet.blank?
+		hashtags = (rec.union.hashtags||"").gsub("#", "")
 		url = "#{request.protocol}#{request.host}/#{rec.union.short_name}?source=twitter&token=#{rec.token}"
-		"https://twitter.com/share?text=#{CGI.escape rec.union.call_to_action}!&url=#{CGI.escape url}".gsub('+','%20')
+		"https://twitter.com/share?hashtags=#{hashtags}&text=#{CGI.escape tweet}!&url=#{CGI.escape url}".gsub('+','%20')
 	end
 
 	def facebook_share_rec_url(rec, request)

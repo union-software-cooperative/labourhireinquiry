@@ -84,9 +84,27 @@
     <%= f.text_field :union_rep_cite, class: "form-control"   %>
   </div>
 
-  <div class="actions">
-    <%= f.submit class: "btn btn-default" %>
-  </div>
+  <%=field_set_tag t("Social media config") do %>
+    <div class="form-group">
+      <%= f.label "Facebook will show the union's call_to_action and explanation text" %>
+      <%= f.label :facebook_image %><br>
+      <%= f.file_field :facebook_image, accept: 'image/jpeg,image/gif,image/png'  %><br>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :hashtags %><br>
+      <%= f.text_field :hashtags, class: "form-control"   %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :tweet %><br>
+      <%= f.text_field :tweet, class: "form-control"   %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit class: "btn btn-default" %>
+    </div>
+  <% end %>
 <% end %>
 
 <script type="text/javascript">
