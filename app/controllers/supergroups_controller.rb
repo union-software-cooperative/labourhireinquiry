@@ -23,7 +23,7 @@ class SupergroupsController < ApplicationController
     @post = Post.new(parent: @supergroup)
     @recs = Rec.eager_load(:person).where(["recs.#{@klass}_id=?", @supergroup.id])
     @recs = @recs.where(enabled: true) unless current_person
-    return render 'embed', layout: false if params[:embed]
+    return render 'embed', layout: 'embed' if params[:embed]
   end
 
   # GET /supergroups/new
@@ -93,6 +93,7 @@ class SupergroupsController < ApplicationController
       else
         @supergroup = @klass.where("short_name ilike ?", params[:id].downcase).first
       end
+      not_found if @supergroup.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

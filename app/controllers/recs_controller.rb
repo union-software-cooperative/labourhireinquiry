@@ -25,7 +25,7 @@ class RecsController < ApplicationController
     @rec.person = Person.new
     @rec.person.union = @union
     @rec.union = @union
-    return render 'embed_new', layout: false if params[:embed]
+    return render 'embed_new', layout: 'embed' if params[:embed]
   end
 
   # GET /recs/1/edit
@@ -34,7 +34,7 @@ class RecsController < ApplicationController
 
   # After posting a submission
   def review
-      return render 'embed_review', layout: false if params[:embed]
+      return render 'embed_review', layout: 'embed' if params[:embed]
   end
 
   def video_upload
@@ -66,7 +66,7 @@ class RecsController < ApplicationController
         format.json { render :show, status: :created, location: @rec }
       else
         if params[:embed]
-          result = render 'embed_new', layout: false 
+          result = render 'embed_new', layout: 'embed' 
         else
           result = render :new
         end if 

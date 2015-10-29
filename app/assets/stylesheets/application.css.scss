@@ -85,6 +85,7 @@ blockquote p {
 .jumbotron {
   //padding-top: 0px !important;
   //padding-bottom: 1rem;
+  border-radius: 0px !important;
 }
 
 .inverted {
@@ -191,4 +192,17 @@ $a-tags-hover: 'a:active, a:hover';
 
 .no-left-margin {
   margin-left: 0px;
+}
+
+.video {
+  width: 100%; 
+  max-width: 320px; 
+  margin-left: auto; 
+  margin-right: auto;
+  display:block;
+}
+
+.row {
+  margin-left:0px !important;
+  margin-right: 0px !important;
 }
