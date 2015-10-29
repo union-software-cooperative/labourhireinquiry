@@ -15,7 +15,7 @@ rec_ready = ->
 
   if(!/iPhone|iPad|iPod|Safari/i.test(navigator.userAgent))
     $('.ios_video').hide()
-
+  
   $(".ellipsis").each ->
     t = $(this).html()
     if (t.length > 250)
