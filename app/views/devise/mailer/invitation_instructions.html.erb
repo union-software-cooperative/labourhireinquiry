@@ -15,11 +15,12 @@
 
 <h1>Interested? What do I do next?</h1>
 <ol>
-	<li>Click 'accept invitation' and setup your account/contact details</li>
-	<li>Click the pencil next to you union's name to customize your union's banner etc...</li>
-	<li>Publish your site and start promoting its URL on social media and in the field</l1>
+	<li>Click <%= link_to t("devise.mailer.invitation_instructions.accept"), accept_invitation_url(@resource, :invitation_token => @token) %> and setup your account/contact details</li>
+	<li>To customize your union's campaign page, <%=link_to "click here", edit_union_path(@resource.union) %> or click the pencil next to you union's name</li>
+	<li>Publish your site and start promoting its URL <%=link_to "#{root_url}#{@resource.union.short_name}", "#{root_url}#{@resource.union.short_name}" %> on social media and in the field. Or you can embed the form using <%=link_to "#{root_url}embed/#{@resource.union.short_name}/new", "#{root_url}embed/#{@resource.union.short_name}/new" %></l1>
 	<li>Keep an eye out for submissions in your email and click 'Hide' to retract them</li>
 </ol>
+Let us know of union people at other unions who might get some mileage out of this.
 <h1>Not interested?</h1>
-<p>If you are not the right person, please tell Danae (dbosler@vthc.org.au) who is and we'll invite them instead.  Thanks.</p>
+<p>If you are not the right person, please tell Danae (dbosler@vthc.org.au) who is and we'll invite them instead.  Or accept the invite, then <%= link_to 'invite them yourself', new_person_invitation_url %>.  Thanks.</p>
 <p><%= t("devise.mailer.invitation_instructions.ignore").html_safe %></p>
