@@ -4,6 +4,15 @@
 
 <p><%= link_to t("devise.mailer.invitation_instructions.accept"), accept_invitation_url(@resource, :invitation_token => @token) %></p>
 
+<h1>Interested? What do I do next?</h1>
+<ol>
+	<li>Click <%= link_to t("devise.mailer.invitation_instructions.accept"), accept_invitation_url(@resource, :invitation_token => @token) %> and setup your account/contact details</li>
+	<li>To customize your union's campaign page, <%=link_to "click here", edit_union_path(@resource.union) %> or click the pencil next to you union's name</li>
+	<li>Publish your site and start promoting its URL <%=link_to "#{root_url}#{@resource.union.short_name}", "#{root_url}#{@resource.union.short_name}" %> on social media and in the field. Or you can embed the form using <%=link_to "#{root_url}embed/#{@resource.union.short_name}/new", "#{root_url}embed/#{@resource.union.short_name}/new" %></l1>
+	<li>Keep an eye out for submission notifications in your email inbox and click 'Hide' to retract them</li>
+</ol>
+Let us know of union people at other unions who might get some mileage out of this.
+
 <h1>What's this for?</h1>
 <p>
 	This website has been put together by Victoria Trades Hall Council to help unions collect worker submissions and generate some online "colour and motion" as part of the Victorian Government's Inquiry into Labour Hire and Insecure Work, due by 27 Nov 2015.  
@@ -13,14 +22,6 @@
 <p>The form is designed to provoke detailed responses from people who may not have realised the negative impact insecure work has had on their lives.  You are notified of submissions and can moderate them.</p>
 <p>You and your contributors can upload video testimony to make submissions more newsworthy.  It encourages sharing with friends and family via social media and good'ol email</p>
 
-<h1>Interested? What do I do next?</h1>
-<ol>
-	<li>Click <%= link_to t("devise.mailer.invitation_instructions.accept"), accept_invitation_url(@resource, :invitation_token => @token) %> and setup your account/contact details</li>
-	<li>To customize your union's campaign page, <%=link_to "click here", edit_union_path(@resource.union) %> or click the pencil next to you union's name</li>
-	<li>Publish your site and start promoting its URL <%=link_to "#{root_url}#{@resource.union.short_name}", "#{root_url}#{@resource.union.short_name}" %> on social media and in the field. Or you can embed the form using <%=link_to "#{root_url}embed/#{@resource.union.short_name}/new", "#{root_url}embed/#{@resource.union.short_name}/new" %></l1>
-	<li>Keep an eye out for submissions in your email and click 'Hide' to retract them</li>
-</ol>
-Let us know of union people at other unions who might get some mileage out of this.
 <h1>Not interested?</h1>
 <p>If you are not the right person, please tell Danae (dbosler@vthc.org.au) who is and we'll invite them instead.  Or accept the invite, then <%= link_to 'invite them yourself', new_person_invitation_url %>.  Thanks.</p>
 <p><%= t("devise.mailer.invitation_instructions.ignore").html_safe %></p>
