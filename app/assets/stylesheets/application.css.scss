@@ -168,15 +168,20 @@ $a-tags-hover: 'a:active, a:hover';
   margin-right: 15px;
 }
 
-.follow-container {
+.share-container {
   position: relative;
   float: right;
+}
+
+.follow-container {
+  position: relative;
+  float: left;
 }
 
 .btn-follow-sg {
   position: absolute;
   top: 1.5rem;
-  right: 1.5rem;
+  left: 1.5rem;
   a:link, a:focus, a:hover, a:visited, a:active {
     color: white !important;
   }
@@ -188,6 +193,16 @@ $a-tags-hover: 'a:active, a:hover';
   a:link, a:visited, a:hover, a:active, a:focus {
     color: white;
   }
+}
+
+.btn-share {
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  a:link, a:focus, a:hover, a:visited, a:active {
+    color: white !important;
+  }
+  background-color: rgba(0,0,0,0.4);
 }
 
 .no-left-margin {

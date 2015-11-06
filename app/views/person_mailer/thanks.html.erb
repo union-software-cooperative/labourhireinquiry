@@ -18,14 +18,14 @@ Increase your impact by asking your friends and family to tell their story too..
 </p>
 <p>
 
-<%=link_to "Share on Facebook", facebook_share_rec_url(@rec, @request)%>
+<%=link_to "Share on Facebook", facebook_share_rec_url(@rec.union, @rec.token, @request)%>
 </p>
 <p>
 
-<%=link_to "Share on Twitter", twitter_share_rec_url(@rec, @request)%>
+<%=link_to "Share on Twitter", twitter_share_rec_url(@rec.union, @rec.token, @request)%>
 </p>
 <p>
 
 Or forward the following message 
 </p>
-<%=render partial: 'recs/share_mail', formats: ['html'], locals: {rec: @rec, request: @request} %>
+<%=render partial: 'recs/share_mail.html',  locals: {union: @rec.union, referrer: @rec.token, rec: @rec, request: @request} %>

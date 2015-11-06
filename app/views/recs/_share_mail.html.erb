@@ -1,14 +1,14 @@
-<h1><%= rec.union.call_to_action %></h1>
+<h1><%= union.call_to_action %></h1>
 
 <p>
-<%= rec.union.explanation %>
+<%= union.explanation %>
 </p>
 <p>
-<%= rec.union.submissions_heading %>
+<%= union.submissions_heading %>
 </p>
 <p>
-<%=link_to "#{request.protocol}#{request.host}", "https://#{request.host}/#{rec.union.short_name}?source=mail&token=#{rec.token}"%>
+<%=link_to "#{request.protocol}#{request.host}", "https://#{request.host}/#{union.short_name}?source=mail&token=#{referrer}"%>
 </p>
 <p>
 Thanks<br/> 
-<%= rec.person.first_name %>
+<%= rec.person.first_name if rec %>

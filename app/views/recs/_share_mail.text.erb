@@ -1,9 +1,9 @@
--- <%= rec.union.call_to_action %> --
+-- <%= union.call_to_action %> --
 
-<%= rec.union.explanation %>
+<%= union.explanation %>
 
-<%= rec.union.submissions_heading %>
-<%="https://#{request.host}/#{rec.union.short_name}?source=mail&token=#{rec.token}"%>
+<%= union.submissions_heading %>
+<%="https://#{request.host}/#{union.short_name}?source=mail&token=#{referrer}"%>
 
 Thanks 
-<%= rec.person.first_name %>
+<%= rec.person.first_name if rec %>

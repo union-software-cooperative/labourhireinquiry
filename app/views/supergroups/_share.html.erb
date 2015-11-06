@@ -1,0 +1,11 @@
+  <div class="share-container">
+  <div class="share-links btn-share">
+	 <a style="display:inline-block" class="share share-fb" href="<%=facebook_share_rec_url(@union, @union.short_name, request)%>" target='_blank'><img src="<%=image_path('facebook.png')%>" alt="Facebook Logo" height="30px"></a>
+
+  <a style="display:inline-block" class="share share-twitter" href="<%=twitter_share_rec_url(@union, @union.short_name, request)%>"  target='_blank'><img src="<%=image_path('twitter.png')%>" alt="Twitter Logo" height="24px" style="margin: 3px;"></a>
+
+  <a style="display:inline-block" class="share share-mail" href="mailto:?subject=<%=@union.call_to_action%>&body=<%=CGI.escape(render partial: 'recs/share_mail', formats: ['text'], locals: {union: @union, referrer: @union.short_name, rec: nil, request: request}).gsub('+', ' ') %>"  target='_top'>
+  	<img src="<%=image_path('envelope_white.png')%>" alt="Email Icon" height="24px" style="margin: 3px;">
+  	</a>
+  </div>
+  </div>

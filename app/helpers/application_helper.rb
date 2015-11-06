@@ -75,16 +75,16 @@ module ApplicationHelper
 		end
 	end
 
-	def twitter_share_rec_url(rec, request)
-		tweet = rec.union.tweet 
-		tweet = rec.union.call_to_action if tweet.blank?
-		hashtags = (rec.union.hashtags||"").gsub("#", "")
-		url = "#{request.protocol}#{request.host}/#{rec.union.short_name}?source=twitter&token=#{rec.token}"
+	def twitter_share_rec_url(union, referrer, request)
+		tweet = union.tweet 
+		tweet = union.call_to_action if tweet.blank?
+		hashtags = (union.hashtags||"").gsub("#", "")
+		url = "#{request.protocol}#{request.host}/#{union.short_name}?source=twitter&token=#{referrer}"
 		"https://twitter.com/share?hashtags=#{hashtags}&text=#{CGI.escape tweet}!&url=#{CGI.escape url}".gsub('+','%20')
 	end
 
-	def facebook_share_rec_url(rec, request)
-		url = "#{request.protocol}#{request.host}/#{rec.union.short_name}?source=facebook&token=#{rec.token}"
+	def facebook_share_rec_url(union, referrer, request)
+		url = "#{request.protocol}#{request.host}/#{union.short_name}?source=facebook&token=#{referrer}"
 		"https://www.facebook.com/sharer/sharer.php?u=#{CGI.escape url}".gsub('+', '%20')
 	end
 end
