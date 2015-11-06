@@ -30,23 +30,24 @@ class Rec < ActiveRecord::Base
 			],
 			health_and_safety: [
 				:safe_work, 
-				:safe_work_explained,
-				:hsr_explained
+				:safe_work_explained
+			#	:hsr_explained
 			],
 			personal_impact: [
 				:predictable_hours,
 				:primary_carer,
-				:entitlements,
-				:community_life
+				:entitlements
+			#	:community_life
 			], 
 			financial_security: [
 				:financially_stable,
 				:accommodation_secure,
 				:feeling_secure
-			],
-			feeling_trapped: [
-				:options
 			]
+			#feeling_trapped: [
+			#	:options
+			#]
+
 			#:formally_employed
 			#:family_life
 			#:secure_stay,

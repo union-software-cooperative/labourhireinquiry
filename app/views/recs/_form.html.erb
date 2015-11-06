@@ -57,36 +57,6 @@
     <% end %>
   <% end %>
 
-  <%=field_set_tag t("Optional") do %>
-    
-    <div class="form-group">
-      <%= f.label :host_employer %><br>
-      <%= f.text_field :host_employer, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :company_name %><br>
-      <%= f.text_field :company_name, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :location %><br>
-      <%= f.text_field :location, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :industry %><br>
-      <%= f.text_field :industry, class: "form-control" %>
-    </div>
-
-    <% if @rec.union.short_name == "NUW" %>
-      <div class="form-group">
-        <%= f.label :supermarket_supply %><br>
-        <%= f.check_box :supermarket_supply, class: "was_switch", :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
-      </div>
-    <% end %>
-  <% end %>
-
   <%=field_set_tag t("Solution") do %>
     <div class="form-group">
       <%= f.label :solution %><br>
@@ -94,25 +64,9 @@
     </div>
   <% end %>
 
-  <%= field_set_tag t("Your Story") do %>
-    <div class="form-group">
-      <%= f.label :summary %><br>
-      <%= f.text_area :summary, class: "form-control", rows: 10 %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :is_anonymous %><br>
-      <%= f.check_box :is_anonymous, class: "was_switch", :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
-    </div>
-  <% end %>
-
   <%= field_set_tag t("your_details") do %> 
-
+    <small>The Inquiry requires your contact details but you can submit anonymously.</small>
     <%= f.fields_for :person do |p| %>
-      <div class="form-group">
-        <%= p.label :attachment %><br>
-        <%= p.file_field :attachment, accept: 'image/jpeg,image/gif,image/png'  %>
-      </div>
       <div class="form-group">
         <%= p.label :first_name %><br>
         <%= p.text_field :first_name, class: "form-control" %>
@@ -148,6 +102,10 @@
         <%= p.text_field :email, class: "form-control" %>
       </div> 
       <div class="form-group">
+        <%= p.label :attachment %><br>
+        <%= p.file_field :attachment, accept: 'image/jpeg,image/gif,image/png'  %>
+      </div>
+      <div class="form-group">
         <%= p.label :volunteer %><br>
         <%= p.check_box :volunteer, :data => default_switch_options %>
       </div>
@@ -175,11 +133,54 @@
     <% end %>
   <% end %>
 
+  <%=field_set_tag t("Optional") do %>
+    
+    <div class="form-group">
+      <%= f.label :host_employer %><br>
+      <%= f.text_field :host_employer, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :company_name %><br>
+      <%= f.text_field :company_name, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :location %><br>
+      <%= f.text_field :location, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :industry %><br>
+      <%= f.text_field :industry, class: "form-control" %>
+    </div>
+
+    <% if @rec.union.short_name == "NUW" %>
+      <div class="form-group">
+        <%= f.label :supermarket_supply %><br>
+        <%= f.check_box :supermarket_supply, class: "was_switch", :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= field_set_tag t("Your Story") do %>
+    <div class="form-group">
+      <%= f.label :summary %><br>
+      <%= f.text_area :summary, class: "form-control", rows: 10 %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :is_anonymous %><br>
+      <%= f.check_box :is_anonymous, class: "was_switch", :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
+    </div>
+  <% end %>
+
   <%=f.hidden_field :union_id %> <!-- TODO rec not person field being rendered -->
       
   <div class="actions">
     <%= f.submit value: "Share your story", class: "btn btn-default"%>
   </div>
+  <small>Your submission will be published on this website, and forwarded to the appropriate Victorian Trades Hall Council affiliate who will make the submission to the Victorian Government's Inquiry into Insecure Work and Labour Hire on your behalf.  You may be contacted for further information.</small>
   <%= hidden_field_tag 'embed', params[:embed] %>
 <% end %>
 

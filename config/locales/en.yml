@@ -57,6 +57,8 @@ en:
         attachment: A picture of you or your family to accompany your story
         title: Job title or description
         volunteer:  "Would you like to help other workers with their submission, or come to a public hearing"
+        first_name: First name (required)
+        email: Email (required)
       union:
         banner: Banner image (will be cropped to 1200x400)
         union_rep_cite: Union rep name

@@ -65,7 +65,7 @@ class RecsController < ApplicationController
         format.html { redirect_to success_url, notice: 'The submission was successfully created.' }
         format.json { render :show, status: :created, location: @rec }
       else
-        if params[:embed]
+        if params[:embed] == "true"
           result = render 'embed_new', layout: 'embed' 
         else
           result = render :new
