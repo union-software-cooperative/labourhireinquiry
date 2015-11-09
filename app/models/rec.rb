@@ -30,7 +30,8 @@ class Rec < ActiveRecord::Base
 			],
 			health_and_safety: [
 				:safe_work, 
-				:safe_work_explained
+				:safe_work_explained,
+				:discuss_safety
 			#	:hsr_explained
 			],
 			personal_impact: [

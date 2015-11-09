@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029213655) do
+ActiveRecord::Schema.define(version: 20151109001232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -164,6 +164,7 @@ ActiveRecord::Schema.define(version: 20151029213655) do
     t.string   "volunteer_comment"
     t.boolean  "is_anonymous",               default: false
     t.boolean  "enabled",                    default: true
+    t.boolean  "discuss_safety"
   end
 
   add_index "recs", ["company_id"], name: "index_recs_on_company_id", using: :btree

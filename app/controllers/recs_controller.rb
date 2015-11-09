@@ -161,6 +161,7 @@ class RecsController < ApplicationController
           :pay_and_conditions_comment,
           :safe_work,
           :safe_work_explained, 
+          :discuss_safety,
           :hsr_explained,
           :health_and_safety_comment,
           :predictable_hours,

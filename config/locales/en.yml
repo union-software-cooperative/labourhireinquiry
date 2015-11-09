@@ -29,13 +29,14 @@ en:
         compliant_employment:  Do you believe your employer was complying with the law regarding your employment?
         could_speak_up: Did you feel that you could discuss your pay and conditions without risking your job?
         pay_and_conditions_comment: Please explain the problems you had with your pay and conditions...
-        safe_work: Was your work always safe, with clearly explained health and safety guidelines and responsibilities?
-        safe_work_explained:  Were you told about WorkCover Insurance and what to do if you were injured? 
+        safe_work: Was your work always safe?
+        safe_work_explained:  Were you told about WorkCover and what to do if you were injured? 
         hsr_explained:  Did you know who your health and safety representive was?
         health_and_safety_comment: Please explain the problems you had with your health and safety...
+        discuss_safety: Did you feel you could discuss health and safety without risking your job?
         predictable_hours: Did you have a predicable roster that you could plan your life around? 
         primary_carer: Could you or your co-workers organise childcare to suit your work schedule?
-        entitlements: Could you take leave when you needed without worrying about loosing your job?
+        entitlements: Could you take leave when you needed without worrying about losing your job?
         community_life:  Did you have time to participate in regular community and club activities?
         personal_impact_comment: Please explain the personal problems you had because of insecure work...
         financially_stable: Could you pay your bills and buy food each week?
