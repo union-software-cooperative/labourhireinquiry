@@ -7,6 +7,16 @@ class ApplicationController < ActionController::Base
 
   include ApplicationHelper
 
+  before_action :set_locale
+
+  def set_locale
+    I18n.locale = params[:locale]
+  end
+
+  def default_url_options(options={})
+    { locale: I18n.locale }.merge options
+  end
+
   def set_union
     id = params[:union_id] || (params[:controller]=="supergroups" ? params[:id] : nil) 
     id ||= owner_union.id

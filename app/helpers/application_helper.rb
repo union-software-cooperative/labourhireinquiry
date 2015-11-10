@@ -58,9 +58,9 @@ module ApplicationHelper
 	def gender_options(person)
     options_for_select(
       ([
-        'male', 
-        'female',
-        'its complicated'
+        t('gender.male'), 
+        t('gender.female'),
+        t('gender.other')
         ]).uniq, 
       person.gender
     )

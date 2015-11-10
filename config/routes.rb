@@ -1,23 +1,38 @@
 Rails.application.routes.draw do
-  resources :comments
-  resources :posts
-  devise_for :people, :controllers => { :invitations => 'people/invitations' }
-  resources :companies, type: 'Company'  do
-    member do
-      post 'follow'
-    end
-  end
-
-  get '/embed/:id' => 'supergroups#show', type: 'Union', embed: true
-  get '/embed/:union_id/new' => 'recs#new', embed: true
-  #patch '/embed/:union_id/create' => 'recs#create'
-  get '/embed/:union_id/review/:id' => 'recs#review', embed: true
-  #patch '/embed/:union_id/file_upload' => 'recs#file_upload'
+  scope "(:locale)", locale: /en|zh/ do
   
-  resources :unions, controller: :supergroups, type: 'Union' do
-    member do
-      post 'follow'
+    resources :comments
+    resources :posts
+    devise_for :people, :controllers => { :invitations => 'people/invitations' }
+    resources :companies, type: 'Company'  do
+      member do
+        post 'follow'
+      end
     end
+
+  
+    get '/embed/:id' => 'supergroups#show', type: 'Union', embed: true
+    get '/embed/:union_id/new' => 'recs#new', embed: true
+    #patch '/embed/:union_id/create' => 'recs#create'
+    get '/embed/:union_id/review/:id' => 'recs#review', embed: true
+    #patch '/embed/:union_id/file_upload' => 'recs#file_upload'
+  
+    resources :unions, controller: :supergroups, type: 'Union' do
+      member do
+        post 'follow'
+      end
+      resources :recs do
+        member do
+          post 'follow'
+          get 'review'
+          patch 'video_upload'
+          get 'toggle' # get so it can be done from email link
+        end
+      end
+    end
+  
+    resources :people
+  
     resources :recs do
       member do
         post 'follow'
@@ -26,23 +41,14 @@ Rails.application.routes.draw do
         get 'toggle' # get so it can be done from email link
       end
     end
-  end
-
-  resources :people
-  resources :recs do
-    member do
-      post 'follow'
-      get 'review'
-      patch 'video_upload'
-      get 'toggle' # get so it can be done from email link
-    end
-  end
-
-  resources :submission, controller: :recs, type: 'Rec'
-  get '/:id' => 'supergroups#show', type: 'Union'
-  get '/:union_id/new' => 'recs#new'
   
-  root "recs#index"
+    resources :submission, controller: :recs, type: 'Rec'
+    
+    get '/:id' => 'supergroups#show', type: 'Union'
+    get '/:union_id/new' => 'recs#new'
+  
+    root "recs#index"
+  end 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

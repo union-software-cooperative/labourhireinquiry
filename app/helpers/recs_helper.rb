@@ -3,11 +3,11 @@ module RecsHelper
 	def nature_of_employment_options
 		options_for_select(
 				([
-					'informally employed', 
-					'employed through a labour hire agency',
-					'contracting with an ABN but to one employer only',
-					'a directly employed casual',
-					'on a rolling contract'
+					t("noe_informal"), 
+					t('noe_agency'),
+					t('noe_contractor'),
+					t('noe_casual'),
+					t('noe_rolling')
 					]).uniq, 
 				@rec.nature_of_employment
 			)
@@ -16,10 +16,10 @@ module RecsHelper
 	def when_options
 		options_for_select(
 				([
-					'in my current job', 
-					'less than 3 months ago',
-					'less than a year ago',
-					'more than a year ago'
+					t("when_current"), 
+					t("when_lt3"),
+					t("when_lt12"),
+					t("when_mt12")
 					]).uniq, 
 				@rec.when
 			)
@@ -34,7 +34,11 @@ module RecsHelper
 	end
 
 	def default_switch_options
-		{ :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success', 'off-color' => 'danger'}
+		{ :size => 'small', 'on-text'=>t("switch_yes"), 'off-text'=>t("switch_no"), 'on-color'=>'success', 'off-color' => 'danger'}
+	end
+
+	def neutral_switch_options
+		{ :size => 'small', 'on-text'=>t("switch_yes"), 'off-text'=>t("switch_no"), 'on-color'=>'success'}
 	end
 
 	def comment(q)

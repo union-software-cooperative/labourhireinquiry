@@ -18,7 +18,7 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
+#中文版
 en:
   helpers:
     label:
@@ -52,7 +52,7 @@ en:
         industry: What industry were you working in?
         supermarket_supply: Did you work on things for sale in supermarkets?
         solution: If you were prime minister, what you would you do to fix the problem?
-        summary: Is there anything else you want to share with the inquiry and this website?  Please edit what you've told us so far.  
+        summary: Please review and edit what you've told us so far.  Is there anything else you want to add?    
         is_anonymous:  Do you wish to share your story anonymously? (Its more powerful with your name on it.)
       person:
         attachment: A picture of you or your family to accompany your story
@@ -69,5 +69,23 @@ en:
         tweet: Tweet (without url or above hashtags)
         facebook_image: facebook image (Recommended 1200x1200 that will work if cropped to 1200x630)
   your_details: Your Details
-  your_details_reasoning:  We may need to contact your for additional information.  
-      
+  your_details_explanation:  The Inquiry requires your contact details but you can submit anonymously. 
+  new_story_title: Share your story
+  new_story_subtitle: Submissions close 27 Nov 2015
+  new_story_explanation1: We're going to prompt you with a series a questions the inquiry is looking to have answered.
+  new_story_explanation2: Your answers will be compiled into a story below, that you should edit.
+  disclosure_statement: "Your submission will be published on this website, and forwarded to the appropriate Victorian Trades Hall Council affiliate who will make the submission to the Victorian Government's Inquiry into Insecure Work and Labour Hire on your behalf.  You may be contacted for further information."   
+  new_story_submit: Share your story
+  new_story_submit_anon: Share your story anonymously
+  noe_placeholder: "What's the main form of employment you wish to tell us about?"
+  noe_informal: 'informally employed'
+  noe_agency: 'employed through a labour hire agency'
+  noe_contractor: 'contracting with an ABN but to one employer only'
+  noe_casual: 'a directly employed casual'
+  noe_rolling: 'on a rolling contract'
+  when_current: 'in my current job'
+  when_lt3: 'less than 3 months ago'
+  when_lt12: 'less than a year ago'
+  when_mt12: 'more than a year ago'
+  switch_yes: 'yes'
+  switch_no: 'no'

@@ -19,7 +19,7 @@
           include_blank: true,
       },
       data: { 
-        placeholder: "What's the main form of employment you wish to tell us about?",
+        placeholder: t("noe_placeholder"),
       }, 
       class: "form-control", 
       style: "width: 100%;"
@@ -57,7 +57,7 @@
     <% end %>
   <% end %>
 
-  <%=field_set_tag t("Solution") do %>
+  <%=field_set_tag t("solution") do %>
     <div class="form-group">
       <%= f.label :solution %><br>
       <%= f.text_area :solution, class: "form-control" %>
@@ -65,7 +65,7 @@
   <% end %>
 
   <%= field_set_tag t("your_details") do %> 
-    <small>The Inquiry requires your contact details but you can submit anonymously.</small>
+    <small><%=t("your_details_explanation")%></small>
     <%= f.fields_for :person do |p| %>
       <div class="form-group">
         <%= p.label :first_name %><br>
@@ -133,7 +133,7 @@
     <% end %>
   <% end %>
 
-  <%=field_set_tag t("Optional") do %>
+  <%=field_set_tag t("optional") do %>
     
     <div class="form-group">
       <%= f.label :host_employer %><br>
@@ -158,12 +158,12 @@
     <% if @rec.union.short_name == "NUW" %>
       <div class="form-group">
         <%= f.label :supermarket_supply %><br>
-        <%= f.check_box :supermarket_supply, class: "was_switch", :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
+        <%= f.check_box :supermarket_supply, class: "was_switch", :data => neutral_switch_options %>
       </div>
     <% end %>
   <% end %>
 
-  <%= field_set_tag t("Your Story") do %>
+  <%= field_set_tag t("your_story") do %>
     <div class="form-group">
       <%= f.label :summary %><br>
       <%= f.text_area :summary, class: "form-control", rows: 10 %>
@@ -171,16 +171,16 @@
 
     <div class="form-group">
       <%= f.label :is_anonymous %><br>
-      <%= f.check_box :is_anonymous, class: "was_switch", :data => { :size => 'small', 'on-text'=>'Yes', 'off-text'=>'No', 'on-color'=>'success'} %>
+      <%= f.check_box :is_anonymous, class: "was_switch", :data => neutral_switch_options %>
     </div>
   <% end %>
 
   <%=f.hidden_field :union_id %> <!-- TODO rec not person field being rendered -->
       
   <div class="actions">
-    <%= f.submit value: "Share your story", class: "btn btn-default"%>
+    <%= f.submit value: t("new_story_submit"), class: "btn btn-default"%>
   </div>
-  <small>Your submission will be published on this website, and forwarded to the appropriate Victorian Trades Hall Council affiliate who will make the submission to the Victorian Government's Inquiry into Insecure Work and Labour Hire on your behalf.  You may be contacted for further information.</small>
+  <small><%=t("disclosure_statement")%></small>
   <%= hidden_field_tag 'embed', params[:embed] %>
 <% end %>
 
@@ -232,9 +232,9 @@ function submission_ready() {
   $('#rec_is_anonymous').bootstrapSwitch({
     onSwitchChange: function (e, data) {
       if (data)
-        $('input[type="submit"]').val('Share your story anonymously');
+        $('input[type="submit"]').val('<%=t("new_story_submit_anon")%>');
       else
-        $('input[type="submit"]').val('Share your story');
+        $('input[type="submit"]').val('<%=t("new_story_submit")%>');
     }
   });
 
