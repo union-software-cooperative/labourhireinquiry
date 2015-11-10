@@ -44,6 +44,9 @@ Rails.application.routes.draw do
   
     resources :submission, controller: :recs, type: 'Rec'
     
+    get '/en' => "recs#index", locale: 'en'
+    get '/zh' => "recs#index", locale: 'zh'
+    
     get '/:id' => 'supergroups#show', type: 'Union'
     get '/:union_id/new' => 'recs#new'
   
