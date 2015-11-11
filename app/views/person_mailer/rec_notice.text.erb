@@ -5,7 +5,7 @@ Hi <%=@person.first_name%>
 <%="VOLUNTEER!" if @rec.person.volunteer %>
 
 "<%= @rec.summary%>" - <%= @rec.person.display_name %>, <%= @rec.location %>
-
+		
 <%="#{@request.protocol}#{@request.host}/recs/#{@rec.id}"%>
 
 You are receiving this because you are following <%= @rec.union.short_name %>

@@ -18,14 +18,14 @@ Hi <%=@person.first_name%>
 
 <% if @can_edit %>
 	<p>
-		<a href="<%=toggle_rec_url(@rec)%>"><%= @rec.enabled ? "HIDE IT" : "PUBLISH IT"%></a>
+		<a href="<%=toggle_rec_url(id: @rec.id)%>"><%= @rec.enabled ? "HIDE IT" : "PUBLISH IT"%></a>
 	</p>
 	<p>
-		<a href="<%=edit_rec_url(@rec)%>">Edit Online</a>
+		<a href="<%=edit_rec_url(id: @rec.id)%>">Edit Online</a>
 	</p>
 <% else %>
 	<p>
-		<a href="<%=rec_url(@rec)%>">View Online</a>
+		<a href="<%=rec_url(id: @rec.id)%>">View Online</a>
 	</p>
 <% end %>
 
