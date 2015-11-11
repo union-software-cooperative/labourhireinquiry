@@ -1,0 +1,21 @@
+Hi <%=@person.first_name%>
+
+Thank you for your submission! <% if @rec.person.volunteer %> And thanks for offering to volunteer, hopefully someone will contact you soon.
+<% end %>
+
+And sorry for the error you received - I messed up.  You should have seen a thank you screen that contains the following info.  If you have any other feedback please email me - Luke Rohde, lukerohde@gmail.com
+
+The public URL for it is here 
+<%=review_rec_url(id: @rec.token)%>
+
+Increase your impact by asking your friends and family to tell their story too...
+
+Share on Facebook
+<%=facebook_share_rec_url(@rec.union, @rec.token, @request)%>
+
+Share on Twitter
+<%=twitter_share_rec_url(@rec.union, @rec.token, @request)%>
+
+Or forward the a version of this message 
+
+<%=render partial: 'recs/share_mail.text', locals: {union: @rec.union, referrer: @rec.token, rec: @rec, request: @request} %>

@@ -30,6 +30,12 @@ class PersonMailer < ApplicationMailer
 		mail(from: from(request), to: person.email, subject: "Thanks for your submission")
 	end
 
+		def thanks_and_sorry(person, rec, request)
+			@person = person
+			@rec = rec
+			@request = request
+			mail(from: from(request), to: person.email, subject: "Thanks for your submission and sorry for the bugs")
+		end
 private
 	def from(request)
 		"noreply@#{request.host}".gsub("www.", "")
