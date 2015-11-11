@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109001232) do
+ActiveRecord::Schema.define(version: 20151110112444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -170,6 +170,23 @@ ActiveRecord::Schema.define(version: 20151109001232) do
   add_index "recs", ["company_id"], name: "index_recs_on_company_id", using: :btree
   add_index "recs", ["person_id"], name: "index_recs_on_person_id", using: :btree
   add_index "recs", ["union_id"], name: "index_recs_on_union_id", using: :btree
+
+  create_table "supergroup_translations", force: :cascade do |t|
+    t.integer  "supergroup_id",       null: false
+    t.string   "locale",              null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "name"
+    t.string   "call_to_action"
+    t.string   "action1"
+    t.text     "explanation"
+    t.text     "submissions_heading"
+    t.text     "union_rep_quote"
+    t.string   "union_rep_cite"
+  end
+
+  add_index "supergroup_translations", ["locale"], name: "index_supergroup_translations_on_locale", using: :btree
+  add_index "supergroup_translations", ["supergroup_id"], name: "index_supergroup_translations_on_supergroup_id", using: :btree
 
   create_table "supergroups", force: :cascade do |t|
     t.string   "name"

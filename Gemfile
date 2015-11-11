@@ -87,3 +87,5 @@ gem "puma"
 gem "delayed_job_active_record"
 
 gem "exception_notification"
+
+gem "globalize", '~> 5.0.0'

@@ -3,7 +3,8 @@
   <%= image_tag @supergroup.banner.url, class: "banner-image" if @supergroup.banner.url %>
   <div>
     <div id="banner-styler" class="jumbotron" style="background-color: <%=@supergroup.background_colour%>; color: <%= @supergroup.font_colour %>">
-          <h1 id="call_to_action" class="text-center">
+          <%= render partial: "shared/lang_picker", locals: { display_class: "pull-right" } %>
+            <h1 id="call_to_action" class="text-center">
             <%= @supergroup.call_to_action %>
             <% if can_edit_union(@supergroup) %>
               <%= link_to "<span class=\"glyphicon glyphicon-pencil\"></span>".html_safe, edit_polymorphic_path(@supergroup) %>

@@ -10,6 +10,7 @@ class Supergroup < ActiveRecord::Base
   has_many :posts, as: :parent
   validates :name, :short_name, :www, :call_to_action, :action1, :background_colour, :font_colour, :explanation, presence: true
   validates_uniqueness_of :short_name
+  translates :name, :call_to_action, :action1, :explanation, :submissions_heading, :union_rep_cite, :union_rep_quote, :fallbacks_for_empty_translations => true
   
   def set_defaults_from_owner
 		owner = Union.find(Rails.application.config.owner_union.id)

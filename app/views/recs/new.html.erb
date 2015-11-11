@@ -1,13 +1,7 @@
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
 
-    <div class="pull-right">
-      <% if params[:locale] == 'zh' %>
-        <%=link_to "english", locale: 'en' %>
-      <% else %>
-        <%=link_to "中文版", locale: 'zh' %>
-      <% end %>
-    </div>
+    <%= render partial: "shared/lang_picker", locals: { display_class: "pull-right" } %>
 
     <hgroup>
       <h1><%=t("new_story_title")%></h1>
