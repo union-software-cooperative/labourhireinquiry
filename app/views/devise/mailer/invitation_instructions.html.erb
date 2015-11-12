@@ -12,7 +12,7 @@
 <h1>Interested? What do I do next?</h1>
 <ol>
 	<li>Click <%= link_to t("devise.mailer.invitation_instructions.accept"), accept_invitation_url(@resource, :invitation_token => @token) %> and setup your account/contact details</li>
-	<li>To customize your union's campaign page, <%=link_to "click here", edit_union_path(@resource.union) %> or click the pencil next to you union's name</li>
+	<li>To customize your union's campaign page, <%=link_to "click here", edit_union_path(locale: I18n.locale, id: @resource.union.short_name) %> or click the pencil next to you union's name</li>
 	<li>Publish your site and start promoting its URL <%=link_to "#{root_url}#{@resource.union.short_name}", "#{root_url}#{@resource.union.short_name}" %> on social media and in the field. Or you can embed the form using <%=link_to "#{root_url}embed/#{@resource.union.short_name}/new", "#{root_url}embed/#{@resource.union.short_name}/new" %></l1>
 	<li>Keep an eye out for submission notifications in your email inbox and click 'Hide' to retract them</li>
 </ol>
