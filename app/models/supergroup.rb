@@ -1,7 +1,7 @@
 class Supergroup < ActiveRecord::Base
 	# Used for index searching
   include Filterable
-  scope :name_like, -> (name) {where("name ilike ?", "%#{name}%")}
+  scope :name_like, -> (name) {joins(:translations).where("supergroup_translations.name ilike ? and supergroup_translations.locale = ?", "%#{name}%", I18n.locale)}
   mount_uploader :banner, BannerUploader
   mount_uploader :logo, LogoUploader
 	mount_uploader :union_rep, ProfileUploader

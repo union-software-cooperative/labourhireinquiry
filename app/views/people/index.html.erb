@@ -34,6 +34,7 @@
     <table class="table table-condensed table-striped box-shadow">
       <thead>
         <tr>
+          <th>Volunteer</th>
           <th>Union</th>
           <th>Person</th>
           <th>Title</th>
@@ -44,6 +45,7 @@
       <tbody>
         <% @not_invited.each do |person| %>
           <tr class="">
+            <td><%= check_box_tag "volunteer", 1, person.volunteer , class: "union_list_switch"%></td>
             <td><%=render person.union if person.union%></td>
             <td><%=render person %></td>
             <td><%=person.title %></td>
