@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <% 
+    rec_attr = [
+      :nature_of_employment,
+      :when,
+      :paid_fairly,
+      :compliant_employment,
+      :could_speak_up,
+      :pay_and_conditions_comment,
+      :safe_work,
+      :safe_work_explained, 
+      :discuss_safety,
+      :hsr_explained,
+      :health_and_safety_comment,
+      :predictable_hours,
+      :primary_carer,
+      :entitlements,
+      :community_life,
+      :personal_impact_comment,
+      :financially_stable,
+      :accommodation_secure,
+      :feeling_secure, 
+      :financial_security_comment,
+      :options,
+      :feeling_trapped_comment,
+      :is_union,
+      :host_employer,
+      :company,
+      :company_name,
+      :location,
+      :industry,
+      :supermarket_supply,
+      :solution,
+      :summary,
+      :is_anonymous,
+      :accept_terms
+    ]
+    person_attr = [
+      :first_name, 
+      :last_name, 
+      :gender, 
+      :email, 
+      :mobile,
+      :title, 
+      :volunteer,
+    ]
+  %>
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">url</Data></Cell>
+        <Cell><Data ss:Type="String">union</Data></Cell>
+        <Cell><Data ss:Type="String">via_union</Data></Cell>
+        <%= person_attr.each do |i| %>
+          <Cell><Data ss:Type="String"><%=i%></Data></Cell>
+        <% end %>
+        <Cell><Data ss:Type="String">profile_url</Data></Cell>
+        <%= rec_attr.each do |i| %>
+          <Cell><Data ss:Type="String"><%=i%></Data></Cell>
+        <% end %>
+        <Cell><Data ss:Type="String">video_url</Data></Cell>
+      </Row>
+    <% @recs.each do |rec| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%=rec_url(id: rec.id)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%= rec.person.union.short_name if rec.person.union && rec.is_union %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= rec.union.short_name if rec.union %></Data></Cell>
+        <%= person_attr.each do |i| %>
+          <Cell><Data ss:Type="String"><%=rec.person[i]%></Data></Cell>
+        <% end %>
+        <Cell><Data ss:Type="String"><%=rec.person.attachment.url if rec.person.attachment.url %></Data></Cell>
+        <%= rec_attr.each do |i| %>
+          <Cell><Data ss:Type="String"><%=rec[i]%></Data></Cell>
+        <% end %>
+        <Cell><Data ss:Type="String"><%=rec.attachment.url if rec.attachment.url %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
