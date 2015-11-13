@@ -1,4 +1,5 @@
 
+
 <blockquote>
 	<%= profile_picture(rec.person) %>
 	<%="HIDDEN: <S>".html_safe unless rec.enabled %>
@@ -19,5 +20,6 @@
 			<%= "#{rec.display_name}" %>
 			<%=link_to "<span class=\"glyphicon glyphicon-pencil\"></span>".html_safe, edit_person_path(rec.person) if can_edit_union(rec.union) %>
 		</cite> 
+		<%="<small>submitted via #{rec.union.short_name}</small>".html_safe if current_person %>
 		</footer>
 </blockquote>

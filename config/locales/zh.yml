@@ -284,7 +284,7 @@ zh:
   when_lt3: '三個月內'
   when_lt12: '一年以內'
   when_mt12: '一年以前'
-  switch_yes: 是'
+  switch_yes: '是'
   switch_no: '否'
   pay_and_conditions: 薪資及工作條件
   health_and_safety: 工作安全

@@ -16,6 +16,7 @@ class Rec < ActiveRecord::Base
 	acts_as_followable
 
 	before_validation :set_token, on: [:create]
+	before_validation :hide_unaccepted, on: [:create, :update]
 
 	def post_title
 		"Post questions and supplementary information here"
@@ -86,6 +87,11 @@ class Rec < ActiveRecord::Base
 
 	def set_token
 		self.token ||= Rec.token
+	end
+
+	def hide_unaccepted
+		self.enabled = false if self.accept_terms == false
+		true
 	end
 
 	def set_switch_defaults

@@ -173,6 +173,11 @@
       <%= f.label :is_anonymous %><br>
       <%= f.check_box :is_anonymous, class: "was_switch", :data => neutral_switch_options %>
     </div>
+    <div class="form-group">
+      <%= f.label :accept_terms, "<small>#{t("disclosure_statement")}</small>".html_safe %><br>
+      <%= f.check_box :accept_terms, class: "was_switch", :data =>  default_switch_options
+   %>
+    </div>
   <% end %>
 
   <%=f.hidden_field :union_id %> <!-- TODO rec not person field being rendered -->
@@ -180,7 +185,6 @@
   <div class="actions">
     <%= f.submit value: t("new_story_submit"), class: "btn btn-default"%>
   </div>
-  <small><%=t("disclosure_statement")%></small>
   <%= hidden_field_tag 'embed', params[:embed] %>
 <% end %>
 
@@ -239,6 +243,8 @@ function submission_ready() {
   });
 
   $('#rec_person_attributes_volunteer').bootstrapSwitch();
+
+  $('#rec_accept_terms').bootstrapSwitch();
 
   $('#rec_supermarket_supply').bootstrapSwitch();
 

@@ -8,7 +8,7 @@ class RecsController < ApplicationController
   # GET /recs
   # GET /recs.json
   def index
-    @recs = Rec.all.eager_load(:person)
+    @recs = Rec.all.eager_load(:person).eager_load(:union)
     @recs = @recs.where(enabled: true) unless current_person
     @supergroup = @union # TODO is there a better way?
   end
@@ -187,6 +187,7 @@ class RecsController < ApplicationController
           :is_anonymous,
           :union_id,
           :attachment,
+          :accept_terms, 
           person_attributes: [
             :first_name, 
             :last_name, 
