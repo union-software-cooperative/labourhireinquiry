@@ -19,7 +19,7 @@ class SupergroupsController < ApplicationController
   # GET /supergroups/1
   # GET /supergroups/1.json
   def show
-    not_found if params[:format] == 'xls' && current_person.blank?
+    not_found if params[:format] == 'xls' && (current_person.blank? || !can_edit_union(@supergroup))
     not_found unless @supergroup.enabled || current_person
     @post = Post.new(parent: @supergroup)
     @recs = Rec.eager_load(:union).eager_load(:person).where(["recs.#{@klass}_id=? or people.#{@klass}_id=?", @supergroup.id, @supergroup.id])
@@ -27,7 +27,7 @@ class SupergroupsController < ApplicationController
     return render 'embed', layout: 'embed' if params[:embed]
     respond_to do |format|
       format.html
-      format.xls
+      format.xls { render 'shared/export.xls' }
     end
   end
 

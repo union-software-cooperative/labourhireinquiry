@@ -1,7 +1,7 @@
 <%=render 'title' %>
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
-  	<%= link_to "Export Submissions", union_path(id: @supergroup.id, format: "xls"), class: "btn btn-default pull-right" if current_person %>
+  	<%= link_to "Export Submissions", union_path(id: @supergroup.id, format: "xls"), class: "btn btn-default pull-right" if current_person && can_edit_union(@supergroup) %>
 		<%=render partial: 'recs/recs' if @recs %>
 
 		<% if current_person %>

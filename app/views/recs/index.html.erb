@@ -1,8 +1,9 @@
 <%= render 'supergroups/share' %>
 <%= render partial: 'supergroups/title' if @supergroup %>
 <div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
-		<%= render 'recs' %>
+	<div class="col-sm-8 col-sm-offset-2">
+		<%= link_to "Export Submissions", recs_path(format: "xls"), class: "btn btn-default pull-right" if current_person && owner? %>		
+  	<%= render 'recs' %>
 	</div>
 </div>
 <div id = "app-footer" class="clearfix text-center">

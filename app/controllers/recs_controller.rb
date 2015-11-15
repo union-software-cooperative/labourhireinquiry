@@ -8,9 +8,15 @@ class RecsController < ApplicationController
   # GET /recs
   # GET /recs.json
   def index
+    not_found if params[:format] == 'xls' && !owner?
     @recs = Rec.all.eager_load(:person).eager_load(:union)
     @recs = @recs.where(enabled: true) unless current_person
     @supergroup = @union # TODO is there a better way?
+
+    respond_to do |format|
+      format.html
+      format.xls { render 'shared/export.xls' }
+    end
   end
 
   # GET /recs/1

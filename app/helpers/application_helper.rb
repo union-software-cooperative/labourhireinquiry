@@ -44,6 +44,7 @@ module ApplicationHelper
 	end
 
 	def owner?
+		return false unless current_person
 		current_person.union.id == owner_union.id
 	end
 
