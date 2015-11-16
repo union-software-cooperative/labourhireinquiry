@@ -88,14 +88,8 @@ en:
   when_lt12: 'less than a year ago'
   when_mt12: 'more than a year ago'
   switch_yes: 'yes'
+  switch_no: 'no'
   gender:
     male: male
     female: female
     other: it's complicated
-  campaign_info:
-    call_to_action: LET'S BRING BACK SECURE JOBS
-    explanation: The Victorian Government says they are determined to regulate labour hire and irradicate exploitation. This is a great win for our union! 40% or workers in Australia today have insecure jobs. Share your story to make sure any regulation stands up for workers rights.
-    submissions_heading: Have your say. Submissions close on the 27 November 
-    action1: Share your story with the Inquiry
-    union_rep_name: Kaylha, NUW member
-    union_rep_quote: Many labour hire contractors exploit workers, but the companies that use the contractor have a responsibility to workers too. The big corporations that profit from the goods we produce have to take the lead to fix the problem. For us farm workers, that's the big supermarkets.
