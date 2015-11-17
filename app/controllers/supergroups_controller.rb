@@ -2,7 +2,7 @@ class SupergroupsController < ApplicationController
   before_action :authenticate_person!, except: [:show]
   skip_before_action :authenticate_person!, if: :ok_to_skip_authentication
   before_action :set_klass
-  before_action :set_supergroup, only: [:show, :edit, :update, :destroy, :follow]
+  before_action :set_supergroup, only: [:show, :edit, :update, :destroy, :follow, :all]
   
   include SupergroupsHelper
   
@@ -24,11 +24,19 @@ class SupergroupsController < ApplicationController
     @post = Post.new(parent: @supergroup)
     @recs = Rec.eager_load(:union).eager_load(:person).where(["recs.#{@klass}_id=? or people.#{@klass}_id=?", @supergroup.id, @supergroup.id])
     @recs = @recs.where(enabled: true) unless current_person
+    @recs = @recs.order(created_at: :desc)
+    
     return render 'embed', layout: 'embed' if params[:embed]
     respond_to do |format|
       format.html
       format.xls { render 'shared/export.xls' }
     end
+  end
+
+  def all
+    @recs = Rec.all.eager_load(:person).eager_load(:union)
+    @recs = @recs.where(enabled: true) unless current_person
+    @recs = @recs.order(created_at: :desc)
   end
 
   # GET /supergroups/new

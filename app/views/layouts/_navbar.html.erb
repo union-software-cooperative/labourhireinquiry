@@ -4,7 +4,7 @@
     <div class="navbar-header">
       <div class="navbar-brand" href="/">
         <%= link_to union_logo, union_path(@union) %>
-        <%= link_to ENV['APP_TITLE'], root_url %>
+        <%= link_to ENV['APP_TITLE'], union_path(@union) %>
       </div>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>

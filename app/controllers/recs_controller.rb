@@ -11,6 +11,7 @@ class RecsController < ApplicationController
     not_found if params[:format] == 'xls' && !owner?
     @recs = Rec.all.eager_load(:person).eager_load(:union)
     @recs = @recs.where(enabled: true) unless current_person
+    @recs = @recs.order(created_at: :desc)
     @supergroup = @union # TODO is there a better way?
 
     respond_to do |format|

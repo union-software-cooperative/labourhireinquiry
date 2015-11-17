@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :unions, controller: :supergroups, type: 'Union' do
       member do
         post 'follow'
+        get 'all'
       end
       resources :recs do
         member do

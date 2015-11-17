@@ -1,0 +1,18 @@
+
+<div class="row">
+  <h2 class="text-center col-sm-8 col-sm-offset-2">
+    <div id="submissions_heading" style="color: <%= @supergroup.background_colour %>">
+      <%= @supergroup.submissions_heading %><br/>
+    </div>
+      <%= link_to @supergroup.action1, new_union_rec_path(@union.id), class: "action1 btn btn-default" %>
+  </h2>
+</div>
+<div class="row">	
+	<div class="col-sm-8 col-sm-offset-2">
+  	<%= render 'recs/recs' %>
+	</div>
+</div>
+<div id = "app-footer" class="clearfix text-center">
+	<hr/>
+	<small>Authorised by Luke Hilakari, Secretary, Victorian Trades Hall Council, 54 Victoria Street, South Carlton 3053</small>
+</div>

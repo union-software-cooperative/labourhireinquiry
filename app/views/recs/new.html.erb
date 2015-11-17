@@ -15,10 +15,19 @@
             <img src="<%=@union.union_rep.quote.url%>" />
             <%=@union.union_rep_quote%>
           </p>
-          <footer><cite><%=@union.union_rep_cite%></cite></footer>
+          <footer>
+            <cite><%=@union.union_rep_cite%></cite>
+            <br/>
+            <div class="text-right">
+              <%=link_to t("new_story_read_all", count: Rec.count), all_union_path(id: @union.id) %>
+            </div>
+          </footer>
         </blockquote>
+
       </div>
     <% end %>
+    
+    
 
     <div style="margin-bottom: 3rem;">
       <h3 class='text-center'><%=t("new_story_explanation1")%></h3>
