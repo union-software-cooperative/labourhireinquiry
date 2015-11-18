@@ -10,7 +10,7 @@
 		<meta property="og:title" content="<%=@union.call_to_action%>" />
 		<meta property="og:type" content="article" />
 		<meta property="og:image" content="<%=@union.facebook_image.url || @union.union_rep.url%>" />
-		<meta property="og:url" content="<%="#{request.protocol}#{request.host}/#{@union.short_name}"%>" />
+		<meta property="og:url" content="<%="#{request.protocol}#{request.host}/#{locale}/#{@union.short_name}/new"%>" />
 		<meta property="og:description" content="<%=@union.explanation%>" />
 	<% end %>
 
