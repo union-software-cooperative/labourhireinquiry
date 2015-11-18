@@ -80,12 +80,14 @@ module ApplicationHelper
 		tweet = union.tweet 
 		tweet = union.call_to_action if tweet.blank?
 		hashtags = (union.hashtags||"").gsub("#", "")
-		url = "#{request.protocol}#{request.host}/#{union.short_name}?source=twitter&token=#{referrer}"
+		#url = "#{request.protocol}#{request.host}/#{union.short_name}/new?source=twitter&token=#{referrer}"
+		url = "#{request.protocol}#{request.host}/#{locale}/#{union.short_name}/new"
 		"https://twitter.com/share?hashtags=#{hashtags}&text=#{CGI.escape tweet}!&url=#{CGI.escape url}".gsub('+','%20')
 	end
 
 	def facebook_share_rec_url(union, referrer, request)
-		url = "#{request.protocol}#{request.host}/#{union.short_name}?source=facebook&token=#{referrer}"
+		#url = "#{request.protocol}#{request.host}/#{union.short_name}?source=facebook&token=#{referrer}"
+		url = "#{request.protocol}#{request.host}/#{locale}/#{union.short_name}/new"
 		"https://www.facebook.com/sharer/sharer.php?u=#{CGI.escape url}".gsub('+', '%20')
 	end
 end
