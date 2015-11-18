@@ -1,5 +1,5 @@
 class SupergroupsController < ApplicationController
-  before_action :authenticate_person!, except: [:show]
+  before_action :authenticate_person!, except: [:show, :all]
   skip_before_action :authenticate_person!, if: :ok_to_skip_authentication
   before_action :set_klass
   before_action :set_supergroup, only: [:show, :edit, :update, :destroy, :follow, :all]

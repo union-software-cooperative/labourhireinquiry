@@ -1,5 +1,5 @@
 class People::InvitationsController < Devise::InvitationsController
-   private
+  private
 
 
   def after_accept_path_for(current_person)
