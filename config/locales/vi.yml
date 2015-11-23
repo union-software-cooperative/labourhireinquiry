@@ -257,6 +257,14 @@ vi:
   when_lt12: Không tới 1 năm trước đây
   when_mt12: Hơn 1 năm trước đây
   switch_yes: Có/ vâng
+  switch_no: Không
+  pay_and_conditions: Lương và điều kiện
+  health_and_safety: Sưc khỏe va sự an toan
+  personal_impact: tác động cá nhân
+  financial_security: an ninh tài chính
+  solution: giải pháp
+  optional: không bắt buộc
+  your_story: Tóm lược
   gender:
     male: Nam giới
     female: Nữ giới 
@@ -264,7 +272,7 @@ vi:
   campaign_description:
     call_to_action:  HÃY MANG LẠI CÔNG VIỆC LÀM AN TOÀN
     explanation:   Chính phủ tiểu bang Victoria cho biết họ sẽ nhất quyết  điều chỉnh việc thuê mướn công nhân lao động và diệt trừ việc lợi dụng/ khai thác. Đây là một chiến thắng tuyệt vời cho công đoàn của chúng tôi!   40% hoặc công nhân tại Úc hiện nay có việc làm không an toàn.  Hãy chia sẻ câu chuyện của bạn để đảm bảo rằng bất kỳ các quy định nào đều đứng về quyền lợi cho các công nhân.
-    submissions_heading: Tiếng nói của bạn. Các đệ trình sẽ kết thúc vào ngày 27/11
     action1:  Chia sẻ câu chuyện của bạn qua việc thẩm vấn/ thăm dò
+    submissions_heading: Tiếng nói của bạn. Các đệ trình sẽ kết thúc vào ngày 27/11
     union_rep_name:   Cô Kayiha là 1 thành viên Công Đoàn
     union_rep_quote:  Nhiều nhà thầu thuê lao động bóc lột các công nhân, nhưng các công ty sử dụng các nhà thầu này cũng có trách nhiệm với các công nhân. Các tập đoàn lớn mà có lợi nhuận từ các mặt hàng chúng tôi sản xuất ra phải là người dẫn đầu để sửa chữa vấn đề náy.  Đối với chúng tôi là những công nhân nông nghiệp, đó là các siêu thị cửa hàng lớn.
