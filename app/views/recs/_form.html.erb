@@ -1,4 +1,4 @@
-<%= form_for(@rec, :html => { class: "form"}) do |f| %>
+<%= form_for([@union, @rec], :html => { class: "form"}) do |f| %>
   <% if @rec.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@rec.errors.count, "error") %> prohibited this rec from being saved:</h2>
@@ -41,7 +41,7 @@
     %>
   </div>
 
-  <% Rec.questions.each do |k,v| %> 
+  <% @union.questions.each do |k,v| %> 
     <%=field_set_tag t(k) do %>
       <% v.each do |q| %>
         <div class="form-group">
@@ -194,7 +194,7 @@
     story = "I was " + $("#rec_nature_of_employment").val();
     story += " " + $("#rec_when").val() + ".  ";
     
-    <% Rec.questions.each do |k,v| %>
+    <% @union.questions.each do |k,v| %>
       story += $('#rec_<%=comment(k)%>').val() + '  ' ;
     <% end %>
     
@@ -223,7 +223,7 @@
 function submission_ready() {
 
   // Setup pretty switches  
-  <% Rec.questions.each do |k,v| %>
+  <% @union.questions.each do |k,v| %>
     <% v.each do |q| %>
   
   $('#rec_<%=q%>').bootstrapSwitch({
@@ -261,7 +261,7 @@ function submission_ready() {
   <% end %>
 
   // Call backs for show/hide comments
-  <% Rec.questions.each do |k,v| %>
+  <% @union.questions.each do |k,v| %>
   function toggle_<%=k %>() {
     var comment_on = false;
     <% v.each do |q| %>
@@ -277,7 +277,7 @@ function submission_ready() {
 
 
   // callbacks for compiling story after editing
-  <% Rec.questions.each do |k,v| %>
+  <% @union.questions.each do |k,v| %>
   $('#rec_<%=comment(k)%>').blur(compile_story);
   <% end %>
 

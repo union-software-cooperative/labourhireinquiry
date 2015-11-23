@@ -9,7 +9,7 @@
 		</p>
 
 		<div class="rec_header" style: "margin-left:15px">
-		<%= link_to 'edit submission', edit_rec_path(@rec), class: "btn btn-default"  if can_edit_union(@rec.union) %>
+		<%= link_to 'edit submission', edit_union_rec_path(@rec.union, @rec), class: "btn btn-default"  if can_edit_union(@rec.union) %>
 
 		<%= link_to @rec.enabled ? 'hide submission' : 'publish submission', toggle_rec_path(@rec), class: "btn btn-default"  if can_edit_union(@rec.union) %>
 		

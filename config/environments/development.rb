@@ -44,13 +44,6 @@ Rails.application.configure do
         domain: ENV["mailgun_domain"]
   }
 
-  config.middleware.use ExceptionNotification::Rack,
-    :email => {
-      :email_prefix => "[ERROR] ",
-      :sender_address => %{"notifier" <notifier@securejobsvic.org.au>},
-      :exception_recipients => %w{lukerohde@gmail.com}
-    }
-
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

@@ -95,6 +95,7 @@ class Rec < ActiveRecord::Base
 	end
 
 	def set_switch_defaults
+		# this is a stop gap because I forgot to set the defaults initially
 		Rec.questions.each do |k,v|
 			v.each do |q|
 				write_attribute q, true if self[q].nil?
