@@ -20,7 +20,12 @@ module Lhi
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    config.i18n.available_locales = [:en, :zh]
+    config.languages = {
+        en: "english", 
+        zh: "中文版",
+        vi: "Tiếng Việt"
+    }
+    config.i18n.available_locales = config.languages.keys
     config.i18n.fallbacks = true
 
     # Do not swallow errors in after_commit/after_rollback callbacks.

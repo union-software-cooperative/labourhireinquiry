@@ -29,6 +29,10 @@ module ApplicationHelper
 		Rails.application.config.owner_union
 	end
 
+	def other_languages
+		Rails.application.config.languages.except(locale)
+	end
+
 	def selected_option(entity)
 		entity ? 
         options_for_select([[entity.name, entity.id]], entity.id) :

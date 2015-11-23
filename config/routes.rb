@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  scope "(:locale)", locale: /en|zh/ do
+  scope "(:locale)", locale: /en|zh|vi/ do
   
     resources :comments
     resources :posts
@@ -47,6 +47,7 @@ Rails.application.routes.draw do
     
     get '/en' => "recs#index", locale: 'en'
     get '/zh' => "recs#index", locale: 'zh'
+    get '/vi' => "recs#index", locale: 'vi'
     
     get '/:id' => 'supergroups#show', type: 'Union'
     get '/:union_id/new' => 'recs#new'

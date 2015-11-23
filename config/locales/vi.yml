@@ -1,0 +1,270 @@
+#Vietnamese: Tiếng Việt 
+vi:
+  date:
+    abbr_day_names:
+    - Chủ nhật
+    - Thứ hai
+    - Thứ ba
+    - Thứ tư
+    - Thứ năm
+    - Thứ sáu
+    - Thứ bảy
+    abbr_month_names:
+    - 
+    - Tháng một
+    - Tháng hai
+    - Tháng ba
+    - Tháng tư
+    - Tháng năm
+    - Tháng sáu
+    - Tháng bảy
+    - Tháng tám
+    - Tháng chín
+    - Tháng mười
+    - Tháng mười một
+    - Tháng mười hai
+    day_names:
+    - Chủ nhật
+    - Thứ hai
+    - Thứ ba
+    - Thứ tư
+    - Thứ năm
+    - Thứ sáu
+    - Thứ bảy
+    formats:
+      default: "%d-%m-%Y"
+      long: "%d %B, %Y"
+      short: "%d %b"
+    month_names:
+    - 
+    - Tháng một
+    - Tháng hai
+    - Tháng ba
+    - Tháng tư
+    - Tháng năm
+    - Tháng sáu
+    - Tháng bảy
+    - Tháng tám
+    - Tháng chín
+    - Tháng mười
+    - Tháng mười một
+    - Tháng mười hai
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: khoảng 1 giờ
+        other: khoảng %{count} giờ
+      about_x_months:
+        one: khoảng 1 tháng
+        other: khoảng %{count} tháng
+      about_x_years:
+        one: khoảng 1 năm
+        other: khoảng %{count} năm
+      almost_x_years:
+        one: gần 1 năm
+        other: gần %{count} năm
+      half_a_minute: 30 giây
+      less_than_x_minutes:
+        one: chưa tới 1 phút
+        other: chưa tới %{count} phút
+      less_than_x_seconds:
+        one: chưa tới 1 giây
+        other: chưa tới %{count} giây
+      over_x_years:
+        one: hơn 1 năm
+        other: hơn %{count} năm
+      x_days:
+        one: 1 ngày
+        other: "%{count} ngày"
+      x_minutes:
+        one: 1 phút
+        other: "%{count} phút"
+      x_months:
+        one: 1 tháng
+        other: "%{count} tháng"
+      x_seconds:
+        one: 1 giây
+        other: "%{count} giây"
+    prompts:
+      day: Ngày
+      hour: Giờ
+      minute: Phút
+      month: Tháng
+      second: Giây
+      year: Năm
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: phải được đồng ý
+      blank: không thể để trắng
+      present: cần phải để trắng
+      confirmation: không khớp với xác nhận
+      empty: không thể rỗng
+      equal_to: phải bằng %{count}
+      even: phải là số chẵn
+      exclusion: đã được giành trước
+      greater_than: phải lớn hơn %{count}
+      greater_than_or_equal_to: phải lớn hơn hoặc bằng %{count}
+      inclusion: không có trong danh sách
+      invalid: không hợp lệ
+      less_than: phải nhỏ hơn %{count}
+      less_than_or_equal_to: phải nhỏ hơn hoặc bằng %{count}
+      not_a_number: không phải là số
+      not_an_integer: phải là một số nguyên
+      odd: phải là số lẻ
+      record_invalid: 'Có các lỗi sau: %{errors}'
+      restrict_dependent_destroy:
+        one: Không thể xóa do tồn tại đối tượng phụ thuộc %{record}
+        many: Không thể xóa do tồn tại một số đối tượng phụ thuộc %{record}
+      taken: đã có
+      too_long: quá dài (tối đa %{count} ký tự)
+      too_short: quá ngắn (tối thiểu %{count} ký tự)
+      wrong_length: độ dài không đúng (phải là %{count} ký tự)
+      other_than: cần phải khác %{count}
+    template:
+      body: 'Có lỗi với các mục sau:'
+      header:
+        one: 1 lỗi ngăn không cho lưu %{model} này
+        other: "%{count} lỗi ngăn không cho lưu %{model} này"
+  helpers:
+    select:
+      prompt: Vui lòng chọn
+    submit:
+      create: Tạo %{model}
+      submit: Lưu %{model}
+      update: Cập nhật %{model}
+  number:
+    currency:
+      format:
+        delimiter: "."
+        format: "%n %u"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: đồng
+    format:
+      delimiter: "."
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ''
+          billion: Tỷ
+          million: Triệu
+          quadrillion: Triệu tỷ
+          thousand: Nghìn
+          trillion: Nghìn tỷ
+      format:
+        delimiter: ''
+        precision: 1
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Byte
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ", và "
+      two_words_connector: " và "
+      words_connector: ", "
+  time:
+    am: sáng
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      long: "%d %B, %Y %H:%M"
+      short: "%d %b %H:%M"
+    pm: chiều
+  helpers: 
+    label: 
+      rec:
+        nature_of_employment: Công việc không an toàn năo mà bạn muốn cho chúng tôi biết?
+        when: Xin bạn diễn tả công việc hiện tại hay trước đây của bạn?
+        paid_fairly: Bạn có được trả lương công bằng và đúng theo giờ làm việc của bạn không?
+        compliant_employment: Bạn có tin những người chủ của bạn đã tuân theo các luật liên quan đúng     cho công việc của bạn không?      
+        could_speak_up: Bạn có cảm thấy rằng bạn có thể bàn luận về vấn đề lương và điều kiện lám việc của mình  mà không sợ ảnh hưởng đến công việc của mình không?
+        pay_and_conditions_comment: Xin giải thích các trở ngại mà bạn găp phải với vấn đề lương và điều kiện làm việc… 
+        safe_work: Công việc của bạn luôn luôn an toàn không?
+        safe_work_explained: Bạn có được nói về v/đ WorkCover và phải làm gì nếu bạn bị thương?
+        hsr_explained: Bạn có biết nhân viên đại diện về sức khỏe và an toàn của bạn là ai không?
+        health_and_safety_comment: Xin giải thích những vấn đề trở ngại mà bạn có với sức khỏe và sự an toàn của bạn …
+        discuss_safety: Bạn có cảm thấy bạn có thể thảo luận về sức khỏe và an toàn mà không sợ ảnh hưởng công việc của bạn?
+        predictable_hours: Bạn có biết bảng phân phối giờ làm việc để bạn có thể lập kế hoạch cho cuộc sống của mình?
+        primary_carer: Bạn hay đồng nghiệp của bạn có thể xắp xếp việc chăm sóc trẻ cho phù hợp với lịch trình làm việc của mình?
+        entitlements: Bạn có thể lấy ngày nghỉ khi bạn cần mà không cần lo lắng về việc mất công việc của bạn?
+        community_life: Bạn đã có thời gian để tham gia vào các hoạt động cộng đồng và hoạt động tổ chức  thường xuyên?
+        personal_impact_comment: Xin giải thích các vấn đề và trở ngại  cá nhân mà bạn có vì công việc không an toàn …
+        financially_stable: Bạn có thể thanh toán các hóa đơn và mua thức ăn mỗi tuần không?
+        accommodation_secure: Bạn có thể trả tiền thuê nhà /tiền nợ nhà của bạn khi tới phiên?
+        feeling_secure:  Bạn có cảm thấy tự tin về tương lai của công việc và thu nhập của bạn?
+        financial_security_comment:   Xin giải thích những căng thẳng, lo lắng và lo ngại mà bạn phải đối mặt ..
+        options:  Bạn có thể kiêm được 1 công việc khác không?
+        feeling_trapped_comment:  Xin giải thích những khó khăn của bạn khi phải tìm 1 công việc khác …
+        is_union: Bạn có phải là thành viên Công đoàn không?
+        host_employer: Công ty nào là chủ lao động của bạn (tức là những công ty nào mà bạn đã làm việc) với?
+        company_name: Cơ quan, dịch vụ hoặc cá nhân nào trả tiền lương cho bạn? (ai đã trả tiền lương cho bạn?)
+        location:	Các thị trấn gần nhất / thành phố nơi bạn đang làm việc là ở đâu?
+        industry:   Bạn làm việc trong nghành kỹ nghệ nào?
+        supermarket_supply:   Bạn đã phải làm việc/ tính toán  trên những thứ bán giảm giá trong các siêu thị?
+        solution:	Nếu bạn là vị  thủ tướng, bạn sẽ làm những gì để khắc phục vấn đề này?
+        summary: Tóm gọn và điều chỉnh lại những gì bạn trả lời… bạn có muốn thêm điều gì không?  
+        is_anonymous: Bạn có muốn chia sẻ câu chuyện của bạn nặc danh? (câu chuyện sẽ mạnh mẽ hơn với tên của bạn có trên đó.) 
+      person:
+        attachment: Một tấm hình của bạn hoặc gia đình bạn để đi cùng với câu chuyện của bạn
+        title: Chức năng và vai trò công việc của bạn
+        volunteer: Bạn có muốn giúp các công nhân khác trong việc nộp/ đăng lên câu chuyện của họ, hoặc đi tham dự một buổi thuyết trình công cộng
+        first_name: Tên gọi của bạn (Được yêu cầu)
+        email: địa chỉ email của bạn (Được yêu cầu)
+  your_details: Chi tiết của bạn
+  your_details_explanation: Việc cầu kiến đòi hỏi các chi tiết liên lạc của bạn, nhưng bạn có thể gửi lên nặc danh.
+  new_story_title: Chia sẻ câu chuyện của bạn
+  new_story_subtitle: Việc đệ trình đănng ký các câu chuyện sẽ chấm dứt vào ngày 27/11/2015
+  new_story_explanation1: Chúng tôi sẽ nhắc bạn 1 số  câu hỏi mà việc cầu kiến đang tìm kiếm để có những câu trả lời. 
+  new_story_explanation2: Câu trả lời của bạn sẽ được biên dịch thành một câu chuyện dưới đây, bạn cần phải chỉnh sửa lại.
+  disclosure_statement: Tôi chấp nhận sự cầu kiến của tôi sẽ được công bố trên trang web này, và chuyển tiếp đến Victoria Trades Hội trường liên kết  phù hợp, và họ sẽ thay mặt tôi đệ trính những yêu cầu này tới Chính phủ Victoria về việc lám không an toàn và lao động thuê. Tôi có thể liên lạc để biết thêm thông tin và cập nhật vế chiến dịch này.
+  new_story_submit: Xin chia sẻ câu chuyện của tôi
+  new_story_submit_anon: Xin chia sẻ câu chuyện của tôi trong bí mật/ nặc danh
+  noe_placeholder: Hình thức chính của việc làm bạn muốn cho chúng tôi biết là gì?
+  noe_informal: Hình thức làm việc
+  noe_agency: Bạn nhận việc thông qua một cơ quan cho thuê lao động
+  noe_contractor: Ký hợp đồng với số ABN nhưng với một người chủ duy nhất
+  noe_casual: Được  tuyển dụng trực tiếp cho 1 việc làm thỉnh thoảng
+  noe_rolling: Trên một hợp đồng chuyển tiếp
+  when_current: Trong Công việc hiện thời của tôi
+  when_lt3: Không tới 3 tháng trước đây
+  when_lt12: Không tới 1 năm trước đây
+  when_mt12: Hơn 1 năm trước đây
+  switch_yes: Có/ vâng
+  gender:
+    male: Nam giới
+    female: Nữ giới 
+    other: Điều này phức tạp lắm
+  campaign_description:
+    call_to_action:  HÃY MANG LẠI CÔNG VIỆC LÀM AN TOÀN
+    explanation:   Chính phủ tiểu bang Victoria cho biết họ sẽ nhất quyết  điều chỉnh việc thuê mướn công nhân lao động và diệt trừ việc lợi dụng/ khai thác. Đây là một chiến thắng tuyệt vời cho công đoàn của chúng tôi!   40% hoặc công nhân tại Úc hiện nay có việc làm không an toàn.  Hãy chia sẻ câu chuyện của bạn để đảm bảo rằng bất kỳ các quy định nào đều đứng về quyền lợi cho các công nhân.
+    submissions_heading: Tiếng nói của bạn. Các đệ trình sẽ kết thúc vào ngày 27/11
+    action1:  Chia sẻ câu chuyện của bạn qua việc thẩm vấn/ thăm dò
+    union_rep_name:   Cô Kayiha là 1 thành viên Công Đoàn
+    union_rep_quote:  Nhiều nhà thầu thuê lao động bóc lột các công nhân, nhưng các công ty sử dụng các nhà thầu này cũng có trách nhiệm với các công nhân. Các tập đoàn lớn mà có lợi nhuận từ các mặt hàng chúng tôi sản xuất ra phải là người dẫn đầu để sửa chữa vấn đề náy.  Đối với chúng tôi là những công nhân nông nghiệp, đó là các siêu thị cửa hàng lớn.

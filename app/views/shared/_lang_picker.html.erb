@@ -1,7 +1,5 @@
 <div class="<%=display_class%>">
-  <% if params[:locale] == 'zh' %>
-    <%=link_to "english", locale: 'en' %>
-  <% else %>
-    <%=link_to "中文版", locale: 'zh' %>
-  <% end %>
+	<% other_languages.each do |k, v| %>
+    &nbsp;&nbsp;&nbsp;<%=link_to v, locale: k %>
+  <% end %>  
 </div>
