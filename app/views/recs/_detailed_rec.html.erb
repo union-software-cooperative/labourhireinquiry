@@ -123,7 +123,7 @@
 	<blockquote>
 		<%= profile_picture(rec.person) %>
 		<%="HIDDEN: <S>".html_safe unless rec.enabled %>
-			<span class="ellipsis">
+			<span class="">
 				<%= rec.summary %>
 			</span>
 		<%="</S>".html_safe unless rec.enabled %>
