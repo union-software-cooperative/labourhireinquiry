@@ -91,6 +91,20 @@
 				Future secure: <%=rec.feeling_secure %>
 			</td>
 		</tr>
+		<%if rec.union.short_name == "ANMF" %>
+			<tr>
+			<td <%=cell_style(rec.professional_development)%>>
+				ProDev: <%=rec.professional_development%>
+			</td>
+			<td <%=cell_style(rec.induction)%>>
+				Induction: <%= rec.induction %>
+			</td>
+			<td <%=cell_style(rec.entitlements)%>>
+			</td>
+			<td <%=cell_style(rec.feeling_secure)%>>
+			</td>
+		</tr>
+		<% end %> 
 	</tbody>
 </table>
 <% unless rec.solution.blank? %>
