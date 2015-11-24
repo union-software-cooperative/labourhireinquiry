@@ -1,6 +1,6 @@
 <h3 class="rec-heading no-left-margin" style="color: red !important;">
 	<a class="" href="<%= can_edit_union(rec.union) || can_edit_union(rec.person.union) ? edit_union_rec_url(rec.union, rec) : union_rec_url(rec.union, rec) %>">
-		<% if rec.is_anonymous %> 
+		<% unless rec.is_anonymous %> 
 			<%=rec.person.first_name %>
 			<%=rec.person.last_name %>
 		<% else %>
