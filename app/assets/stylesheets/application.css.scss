@@ -52,6 +52,13 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: 15px;
 }
 
+$a-tags: 'a, a:active, a:hover, a:visited';
+$a-tags-hover: 'a:active, a:hover';
+
+.rec-heading > a, .rec-heading > a:link, .rec-heading > a:active, .rec-heading > a:hover, .rec-heading > a:visited {
+  color: #333 !important;
+}
+
 /* <p> preceded by a sibling <p> with an immediate .btn child */
 p + p > .btn {
   margin-top: 0;
@@ -141,8 +148,6 @@ a.navbar-brand {
   font-weight: bold !important;
 }
 
-$a-tags: 'a, a:active, a:hover, a:visited';
-$a-tags-hover: 'a:active, a:hover';
 
 #{$a-tags} {}
 #{$a-tags-hover} { background-color: transparent; }

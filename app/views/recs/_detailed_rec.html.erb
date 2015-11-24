@@ -1,0 +1,126 @@
+<h3 class="rec-heading no-left-margin" style="color: red !important;">
+	<a class="" href="<%= can_edit_union(rec.union) || can_edit_union(rec.person.union) ? edit_union_rec_url(rec.union, rec) : union_rec_url(rec.union, rec) %>">
+		<% if rec.is_anonymous %> 
+			<%=rec.person.first_name %>
+			<%=rec.person.last_name %>
+		<% else %>
+			Anonymous
+		<% end %>
+	</a>
+	<small>
+	<%=rec.location %>
+	(
+		<%= rec.is_union ? rec.person.union.short_name : "" %>
+		received via <%= rec.union.short_name %> 
+	)
+	<br/>
+	</small>
+</h3>
+<p>
+	<%=rec.volunteer ? "VOLUNTEER<br/>" : "" %>
+	<%="#{h rec.industry}<br/>".html_safe unless rec.industry.blank? %>
+	<%=rec.nature_of_employment%> 
+	<%="by #{rec.company_name}" unless rec.company_name.blank? %>
+	<%="@ #{rec.host_employer}" unless rec.host_employer.blank? %>
+</p>
+<table class="table table-condensed table-striped box-shadow">
+	<thead>
+		<tr>
+			<td>
+				<strong>
+					<%=t('pay_and_conditions') %>
+				</strong>
+			</td>
+			<td>
+				<strong>
+				<%=t('health_and_safety') %>
+				</strong>
+			</td>
+			<td>
+				<strong>
+				<%=t('personal_impact') %>
+				</strong>
+			</td>
+			<td>
+				<strong>
+				<%=t('financial_security') %>
+				</strong>
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td <%=cell_style(rec.paid_fairly)%>>
+				Paid Fair: <%=rec.paid_fairly %> 
+			</td>
+			<td <%=cell_style(rec.safe_work)%>>
+				Safe work: <%=rec.safe_work %>
+			</td>
+			<td <%=cell_style(rec.predictable_hours)%>>
+				Predictable Roster: <%=rec.predictable_hours %>
+			</td>
+			<td <%=cell_style(rec.financially_stable)%>>
+				Bills ok: <%=rec.financially_stable %>
+			</td>
+		</tr>
+		<tr>
+			<td <%=cell_style(rec.compliant_employment)%>>
+				Legal Employment: <%=rec.compliant_employment%>
+			</td>
+			<td <%=cell_style(rec.safe_work_explained)%>>
+				Worksafe: <%= rec.safe_work_explained %>
+			</td>
+			<td <%=cell_style(rec.primary_carer)%>>
+				Childcare: <%= rec.primary_carer %>
+			</td>
+			<td <%=cell_style(rec.accommodation_secure)%>>
+				Accommodation ok: <%= rec.accommodation_secure %>
+			</td>
+		</tr>
+		<tr>
+			<td <%=cell_style(rec.could_speak_up)%>>
+				Could speak up: <%=rec.could_speak_up%>
+			</td>
+			<td <%=cell_style(rec.discuss_safety)%>>
+				Could speak up: <%= rec.discuss_safety %>
+			</td>
+			<td <%=cell_style(rec.entitlements)%>>
+				Leave: <%= rec.entitlements %>
+			</td>
+			<td <%=cell_style(rec.feeling_secure)%>>
+				Future secure: <%=rec.feeling_secure %>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<% unless rec.solution.blank? %>
+	<h4 class="no-left-margin">
+		Solution
+	</h4>
+	<p>
+		<%= rec.solution %>
+	</p>
+<% end %>
+
+<% unless rec.summary.blank? %>
+	<h4 class="no-left-margin">
+		Story
+	</h4>
+	<blockquote>
+		<%= profile_picture(rec.person) %>
+		<%="HIDDEN: <S>".html_safe unless rec.enabled %>
+			<span class="ellipsis">
+				<%= rec.summary %>
+			</span>
+		<%="</S>".html_safe unless rec.enabled %>
+		<footer>
+			<cite>
+				<%= "profile url: #{rec.person.attachment.url}" if rec.person.attachment.url %>
+				<%= "video url: #{rec.attachment.url}" if rec.attachment.url %>
+			</cite> 
+		</footer>
+	</blockquote>
+<% end %>
+<h4 class="no-left-margin">Submission URL: <small><a href="<%=union_rec_url(rec.union, rec)%>"><%=union_rec_url(rec.union, rec)%></a></small></h4>
+
+

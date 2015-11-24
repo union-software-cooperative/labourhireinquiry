@@ -44,4 +44,8 @@ module RecsHelper
 	def comment(q)
 		"#{q.to_s}_comment"
 	end
+
+	def cell_style(bool)
+		"style=\"color:#{ bool ? 'green' : 'red'};\"".html_safe
+	end
 end

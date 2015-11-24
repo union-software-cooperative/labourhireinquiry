@@ -92,6 +92,13 @@ en:
   when_mt12: 'more than a year ago'
   switch_yes: 'yes'
   switch_no: 'no'
+  pay_and_conditions: Pay and Conditions
+  health_and_safety: Health and Safety
+  personal_impact: Personal Impact
+  financial_security: Financial Security
+  solution: 解決方法
+  optional: 方案
+  your_story: 你的故事
   gender:
     male: male
     female: female

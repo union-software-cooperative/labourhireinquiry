@@ -1,4 +1,105 @@
+<% if current_person %>
+	<strong>
+		This page contains two sections to help submission
+	</strong>
+
+	<ol>
+		<li>
+				All submissions, hiding details of those who've requested anonymity - embed this in your union submission
+		</li>
+		<li>
+			A directory of contact details for all submissions, including people requesting anonymity.  Include this as a separate document, that the inquiry won't publish.
+		</li>
+	</ol>
+	
+	<strong>OSX Instructions</strong>:  Copy and paste submissions into TextEdit, then copy and paste into pages or word.  This will keep images and tables.</br>
+
+	<strong>Windows Instructions</strong>:  Copy and paste submissions into Word</br>
+
+<h2 class="no-left-margin"> Submissions </h2>
+
+<% end %> 
+
 <% @recs.each do |rec| %>
   <hr/>
-  <%= render rec %>
+  <% if current_person %> 
+  	<%= render partial: 'recs/detailed_rec', locals: {rec: rec} %>
+  <% else %> 
+  	<%= render rec %>
+  <% end %>
+<% end %>
+
+<% if current_person %>
+	<h2 class="no-left-margin">Directory</h2>
+	<table class="table table-condensed table-striped box-shadow">
+		<thead>
+			<tr>
+				<td>
+					<strong>
+						Anonymous
+					</strong>
+				</td>
+				<td>
+					<strong>
+						Name
+					</strong>
+				</td>
+				<td>
+					<strong>
+						Email
+					</strong>
+				</td>
+				<td>
+					<strong>
+						Mobile
+					</strong>
+				</td>
+				<td>
+					<strong>
+						Gender
+					</strong>
+				</td>
+				<td>
+					<strong>
+						Employment
+					</strong>
+				</td>
+				<td>
+					<strong>
+						URL
+					</strong>
+				</td>
+			</tr>
+		</thead>
+		<tbody>
+			<% @recs.each do |rec| %>
+			<tr>
+				<td <%=cell_style(!rec.is_anonymous) %>>
+					<%=rec.is_anonymous%>
+				</td>
+				<td>
+					<%=rec.person.first_name%>
+					<%=rec.person.last_name%>
+					<%=", #{rec.location}" unless rec.location.blank? %>
+				</td>
+				<td>
+					<%=rec.person.email%>
+				</td>
+				<td>
+					<%=rec.person.mobile%>
+				</td>
+				<td>
+					<%=rec.person.gender%>
+				</td>
+				<td>
+					<%="#{rec.company_name}" unless rec.company_name.blank? %>
+					<%="@ #{rec.host_employer}" unless rec.host_employer.blank? %>
+				</td>
+				<td>
+					<small><%=union_rec_url(rec.union, rec)%></small>
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table> 	
 <% end %>
