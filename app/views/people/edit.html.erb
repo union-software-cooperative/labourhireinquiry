@@ -1,9 +1,13 @@
 <div class="col-sm-8 col-sm-offset-2"/>
 	<p id="notice"><%= notice %></p>
-	<%= render 'recs/recs' %>
-
-  <% unless @person.union.nil? %>
-	  <%= link_to @person.union.short_name + " Submissions", union_path(@person.union), class: "btn btn-default pull-right" %>
+	
+	<% unless @person.recs.nil? %>
+	  <%= link_to "Show Submission", rec_path(@person.recs[0]), class: "btn btn-default pull-right" %>
+	<% else %>
+	
+		<% unless @person.union.nil? %>
+		  <%= link_to @person.union.short_name + " Submissions", union_path(@person.union), class: "btn btn-default pull-right" %>
+		<% end %>
 	<% end %>
 	<h1>
 	  Editing <%= profile_heading %>
