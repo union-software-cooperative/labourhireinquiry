@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 union = Union.new( name: "Queensland Council of Unions", www: "www.queenslandunions.org.au/", short_name: "QCU", enabled: true )
 union.save(validate: false)
-user = Person.create!( email: "admin@acu.asu.au", password: "temptemp", password_confirmation: "temptemp", first_name: "Admin", union: union )
+user = Person.create!( email: "admin@qcu.asu.au", password: "temptemp", password_confirmation: "temptemp", first_name: "Admin", union: union )
 user.update!(invited_by: user) # invite self for the sake of looking like a user
 
 unions = Union.create([
