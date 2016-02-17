@@ -1,3 +1,5 @@
+require 'sshkit/sudo'
+
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
@@ -32,7 +34,6 @@ set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
-
 ## Defaults:
 # set :scm,           :git
 # set :branch,        :master
@@ -77,11 +78,22 @@ namespace :deploy do
   	end
   end
 
+  desc 'Create database user'
+  task :create_db_user do
+  	on roles(:app), in: :parallel do |server|
+  		  # prompts for two passwords unfortunately, but better than nothing
+  		  ask :pg_password, "Postgresql database password for the app: "
+  		  cmd = "create user #{fetch(:application)} with password '#{fetch(:pg_password)}';"
+  		  sudo "-u postgres psql -c \"#{cmd}\""
+  	end
+  end
+
   desc 'Initial Deploy'
   task :initial do
     on roles(:app) do
       before 'deploy:restart', 'puma:start'
       invoke 'deploy:send_linked'
+      #invoke 'deploy:create_db_user'
       invoke 'deploy'
     end
   end

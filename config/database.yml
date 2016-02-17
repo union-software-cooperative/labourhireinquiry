@@ -82,6 +82,7 @@ production:
   <<: *default
   database: lhisa_production
   username: lhisa
+  host: localhost
   password: <%= ENV['lhisa_DATABASE_PASSWORD'] %>
 
 cucumber:
