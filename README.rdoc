@@ -1,6 +1,44 @@
 == README
 
-DIGITAL OCEAN INSTALL FOR LHISA
+####USE Kim's from scratch snapshot
+# Kim reenabled ssh passwords
+sudo vim /etc/ssh/sshd_config
+# Change passwordauthentication to yes
+ssh deploy@188.166.188.190
+
+sudo adduser lrohde
+sudo gpasswd -a lrohde sudo
+
+# added my ssh key to deploy and lrohde authorized_keys 
+exit # exit back to my machine
+ssh lrohde@188.166.223.168 "mkdir ~/.ssh"
+cat ~/.ssh/id_rsa.pub | ssh deploy@188.166.223.168 'cat >> ~/.ssh/authorized_keys'
+cat ~/.ssh/id_rsa.pub | ssh lrohde@188.166.223.168 'cat >> ~/.ssh/authorized_keys'
+
+# removed password access
+ssh lrohde@188.166.223.168
+sudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config 
+sudo service ssh restart
+
+# allowed port 80 through firewall
+sudo ufw allow 80/tcp
+
+# installed missing libpq-dev for rails postgres
+sudo apt-get install libpq-dev 
+
+# setup var www for deploy user
+sudo mkdir /var/www
+sudo chown deploy /var/www
+
+# snapshot - as basic rails/nginx with lrohde, kbuckley, deploy users
+
+
+
+
+
+
+
+FAILED DIGITAL OCEAN INSTALL FOR LHISA BECAUSE RVM was already installed and messing things up
 
 created digital ocean account for itdept@nuw.org.au
 created a droplet
