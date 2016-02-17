@@ -1,5 +1,47 @@
 == README
 
+DIGITAL OCEAN INSTALL FOR LHISA
+
+created digital ocean account for itdept@nuw.org.au
+created a droplet
+- ubuntu 14.04
+- one click app rails, unicorn, nginx, postgres
+pasted in my ssh key ~/.ssh/id_rsa.pub into ssh field (just puts it in roots /root/.ssh/authorized_keys)
+set the hostname to nuwau-lhisa (actually did this after then needed to reboot and fix /etc/hosts)
+ssh root@188.166.188.190
+kind of followed this instructions to create lrohde user and disable root login https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04
+
+Installed rbenv as per https://gorails.com/deploy/ubuntu/14.04
+
+cd
+git clone git://github.com/sstephenson/rbenv.git .rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+exec $SHELL
+
+git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
+exec $SHELL
+
+git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
+
+rbenv install 2.2.3
+rbenv global 2.2.3
+ruby -v
+
+git config --global color.ui true
+git config --global user.name "luke rohde"
+git config --global user.email "lukerohde@gmail.com"
+
+mkdir /var/www 
+mkdir /var/www/lhisa
+chown deploy /var/www/lhisa 
+
+
+customized deploy.rb, and Capfile using https://www.digitalocean.com/community/tutorials/deploying-a-rails-app-on-ubuntu-14-04-with-capistrano-nginx-and-puma
+adding support for alternative branch
+
+
 created new heroku application - lhiqld
 
  git clone git@github.com:union-software-cooperative/labourhireinquiry lhiqld/

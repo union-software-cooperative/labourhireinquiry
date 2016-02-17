@@ -89,3 +89,11 @@ gem "delayed_job_active_record"
 gem "exception_notification"
 
 gem "globalize", '~> 5.0.0'
+
+group :development do
+    gem 'capistrano',         require: false
+    gem 'capistrano-rbenv',     require: false
+    gem 'capistrano-rails',   require: false
+    gem 'capistrano-bundler', require: false
+    gem 'capistrano3-puma',   require: false
+end
