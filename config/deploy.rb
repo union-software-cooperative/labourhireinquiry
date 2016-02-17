@@ -78,13 +78,15 @@ namespace :deploy do
   	end
   end
 
-  desc 'Create database user'
-  task :create_db_user do
+  desc 'Setup database'
+  task :setup_db do
   	on roles(:app), in: :parallel do |server|
   		  # prompts for two passwords unfortunately, but better than nothing
   		  ask :pg_password, "Postgresql database password for the app: "
-  		  cmd = "create user #{fetch(:application)} with password '#{fetch(:pg_password)}';"
-  		  sudo "-u postgres psql -c \"#{cmd}\""
+  		  user_cmd = "create user #{fetch(:application)} with password '#{fetch(:pg_password)}';"
+  		 	db_cmd = "create database #{fetch(:application)}_#{fetch(:stage)} owner #{fetch(:application)};"
+  		  sudo "-u postgres psql -c \"#{user_cmd}\""
+  		  sudo "-u postgres psql -c \"#{db_cmd}\""
   	end
   end
 

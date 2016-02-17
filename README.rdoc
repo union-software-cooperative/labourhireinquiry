@@ -32,6 +32,8 @@ sudo chown deploy /var/www
 
 # snapshot - as basic rails/nginx with lrohde, kbuckley, deploy users
 
+cap deploy:setup_db
+cap deploy:initial
 
 
 
