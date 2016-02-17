@@ -3,7 +3,7 @@ lock '3.4.0'
 
 
 # Change these
-server '188.166.188.190', roles: [:web, :app, :db], primary: true
+server '188.166.223.168', roles: [:web, :app, :db], primary: true
 set :application, 'lhisa'
 set :repo_url, 'git@github.com:union-software-cooperative/labourhireinquiry'
 set :branch, 'lhisa_master'
@@ -13,7 +13,7 @@ set :puma_threads,    [4, 16]
 set :puma_workers,    0
 
 set :rbenv_type, :user # or :system, depends on your rbenv setup
-set :rbenv_ruby, '2.2.4'
+set :rbenv_ruby, '2.3.0'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, :all # default value
@@ -41,7 +41,7 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 # set :keep_releases, 5
 
 ## Linked Files & Directories (Default None):
-set :linked_files, %w{config/database.yml config/application.yml config/secret.yml}
+set :linked_files, %w{config/application.yml}
 # set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 namespace :puma do
@@ -68,10 +68,20 @@ namespace :deploy do
     end
   end
 
+  desc 'Send config files'
+  task :send_linked do
+  	on roles(:app), in: :parallel do |server|
+  	  fetch(:linked_files).each do |file|
+  	  	`scp '#{file}' '#{fetch(:user)}@#{server.hostname}:#{shared_path}/config/'`
+  	  end
+  	end
+  end
+
   desc 'Initial Deploy'
   task :initial do
     on roles(:app) do
       before 'deploy:restart', 'puma:start'
+      invoke 'deploy:send_linked'
       invoke 'deploy'
     end
   end
