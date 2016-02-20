@@ -25,7 +25,8 @@ set :pty,             true
 set :use_sudo,        false
 set :stage,           :production
 set :deploy_via,      :remote_cache
-set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
+#set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
+set :puma_bind, "tcp://127.0.0.1:3000"
 set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
 set :puma_pid,        "#{shared_path}/tmp/pids/puma.pid"
 set :puma_access_log, "#{release_path}/log/puma.error.log"
@@ -78,6 +79,12 @@ namespace :deploy do
   	end
   end
 
+	desc "reload the database with seed data"
+	task :seed do
+		  # Doesn't work, user can't login
+	    `cd #{release_path}; bundle exec rake db:seed RAILS_ENV=production`
+	end
+	
   desc 'Setup database'
   task :setup_db do
   	on roles(:app), in: :parallel do |server|
@@ -85,8 +92,10 @@ namespace :deploy do
   		  ask :pg_password, "Postgresql database password for the app: "
   		  user_cmd = "create user #{fetch(:application)} with password '#{fetch(:pg_password)}';"
   		 	db_cmd = "create database #{fetch(:application)}_#{fetch(:stage)} owner #{fetch(:application)};"
+  		  sudo "-u postgres psql -c \"drop role #{fetch(:application)}\""
   		  sudo "-u postgres psql -c \"#{user_cmd}\""
   		  sudo "-u postgres psql -c \"#{db_cmd}\""
+  		  invoke 'deploy:seed'
   	end
   end
 
