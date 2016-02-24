@@ -27,7 +27,9 @@ module Lhi
     }
     config.i18n.available_locales = config.languages.keys
     config.i18n.fallbacks = true
-
+    
+    config.allow_concurrency=true 
+    
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.after_initialize do
