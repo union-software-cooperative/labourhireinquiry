@@ -22,6 +22,10 @@ class Rec < ActiveRecord::Base
 		"Post questions and supplementary information here"
 	end
 
+	def formatted_summary
+		summary.split("\r\n").collect { |i| "<p>#{h i}</p>" }.join.html_safe
+	end
+
 	def self.questions 
 		{
 			pay_and_conditions: [

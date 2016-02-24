@@ -4,7 +4,8 @@
 	<%= profile_picture(rec.person) %>
 	<%="HIDDEN: <S>".html_safe unless rec.enabled %>
 		<span class="ellipsis">
-			<%= rec.summary %>
+			<%= rec.summary.split("\r\n").collect { |i| "#{h i}<br/>" }.join.html_safe
+	 %>
 		</span>
 	<%="</S>".html_safe unless rec.enabled %>
 	
