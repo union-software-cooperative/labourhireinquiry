@@ -11,9 +11,10 @@
     </div>
   <% end %>
   
+  <!--
   <div class="form-group">
-    <%= f.label :nature_of_employment %><br>
-    <%= f.select :nature_of_employment,
+    <%#= f.label :nature_of_employment %><br>
+    <%#= f.select :nature_of_employment,
       nature_of_employment_options, 
       {
           include_blank: true,
@@ -24,8 +25,9 @@
       class: "form-control", 
       style: "width: 100%;"
     %>
-  </div>
-
+  </div>-->
+  <%=f.hidden_field :nature_of_employment, value: 'Labour Hire' %>
+    
   <div class="form-group">
     <%= f.label :when %><br>
     <%= f.select :when,

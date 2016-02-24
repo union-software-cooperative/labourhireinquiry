@@ -5,7 +5,7 @@ created new heroku application - lhiqld
  git clone git@github.com:union-software-cooperative/labourhireinquiry lhiqld/
 heroku git:remote -a lhiqld
 
-git check -b lhiqld_master
+git checkout -b lhiqld_master
 
 cp ../lhi/config/application.yml config/
 
@@ -28,7 +28,30 @@ git push heroku lhiqld_master:master
 
 heroku run rake db:migrate
 heroku run rake db:seed
+heroku restart
 
+heroku addons:create ssl:endpoint
+
+heroku certs:add cert/www.securejobsqld.org.au.crt cert/www.securejobsqld.org.au.key 
+
+yamaguchi-6036.herokussl.com
+
+heroku domains:add www.securejobsqld.org.au
+
+
+openssl req -new -newkey rsa:2048 -nodes -keyout www.securejobsqld.org.au.key -out www.securejobsqld.org.au.csr
+
+order rapidssl via namecheap - order id 13148933
+
+From google analytics, added new property from admin screen, middle drop down.   Updated config.
+
+
+
+
+
+-- TODO QLD
+update authorised by
+update /recs/new heading
 buy ssl
 setup dns - namecheap - nuwitadmin login
 

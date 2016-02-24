@@ -30,7 +30,7 @@ module ApplicationHelper
 	end
 
 	def other_languages
-		Rails.application.config.languages.except(locale)
+		[] #Rails.application.config.languages.except(locale)
 	end
 
 	def selected_option(entity)
