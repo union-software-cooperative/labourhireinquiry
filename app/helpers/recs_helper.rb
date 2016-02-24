@@ -3,11 +3,13 @@ module RecsHelper
 	def nature_of_employment_options
 		options_for_select(
 				([
-					t("noe_informal"), 
 					t('noe_agency'),
 					t('noe_contractor'),
-					t('noe_casual'),
-					t('noe_rolling')
+					t("noe_affected")
+					#t("noe_informal"), 
+					#t('noe_agency'),
+					#t('noe_casual'),
+					#t('noe_rolling')
 					]).uniq, 
 				@rec.nature_of_employment
 			)

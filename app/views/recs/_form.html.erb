@@ -11,10 +11,9 @@
     </div>
   <% end %>
   
-  <!--
   <div class="form-group">
-    <%#= f.label :nature_of_employment %><br>
-    <%#= f.select :nature_of_employment,
+    <%= f.label :nature_of_employment %><br>
+    <%= f.select :nature_of_employment,
       nature_of_employment_options, 
       {
           include_blank: true,
@@ -25,8 +24,8 @@
       class: "form-control", 
       style: "width: 100%;"
     %>
-  </div>-->
-  <%=f.hidden_field :nature_of_employment, value: 'employed by a labour hire agency' %>
+  </div>
+  <!--<%=f.hidden_field :nature_of_employment, value: 'employed by a labour hire agency' %>-->
     
   <div class="form-group">
     <%= f.label :when %><br>
@@ -193,31 +192,65 @@
 <script type='text/javascript'>
   function compile_story() {
     var story = "";
-    story = "I was " + $("#rec_nature_of_employment").val();
+    story = $("#rec_nature_of_employment").val();
     story += " " + $("#rec_when").val() + ".  ";
     
+    concerns = "";
     <% @union.questions.each do |k,v| %>
-      story += $('#rec_<%=comment(k)%>').val() + '  ' ;
+      response = $('#rec_<%=comment(k)%>').val().trim();
+      if (response != "") { 
+        response += ".  ";
+        response = response.replace("..  ", ".  ");
+      }
+      if (response != "")
+      {
+        concerns += "\r\nRegarding <%=k.to_s.gsub('_', ' ')%>; ";
+      }
+      concerns += response;
     <% end %>
     
+    if (concerns != "")
+      story += "\r\n" + concerns;
+
+    where = "";
     if (!$('#rec_host_employer').val() == '')
-      story += "  This happened at " + $("#rec_host_employer").val();
+      where += "This happened at " + $("#rec_host_employer").val();
     
-    if (!$('#rec_location').val() == '')
-      story += ", " + $("#rec_location").val();
+    if (!$('#rec_location').val() == '') {
+      if (where == "")
+        where += "This happened in ";
+      else
+        where += ", ";
+      where += $("#rec_location").val();
+    }
+       
     
-    if (!$('#rec_company_name').val() == '')
-      story += " when I was employed by " + $("#rec_company_name").val() + ".  ";
+    if (!$('#rec_company_name').val() == '') {
+      if (where == "") 
+        where +=  "This happened ";
+
+      where += " when I was employed by " + $("#rec_company_name").val();
+    }
+
+    if (where != "" ) where += ".  ";
 
     if (!$('#rec_industry').val() == '')
-      story += ' This happened in the ' +$("#rec_industry").val() + ' industry.  ';
+      where += 'This happened in the ' +$("#rec_industry").val() + ' industry.  ';
 
     <% if @union.short_name == 'NUW' %>
       if ($('#rec_supermarket_supply').bootstrapSwitch('state'))
-        story += "I was making goods for sale in supermarkets.";
+        where += "I was making goods for sale in supermarkets.";
     <% end %> 
 
-    story += $('#rec_solution').val();
+    if (where != "") {
+      story += "\r\n\r\n" + where;
+    }
+
+    solution = $('#rec_solution').val().trim();
+    if (solution != "") {
+      story += "\r\n\r\nMy solution: " + (solution+".  ").replace("..  ", ".  ");
+    }
+    story = story.replace('..  ', '.  ').replace('  .  ', '')
 
     $("#rec_summary").val(story); 
   };
