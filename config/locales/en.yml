@@ -23,7 +23,7 @@ en:
   helpers:
     label:
       rec:
-        nature_of_employment: "How were you affected by Labour Hire?"
+        nature_of_employment: "How were you, your friends or your family affected by Labour Hire?"
         when: Are you describing your current or previous job?  
         paid_fairly: Were you paid fairly and correctly for the hours you worked?
         compliant_employment:  Do you believe your employer was complying with the law regarding your employment?
@@ -82,9 +82,9 @@ en:
   new_story_submit_anon: Share my story anonymously
   noe_placeholder: "Please choose..."
   noe_informal: 'informally employed'
-  noe_agency: 'I was employed through a labour hire agency'
-  noe_affected: 'I was directly employed but affected by labour hire practices at my workplace'
-  noe_contractor: 'I was contracted/employed by another contractor'
+  noe_agency: 'We were employed through a labour hire agency'
+  noe_affected: 'We were directly employed but affected by labour hire at my workplace'
+  noe_contractor: 'We were contracted/employed by another contractor'
   noe_casual: 'a directly employed casual'
   noe_rolling: 'on a rolling contract'
   when_current: 'in my current job'
