@@ -83,11 +83,11 @@ en:
   noe_placeholder: "Please choose..."
   noe_informal: 'informally employed'
   noe_agency: 'We were employed through a labour hire agency'
-  noe_affected: 'We were directly employed but affected by labour hire at my workplace'
+  noe_affected: 'We were directly employed but affected by labour hire'
   noe_contractor: 'We were contracted/employed by another contractor'
   noe_casual: 'a directly employed casual'
   noe_rolling: 'on a rolling contract'
-  when_current: 'in my current job'
+  when_current: 'in our current job'
   when_lt3: 'less than 3 months ago'
   when_lt12: 'less than a year ago'
   when_mt12: 'more than a year ago'
