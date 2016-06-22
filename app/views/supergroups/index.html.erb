@@ -4,12 +4,10 @@
       <%= link_to "New #{supergroup.titlecase}", new_polymorphic_path(@klass), class: "margins btn btn-default" if owner? %>
   </div>
   <div class="col-sm-8 col-sm-offset-2">
-    <% @supergroups.order(:enabled) %>
     <% unless @supergroups.blank? %>
       <table class="table table-condensed table-striped box-shadow">
         <thead>
           <tr>
-            <th>Status</th>
             <th>Union</th>
             <th>www</th>
             <th>Submissions</th>
@@ -19,7 +17,6 @@
         <tbody>
           <% @supergroups.each do |supergroup| %>
             <tr class="">
-              <td><%= check_box_tag "enabled", 1, supergroup.enabled , class: "union_list_switch"%></td>
               <td style="vertical-align: middle"><%=render supergroup %> <%=link_to supergroup.name, union_path(supergroup) %></td>
               <td style="vertical-align: middle"><%=link_to supergroup.www, "http://#{supergroup.www}"%></td>
               <td class="text-right" style="vertical-align: middle;"><%=supergroup.recs.count()%></td>
