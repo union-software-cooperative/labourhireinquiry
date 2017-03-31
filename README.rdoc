@@ -1,75 +1,42 @@
 == README
 
--- TODO
-DONE Order database and people list
-DONE People filter between users and everyone else
-DONE Delete submission
-DONE Publish union pages
-DONE VTHC is home union?
-Set union defaults on edit?
-DONE Notification on follow
-DONE SSL cert
-Data download
-DONE-ish Mailgun config
-DONE Change quote over submission
-DONE Gender on rec
-Youtube field
-Video transcoding
-DONE Pay for heroku
-DONE Sharing of submissions
-DONE Navbar bug
-DONE Unpublish submissions
-DONE Follow by posting not getting
-See submission and volunteer status from people list
-Source tracking
-Fix weird width issues on iphone - overflow
-Jumbotron rounded corners
-Seeding social networking with organisers
-Facebook share image
-Secretary send from
-VTHC page not showing all
-DONE Video narrow and ellipsis
+A website for VTHC affiliates to collect worker submissions for the Victorian enquiry into insecure work
 
+It was cloned for similar campaigns in Qld and SA.
 
-
-
-
-
-==== Installation
-
-You'll need to be running Ruby 2.2.3, if you don't have it already.
-
-For rbenv users, first make sure your ruby-build is up to date with 
-`cd ~/.rbenv/plugins/ruby-build` and `git pull`. Then you should be able 
-to run `rbenv install 2.2.3` without any problems.
-
-RVM instructions to come.
-
-With your version sorted, `git clone 
-https://github.com/union-software-cooperative/labourhireinquiry.git`.
-In the project directory, first set your `rbenv local 2.2.3`. Then 
-you're clear to run `bundle install`. You may need to first install
-Bundler with `gem install bundler` if yours was a fresh `ruby-2.2.3`
-installation.
-
-Things you may want to cover:
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+=== TODO
+* DONE Order database and people list
+* DONE People filter between users and everyone else
+* DONE Delete submission
+* DONE Publish union pages
+* DONE VTHC is home union?
+* Set union defaults on edit?
+* DONE Notification on follow
+* DONE SSL cert
+* Data download
+* DONE-ish Mailgun config
+* DONE Change quote over submission
+* DONE Gender on rec
+* Youtube field
+* Video transcoding
+* DONE Pay for heroku
+* DONE Sharing of submissions
+* DONE Navbar bug
+* DONE Unpublish submissions
+* DONE Follow by posting not getting
+* See submission and volunteer status from people list
+* Source tracking
+* Fix weird width issues on iphone - overflow
+* Jumbotron rounded corners
+* Seeding social networking with organisers
+* Facebook share image
+* Secretary send from
+* VTHC page not showing all
+* DONE Video narrow and ellipsis
+* DONE Publish/retract submissions
+* DONE ANMF extra question
+* DONE Google analytics
+* DONE Chinese
+* DONE Vietnamese
+* DONE Format submissions for pasting in to Word
+* DONE Excel export
