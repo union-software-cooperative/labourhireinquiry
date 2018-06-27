@@ -1,0 +1,25 @@
+version: "3"
+services:
+  db:
+#    volumes:
+#      - ./backup.sql.gz:/docker-entrypoint-initdb.d/seed.sql.gz
+#    ports:
+#      - "5432:5432"
+    networks:
+      - development
+  app:
+    volumes:
+      - ./app:/app:delegated
+      - root:/root # for bash history etc
+    command:
+      - ./docker-start.override
+    networks:
+      - development
+volumes:
+  bundle:
+  pgdata:
+  root:
+networks:
+  development:
+#    external:
+#      name: external-app_default # docker network ls

@@ -1,0 +1,9 @@
+version: "2"
+
+options:
+  verbose: true
+  compose-file-path: 'docker-compose.yml'
+  compose-dev-file-path: 'docker-compose.override.yml'
+syncs:
+  app-sync: # tip: add -sync and you keep consistent names as a convention
+    src: './app/'
