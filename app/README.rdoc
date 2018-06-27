@@ -1,42 +1,92 @@
 == README
 
-A website for VTHC affiliates to collect worker submissions for the Victorian enquiry into insecure work
+created new heroku application - lhiqld
 
-It was cloned for similar campaigns in Qld and SA.
+ git clone git@github.com:union-software-cooperative/labourhireinquiry lhiqld/
+heroku git:remote -a lhiqld
 
-=== TODO
-* DONE Order database and people list
-* DONE People filter between users and everyone else
-* DONE Delete submission
-* DONE Publish union pages
-* DONE VTHC is home union?
-* Set union defaults on edit?
-* DONE Notification on follow
-* DONE SSL cert
-* Data download
-* DONE-ish Mailgun config
-* DONE Change quote over submission
-* DONE Gender on rec
-* Youtube field
-* Video transcoding
-* DONE Pay for heroku
-* DONE Sharing of submissions
-* DONE Navbar bug
-* DONE Unpublish submissions
-* DONE Follow by posting not getting
-* See submission and volunteer status from people list
-* Source tracking
-* Fix weird width issues on iphone - overflow
-* Jumbotron rounded corners
-* Seeding social networking with organisers
-* Facebook share image
-* Secretary send from
-* VTHC page not showing all
-* DONE Video narrow and ellipsis
-* DONE Publish/retract submissions
-* DONE ANMF extra question
-* DONE Google analytics
-* DONE Chinese
-* DONE Vietnamese
-* DONE Format submissions for pasting in to Word
-* DONE Excel export
+git checkout -b lhiqld_master
+
+cp ../lhi/config/application.yml config/
+
+cp ../lhi/config/database.yml config/
+
+Changed database name to lhiqld in database.yml
+
+Replaced VTHC in seeds.rb with QCU 
+rake db:create
+rake db:migrate
+rake db:seed
+
+setup AWS bucket
+setup mailgun - lukerohde@gmail.com login
+
+updated application.yml
+figaro heroku:set -e production
+
+git push heroku lhiqld_master:master
+
+heroku run rake db:migrate
+heroku run rake db:seed
+heroku restart
+
+heroku addons:create ssl:endpoint
+
+heroku certs:add cert/www.securejobsqld.org.au.crt cert/www.securejobsqld.org.au.key 
+
+yamaguchi-6036.herokussl.com
+
+heroku domains:add www.securejobsqld.org.au
+
+
+openssl req -new -newkey rsa:2048 -nodes -keyout www.securejobsqld.org.au.key -out www.securejobsqld.org.au.csr
+
+order rapidssl via namecheap - order id 13148933
+
+From google analytics, added new property from admin screen, middle drop down.   Updated config.
+
+
+
+
+
+-- TODO QLD
+update authorised by
+update /recs/new heading
+buy ssl
+setup dns - namecheap - nuwitadmin login
+
+
+
+-- TODO
+DONE Order database and people list
+DONE People filter between users and everyone else
+DONE Delete submission
+DONE Publish union pages
+DONE VTHC is home union?
+Set union defaults on edit?
+DONE Notification on follow
+DONE SSL cert
+Data download
+DONE-ish Mailgun config
+DONE Change quote over submission
+DONE Gender on rec
+Youtube field
+Video transcoding
+DONE Pay for heroku
+DONE Sharing of submissions
+DONE Navbar bug
+DONE Unpublish submissions
+DONE Follow by posting not getting
+See submission and volunteer status from people list
+Source tracking
+Fix weird width issues on iphone - overflow
+DONE Jumbotron rounded corners
+Seeding social networking with organisers
+DONE Facebook share image
+Secretary send from
+VTHC page not showing all
+DONE Video narrow and ellipsis
+
+
+
+

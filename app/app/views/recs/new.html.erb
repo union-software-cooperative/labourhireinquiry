@@ -3,10 +3,12 @@
 
     <%= render partial: "shared/lang_picker", locals: { display_class: "pull-right" } %>
 
-    <hgroup>
-      <h1><%=t("new_story_title")%></h1>
+    <h1 class="text-center" style="color: <%= @union.background_colour %>">
+      <!--<h1><%=t("new_story_title")%></h1>
       <h4><%=t("new_story_subtitle")%></h4>
-    </hgroup>
+    -->
+      <%= @union.submissions_heading %><br/>
+    </h1>
 
     <% if @union.union_rep.quote.url %>
       <div class="row">
@@ -29,10 +31,10 @@
     
     
 
-    <div style="margin-bottom: 3rem;">
-      <h3 class='text-center'><%=t("new_story_explanation1")%></h3>
+    <div style="margin-bottom: 3rem;" >
+      <h3 class='text-center' style="color: <%= @union.background_colour %>"><%=t("new_story_explanation1")%></h3>
 
-      <p class='text-center'>
+      <p class='text-center' >
         <%=t("new_story_explanation2")%></p>
     </div>
 

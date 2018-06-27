@@ -23,7 +23,7 @@ en:
   helpers:
     label:
       rec:
-        nature_of_employment: "What kind of insecure work do you want to tell us about?"
+        nature_of_employment: "How were you, your friends or your family affected by Labour Hire?"
         when: Are you describing your current or previous job?  
         paid_fairly: Were you paid fairly and correctly for the hours you worked?
         compliant_employment:  Do you believe your employer was complying with the law regarding your employment?
@@ -48,8 +48,8 @@ en:
         options: Were you able to find another job?
         feeling_trapped_comment: Please explain your difficulties finding other work...
         is_union:  Are you a union member?
-        host_employer:  Which company was your host-employer (i.e. what company/site did you work on)?
-        company_name:  Which agency or individual was paying you? (who was paying you?)
+        host_employer:  Which company/site did you work on (i.e. which company was paying the labour hire contractor/sham contractor?
+        company_name:  Which agency or sham contractor was paying you or affecting you?
         location: What was the nearest town/city to where you were working?
         industry: What industry were you working in?
         supermarket_supply: Did you work on things for sale in supermarkets?
@@ -77,16 +77,17 @@ en:
   new_story_explanation1: We're going to prompt you with a series a questions the inquiry is looking to have answered.
   new_story_explanation2: Your answers will be compiled into a story below, that you should edit.
   new_story_read_all: See what %{count} other people have told us...
-  disclosure_statement: "I accept my submission will be published on this website, and forwarded to the appropriate Victorian Trades Hall Council affiliate who will make the submission to the Victorian Government's Inquiry into Insecure Work and Labour Hire on my behalf.  I may be contacted for further information and campaign updates."   
+  disclosure_statement: "I accept my submission will be published on this website, and forwarded to the appropriate Queensland Council of Unions affiliate who will make the submission to the Queensland Government's Inquiry into Labour Hire on my behalf.  I may be contacted for further information and campaign updates."   
   new_story_submit: Share my story
   new_story_submit_anon: Share my story anonymously
-  noe_placeholder: "What's the main form of employment you wish to tell us about?"
+  noe_placeholder: "Please choose..."
   noe_informal: 'informally employed'
-  noe_agency: 'employed through a labour hire agency'
-  noe_contractor: 'contracting with an ABN but to one employer only'
+  noe_agency: 'We were employed through a labour hire agency'
+  noe_affected: 'We were directly employed but affected by labour hire'
+  noe_contractor: 'We were contracted/employed by another contractor'
   noe_casual: 'a directly employed casual'
   noe_rolling: 'on a rolling contract'
-  when_current: 'in my current job'
+  when_current: 'in our current job'
   when_lt3: 'less than 3 months ago'
   when_lt12: 'less than a year ago'
   when_mt12: 'more than a year ago'
